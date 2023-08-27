@@ -2,7 +2,7 @@
   "name": "zx-angular",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "zx-angular",
+  "prefix": "zxa",
   "sourceRoot": "apps/zx-angular/src",
   "tags": [],
   "targets": {
