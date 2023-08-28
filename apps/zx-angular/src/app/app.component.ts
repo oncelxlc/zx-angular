@@ -11,5 +11,4 @@ import { HeaderComponent } from './common/header/header.component'
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'zx-angular';
 }
