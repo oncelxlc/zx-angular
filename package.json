@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "build:zxui-css": "node tools/sass-handler.js libs/zx-ui/src/main.scss ./dist/libs/zx-ui/zxui.css",
-    "minify:zxui-css": "cleancss --format breakWith=lf --output ./publish/devui.min.css ./publish/devui.css"
+    "minify:zxui-css": "cleancss --format breakWith=lf --output ./dist/libs/zx-ui/zxui.css ./dist/libs/zx-ui/zxui.css",
+    "build:css:zxui": "npm run build:zxui-css && npm run minify:zxui-css"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +44,7 @@
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
+    "clean-css-cli": "^5.6.2",
     "cypress": "^12.16.0",
     "eslint": "~8.46.0",
     "eslint-config-prettier": "8.1.0",
