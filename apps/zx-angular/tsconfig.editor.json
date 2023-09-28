@@ -3,8 +3,5 @@
   "include": ["src/**/*.ts"],
   "compilerOptions": {
     "types": ["jest", "node"]
-  },
-  "paths": {
-    "ng-zx": ["libs/zx-ui/src/index.ts"]
   }
 }

@@ -13,7 +13,10 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "ng-zx": ["libs/zx-ui/src"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,10 +1,10 @@
 .zxa-header {
-  display: flex;
   height: 64px;
-  justify-content: space-between;
 
   > .zxa-tittle {
     > h1 {
+      margin-bottom: 0;
+
       > a {
         position: relative;
         line-height: 64px;
@@ -37,5 +37,21 @@
 
   > .zxa-option {
     display: flex;
+    align-items: center;
+
+    > .zxa-nav {
+      flex: auto;
+      text-align: right;
+    }
+
+    > .zxa-extend {
+      flex: none;
+      margin: 0 16px;
+    }
+
+    > .zxa-other-link {
+      flex: none;
+      margin-right: 40px;
+    }
   }
 }
