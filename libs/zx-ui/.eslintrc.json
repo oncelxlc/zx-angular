@@ -10,7 +10,7 @@
           {
             "type": "attribute",
             "prefix": "zx",
-            "style": "camelCase"
+            "style": "kebab-case"
           }
         ],
         "@angular-eslint/component-selector": [

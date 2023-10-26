@@ -1,6 +1,7 @@
 {
   "name": "zx-ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "libs/zx-ui",
   "sourceRoot": "libs/zx-ui/src",
   "prefix": "zx",
   "tags": [],

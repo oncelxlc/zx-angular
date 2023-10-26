@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ZxUiComponent } from './zx-ui.component';
+import { ZxUiComponent } from 'src/zx-ui/zx-ui.component';
 
 describe('ZxUiComponent', () => {
   let component: ZxUiComponent;
