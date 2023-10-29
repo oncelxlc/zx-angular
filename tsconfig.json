@@ -13,7 +13,11 @@
     "sourceMap": true,
     "paths": {
       "zx-ui": [
-        "dist/zx-ui"
+        "dist/zx-ui",
+        "components/"
+      ],
+      "zx-app": [
+        "project/"
       ]
     },
     "declaration": false,

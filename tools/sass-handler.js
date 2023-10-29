@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs');
 const sass = require('sass');
 const args = process.argv.slice(2);
 const result = sass.renderSync({
@@ -10,11 +10,18 @@ const result = sass.renderSync({
     if (url[0] === '~') {
       url = path.resolve('node_modules', url.substr(1));
     }
-
     return { file: url };
   }]
 });
 
+/**
+ * Writes a file recursively.
+ *
+ * @param {string} path - The path of the file to be written.
+ * @param {Buffer} buffer - The content of the file to be written.
+ * @param {function} callback - The callback function to be called once the file is written.
+ * @returns {void}
+ */
 const writeFileRecursive = function(path, buffer, callback){
   let lastPath = path.substring(0, path.lastIndexOf("/"));
   fs.mkdir(lastPath, {recursive: true}, (err) => {
@@ -30,4 +37,4 @@ writeFileRecursive(args[1], result.css, (err) => {
   if (err) {
     console.log(err)
   }
-})
+});

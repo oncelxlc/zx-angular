@@ -7,9 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:zxui-css": "node tools/sass-handler.js libs/zx-ui/src/main.scss ./dist/libs/zx-ui/zxui.css",
-    "minify:zxui-css": "cleancss --format breakWith=lf --output ./dist/libs/zx-ui/zxui.css ./dist/libs/zx-ui/zxui.css",
-    "build:css:zxui": "npm run build:zxui-css && npm run minify:zxui-css"
+    "build:ui": "ng build ng-zx-ui",
+    "test:ui": "ng test ng-zx-ui",
+    "build:ui-css": "node tools/sass-handler.js components/styles/index.scss ./dist/lib/ng-zx-ui/index.css",
+    "minify:ui-css": "cleancss --format breakWith=lf --output ./dist/lib/ng-zx-ui/index.css ./dist/lib/ng-zx-ui/index.css",
+    "build:css:ui": "npm run build:ui-css && npm run minify:ui-css"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +23,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "ng-zorro-antd": "^16.2.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -39,6 +42,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^16.2.0",
     "prettier": "^3.0.3",
+    "sass": "^1.69.5",
     "typescript": "~5.1.3"
   }
 }
