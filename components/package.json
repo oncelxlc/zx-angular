@@ -8,5 +8,13 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "exports": {
+    "./ng-zx-ui.min.css": {
+      "style": "./ng-zx-ui.min.css"
+    },
+    "./ng-zx-ui.css": {
+      "style": "./ng-zx-ui.css"
+    }
+  }
 }

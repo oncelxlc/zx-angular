@@ -1,5 +1,6 @@
 .zxa-header {
   height: 64px;
+  box-shadow: 0 2px 8px #f0f1f2;
 
   > .zxa-tittle {
     > h1 {
@@ -30,6 +31,10 @@
           vertical-align: middle;
           -webkit-margin-end: 12px;
           margin-inline-end: 12px;
+        }
+
+        > .title {
+          font-weight: 500;
         }
       }
     }

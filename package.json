@@ -9,8 +9,8 @@
     "test": "ng test",
     "build:ui": "ng build ng-zx-ui",
     "test:ui": "ng test ng-zx-ui",
-    "build:ui-css": "node tools/sass-handler.js components/styles/index.scss ./dist/lib/ng-zx-ui/index.css",
-    "minify:ui-css": "cleancss --format breakWith=lf --output ./dist/lib/ng-zx-ui/index.css ./dist/lib/ng-zx-ui/index.css",
+    "build:ui-css": "node tools/sass-handler.js components/styles/index.scss ./dist/zx-ui/ng-zx-ui.css",
+    "minify:ui-css": "cleancss --format breakWith=lf --output ./dist/zx-ui/ng-zx-ui.min.css ./dist/zx-ui/ng-zx-ui.css",
     "build:css:ui": "npm run build:ui-css && npm run minify:ui-css"
   },
   "private": true,
