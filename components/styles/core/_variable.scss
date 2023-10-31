@@ -1,3 +1,7 @@
 :root {
   --base-bg-color: #fff;
+
+  @for $i from 1 through 32 {
+    --base-width-#{$i * 4}: #{$i * 4}px;
+  }
 }
