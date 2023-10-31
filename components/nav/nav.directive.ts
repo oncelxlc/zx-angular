@@ -4,7 +4,7 @@ import { Directive } from '@angular/core';
   selector: '[zxNav]',
   standalone: true
 })
-export class NavDirective {
+export class ZxNavDirective {
 
   constructor() { }
 

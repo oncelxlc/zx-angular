@@ -8,6 +8,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent {
+export class ZxNavComponent {
 
 }

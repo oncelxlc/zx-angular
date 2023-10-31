@@ -1,8 +1,8 @@
-import { NavItemDirective } from 'components/nav/nav-item.directive';
+import { ZxNavItemDirective } from 'components/nav/nav-item.directive';
 
 describe('NavItemDirective', () => {
   it('should create an instance', () => {
-    const directive = new NavItemDirective();
+    const directive = new ZxNavItemDirective();
     expect(directive).toBeTruthy();
   });
 });
