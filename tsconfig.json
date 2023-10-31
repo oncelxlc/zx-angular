@@ -12,12 +12,8 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "paths": {
-      "zx-ui": [
-        "dist/zx-ui",
-        "components/"
-      ],
-      "zx-app": [
-        "project/"
+      "zx-ui/*": [
+        "components/*"
       ]
     },
     "declaration": false,
