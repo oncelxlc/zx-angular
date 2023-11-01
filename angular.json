@@ -84,6 +84,7 @@
               "project/assets"
             ],
             "styles": [
+              "components/styles/index.scss",
               "project/styles.scss"
             ],
             "scripts": []
