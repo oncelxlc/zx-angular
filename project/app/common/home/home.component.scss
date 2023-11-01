@@ -1,0 +1,41 @@
+#home {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  height: 64px;
+}
+
+#section {
+  flex: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+}
+
+#aside {
+  width: 240px;
+  overflow: auto;
+  box-shadow: 2px 4px 8px #f0f1f2;
+}
+
+#article {
+  flex: auto;
+  overflow: auto;
+}
+
+#main {
+  width: 100%;
+  height: auto;
+  padding: 0 64px 32px 64px;
+}
+
+#footer {
+  width: 100%;
+  height: auto;
+}
