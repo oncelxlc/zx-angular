@@ -1,0 +1,17 @@
+@use "sass:map";
+@use 'sass:color';
+$baseColor: #000000;
+
+$lightColors: ();
+$step: 0.5;
+
+@for $i from 0 through 200 {
+  $lightColor: color.scale($baseColor, $lightness: percentage(calc(($step * $i) / 100)));
+  $lightColors: map.set($lightColors,"--light-color-" + #{$i} , $lightColor);
+}
+
+:root {
+  @each $index, $color in $lightColors {
+    #{$index}: #{$color};
+  }
+}
