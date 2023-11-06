@@ -1,0 +1,24 @@
+@import "components/styles/variables";
+:root {
+  @for $i from 1 through 16 {
+    --base-width-#{$i * 4}: #{$i * 4}px;
+  }
+
+  --base-blue: #1677ff;
+  --base-purple: #722ED1;
+  --base-cyan: #13C2C2;
+  --base-green: #52C41A;
+  --base-magenta: #EB2F96;
+  --base-pink: #EB2F96;
+  --base-red: #F5222D;
+  --base-orange: #FA8C16;
+  --base-yellow: #FADB14;
+  --base-volcano: #FA541C;
+  --base-geekblue: #2F54EB;
+  --base-gold: #FAAD14;
+  --base-lime: #A0D911;
+  --base-sky: #6CBFFF;
+  --base-white: #FFFFFF;
+  --base-gray: #BFBFBF;
+  --base-black: #000000;
+}
