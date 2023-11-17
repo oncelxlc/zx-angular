@@ -25,11 +25,14 @@
 }
 
 #article {
+  display: flex;
+  flex-direction: column;
   flex: auto;
   overflow: auto;
 }
 
 #main {
+  flex: auto;
   width: 100%;
   height: auto;
   padding: 0 64px 32px 64px;
