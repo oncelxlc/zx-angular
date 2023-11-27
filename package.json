@@ -14,7 +14,8 @@
     "test:ui": "ng test ng-zx-ui",
     "build:ui-css": "node tools/sass-handler.js components/styles/index.scss ./dist/zx-ui/ng-zx-ui.css",
     "minify:ui-css": "cleancss --format breakWith=lf --output ./dist/zx-ui/ng-zx-ui.min.css ./dist/zx-ui/ng-zx-ui.css",
-    "build:css:ui": "npm run build:ui-css && npm run minify:ui-css"
+    "build:css:ui": "npm run build:ui-css && npm run minify:ui-css",
+    "prepare": "husky install"
   },
   "engines": {
     "node": "^16.14.0 || >=18.10.0",
@@ -41,8 +42,11 @@
     "@angular-devkit/build-angular": "^16.2.10",
     "@angular/cli": "^16.2.10",
     "@angular/compiler-cli": "^16.2.12",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-angular": "^18.4.3",
     "@types/jasmine": "~4.3.6",
     "clean-css-cli": "^5.6.2",
+    "husky": "^8.0.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.2",
     "karma-chrome-launcher": "~3.2.0",

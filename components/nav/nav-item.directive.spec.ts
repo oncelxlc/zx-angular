@@ -1,4 +1,4 @@
-import { ZxNavItemDirective } from 'components/nav/nav-item.directive';
+import { ZxNavItemDirective } from 'zx-ui/nav/nav-item.directive'
 
 describe('NavItemDirective', () => {
   it('should create an instance', () => {
