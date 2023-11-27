@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-
-import { NgZxUiService } from 'components/lib/ng-zx-ui.service';
+import { NgZxUiService } from 'zx-ui/lib/ng-zx-ui.service'
 
 describe('NgZxUiService', () => {
   let service: NgZxUiService;

@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ZxNavComponent } from './nav.component';
+import { ZxNavComponent } from 'zx-ui/nav/nav.component'
 
 describe('NavComponent', () => {
   let component: ZxNavComponent;
