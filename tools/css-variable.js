@@ -11,7 +11,7 @@ for (const key of keys){
 
 context += `  // @common-color-end\n`;
 
-const scssFilePath = '../components/styles/core/_variable-css.scss';
+const scssFilePath = '../components/styles/core/_base-variable-css.scss';
 const scssContent = fs.readFileSync(scssFilePath, 'utf8');
 const rootContent = scssContent.match(/:root\s*{[\S\s]*(\S{0}})/)[0]
 const scssContents = rootContent.split('}');

@@ -1,6 +1,6 @@
 :root {
-  @for $i from 1 through 16 {
-    --base-width-#{$i * 4}: #{$i * 4}px;
+  @for $i from 1 through 50 {
+    --base-size-#{$i * 2}: #{$i * 2}px;
   }
 
   --base-blue: #1677ff;
