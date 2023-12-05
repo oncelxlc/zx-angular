@@ -6,8 +6,9 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
+    "build:app": "ng build zx-app",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build:ui": "ng build ng-zx-ui",
