@@ -1,1 +1,43 @@
-<p>nav works!</p>
+<ul zx-nav>
+  <li zx-sub-nav zxTitle="Navigation One" zxOpen>
+    <ul>
+      <li zx-nav-group zxTitle="Item 1">
+        <ul>
+          <li zx-nav-item zxSelected>Option 1</li>
+          <li zx-nav-item>Option 2</li>
+        </ul>
+      </li>
+      <li zx-nav-group zxTitle="Item 2">
+        <ul>
+          <li zx-nav-item>Option 3</li>
+          <li zx-nav-item>Option 4</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li zx-sub-nav zxTitle="Navigation Two">
+    <ul>
+      <li zx-nav-item>Option 5</li>
+      <li zx-nav-item>Option 6</li>
+      <li zx-sub-nav zxTitle="Submenu">
+        <ul>
+          <li zx-nav-item>Option 7</li>
+          <li zx-nav-item>Option 8</li>
+          <li zx-sub-nav zxTitle="Submenu">
+            <ul>
+              <li zx-nav-item>Option 9</li>
+              <li zx-nav-item>Option 10</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li zx-sub-nav zxTitle="Navigation Three">
+    <ul>
+      <li zx-nav-item>Option 11</li>
+      <li zx-nav-item>Option 12</li>
+      <li zx-nav-item>Option 13</li>
+    </ul>
+  </li>
+</ul>

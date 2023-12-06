@@ -1,7 +1,8 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[zxNav]',
+  selector: '[zx-nav]',
+  exportAs:  'zxNav',
   standalone: true
 })
 export class ZxNavDirective {

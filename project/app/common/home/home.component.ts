@@ -9,6 +9,7 @@ import { FooterComponent } from 'project/app/common/footer/footer.component'
   standalone: true,
   imports: [CommonModule, HeaderComponent, ZxNavComponent, FooterComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {}
+export class HomeComponent {
+}
