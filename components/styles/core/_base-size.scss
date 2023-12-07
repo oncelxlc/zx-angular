@@ -1,3 +1,5 @@
 :root {
-  --border-radius-md: var(--base-size-16, 16px);
+  @for $i from 1 through 50 {
+    --base-size-#{$i * 2}: #{$i * 2}px;
+  }
 }
