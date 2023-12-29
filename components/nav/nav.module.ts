@@ -1,20 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ZxNavDirective, ZxNavGroupComponent, ZxNavItemComponent, ZxSubNavComponent } from './';
 
 @NgModule({
   imports: [
-    CommonModule,
-    ZxNavDirective,
-    ZxNavGroupComponent,
-    ZxNavItemComponent,
-    ZxSubNavComponent
+    CommonModule
   ],
   exports: [
-    ZxNavDirective,
-    ZxNavGroupComponent,
-    ZxNavItemComponent,
-    ZxSubNavComponent
   ]
 })
 export class ZxNavModule {
