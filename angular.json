@@ -26,7 +26,9 @@
       "prefix": "zx",
       "schematics": {
         "@schematics/angular:component": {
-          "path": "components"
+          "path": "components",
+          "inlineTemplate": true,
+          "inlineStyle": true
         }
       },
       "architect": {
@@ -84,7 +86,6 @@
               "project/assets"
             ],
             "styles": [
-              "components/styles/index.scss",
               "project/styles.scss"
             ],
             "scripts": []
