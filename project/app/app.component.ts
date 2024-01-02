@@ -1,13 +1,14 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterOutlet} from "@angular/router";
-import {FooterComponent} from "./common/footer/footer.component";
-import {HeaderComponent} from "./common/header/header.component";
+import {ZxaFooterComponent} from './common';
+import {ZxaHeaderComponent} from './common';
+import {ZxaFirstNavComponent} from './common';
 
 @Component({
   selector: 'zxa-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FooterComponent, HeaderComponent],
+  imports: [CommonModule, RouterOutlet, ZxaFooterComponent, ZxaHeaderComponent, ZxaFirstNavComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

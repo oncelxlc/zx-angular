@@ -83,7 +83,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "project/favicon.ico",
-              "project/assets"
+              "project/assets",
+              "project/config"
             ],
             "styles": [
               "project/styles.scss"
@@ -146,7 +147,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "project/favicon.ico",
-              "project/assets"
+              "project/assets",
+              "project/config"
             ],
             "styles": [
               "project/styles.scss"

@@ -1,18 +1,16 @@
-<article id="home">
-  <header id="header">
-    <zxa-header></zxa-header>
-  </header>
-  <section id="section">
-    <aside id="aside">
-      1
-    </aside>
-    <article id="article">
-      <section id="main">
-        <router-outlet></router-outlet>
-      </section>
-      <footer id="footer">
-        <zxa-footer></zxa-footer>
-      </footer>
-    </article>
-  </section>
-</article>
+<section class="zxa-app zxa-scrollbar">
+  <aside class="zxa-aside">
+    <!--todo 一级导航-->
+    <zxa-first-nav></zxa-first-nav>
+    <!--todo 二级导航-->
+  </aside>
+  <article class="zxa-article">
+    <section class="zxa-main">
+      <router-outlet></router-outlet>
+    </section>
+    <!--todo 文本导航-->
+    <footer class="zxa-footer">
+      <zxa-footer></zxa-footer>
+    </footer>
+  </article>
+</section>

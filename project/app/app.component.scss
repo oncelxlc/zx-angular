@@ -1,44 +1,29 @@
-#home {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+section.zxa-app {
+  position: relative;
   display: flex;
-  flex-direction: column;
-}
-
-#header {
-  height: 64px;
-}
-
-#section {
-  flex: auto;
-  overflow: hidden;
-  display: flex;
+  overflow: auto;
   flex-direction: row;
-  padding-top: 30px;
-}
-
-#aside {
-  width: 240px;
-  overflow: auto;
-  box-shadow: 2px 4px 8px #f0f1f2;
-}
-
-#article {
-  display: flex;
-  flex-direction: column;
-  flex: auto;
-  overflow: auto;
-}
-
-#main {
-  flex: auto;
-  width: 1200px;
-  height: auto;
-  padding: 0 64px 32px 64px;
-}
-
-#footer {
   width: 100%;
-  height: auto;
+  min-width: 1280px;
+  height: 100%;
+  min-height: 720px;
+
+  > .zxa-aside {
+    position: sticky;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: auto;
+    height: 100vh;
+    padding: 5px 5px 10px;
+    border-right: 1px solid #F6F5F6;
+  }
+
+  > .zxa-article {
+    flex: auto;
+
+    > .zxa-main {
+      min-height: 100vh;
+    }
+  }
 }
