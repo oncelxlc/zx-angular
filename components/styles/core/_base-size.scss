@@ -1,5 +1,5 @@
 :root {
-  @for $i from 1 through 50 {
-    --base-size-#{$i * 2}: #{$i * 2}px;
-  }
+  //@for $i from 1 through 50 {
+  //  --base-size-#{$i * 2}: #{$i * 2}px;
+  //}
 }

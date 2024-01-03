@@ -1,0 +1,19 @@
+.zxa-scrollbar::-webkit-scrollbar-track {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+}
+
+.zxa-scrollbar::-webkit-scrollbar-thumb {
+  transition: background-color .3s ease;
+  border-radius: 10px;
+  background-color: rgba(116, 110, 124, 0.4);
+
+  &:hover {
+    background-color: rgba(116, 110, 124, 0.8);
+  }
+}
+
+.zxa-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px
+}

@@ -1,0 +1,84 @@
+@use 'components/styles/theme/color';
+
+$master-gradient: linear-gradient(60deg, #FA2C05, #F637E3, 52.6%, #8514F5);
+$nav-item-default-color: var(--pink-to-highlight-to-purple-to-blue-horizontal-gradient);
+
+.first-nav {
+  width: 100px;
+
+  > .nav-header {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    > h1 {
+      line-height: normal;
+      margin-bottom: 0;
+      text-align: center;
+
+      > a {
+        font-family: AlibabaPuHuiTi, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 32px;
+        position: relative;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        overflow: hidden;
+        -webkit-align-items: center;
+        align-items: center;
+        flex-direction: column;
+        white-space: nowrap;
+        text-decoration: none;
+        letter-spacing: -0.18px;
+        color: rgba(color.$base-black, 0.88);
+        background: $master-gradient;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}
+
+.first-nav > .nav-section {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 8px;
+
+  > .nav-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+    cursor: pointer;
+
+    > .nav-icon {
+      margin-bottom: 15px;
+    }
+
+    > .nav-name {
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      transition: background-position 0.8s ease-out;
+      color: transparent;
+      background-image: $nav-item-default-color;
+      background-position: 100% 0;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-size: 200% 100%;
+    }
+
+    &:hover, &.nav-item-selected {
+      > .nav-name {
+        background-position: 0 0;
+      }
+    }
+  }
+}
