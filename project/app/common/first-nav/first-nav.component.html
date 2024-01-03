@@ -1,7 +1,7 @@
 <article class="first-nav">
   <header class="nav-header">
     <h1>
-      <a href="/">
+      <a routerLink="/">
         <div>
           <img [ngSrc]="'assets/header/logo.svg'" title="ZheXian" alt="ZX" width="32" height="32">
         </div>
@@ -9,5 +9,12 @@
       </a>
     </h1>
   </header>
-  <section class="nav-section"></section>
+  <section class="nav-section">
+    <ng-container *ngFor="let item of navList">
+      <div [routerLink]="item.link" class="nav-item" [routerLinkActive]="'nav-item-selected'">
+        <span class="nav-icon"><img [ngSrc]="item.icon" [alt]="item.name" width="24" height="24"></span>
+        <span class="nav-name">{{ item.name }}</span>
+      </div>
+    </ng-container>
+  </section>
 </article>
