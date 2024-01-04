@@ -7,14 +7,14 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'docs',
-    loadChildren: () => import('./docs/docs.routes').then(m => m.docsRoutes),
+    loadChildren: () => import('./pages/docs/docs.routes').then(m => m.docsRoutes),
   },
   {
     path: 'experimental',
-    loadChildren: () => import('./experimental/experimental.routes').then(m => m.experimentalRoutes),
+    loadChildren: () => import('./pages/experimental/experimental.routes').then(m => m.experimentalRoutes),
   },
   {
     path: 'knowledge',
-    loadChildren: () => import('./knowledge/knowledge.routes').then(m => m.knowledgeRoutes),
+    loadChildren: () => import('./pages/knowledge/knowledge.routes').then(m => m.knowledgeRoutes),
   },
 ];
