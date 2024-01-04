@@ -1,16 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FirstNavComponent } from './first-nav.component';
+import {ZxaFirstNavComponent} from './first-nav.component';
 
-describe('FirstNavComponent', () => {
-  let component: FirstNavComponent;
-  let fixture: ComponentFixture<FirstNavComponent>;
+describe('ZxaFirstNavComponent', () => {
+  let component: ZxaFirstNavComponent;
+  let fixture: ComponentFixture<ZxaFirstNavComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FirstNavComponent]
+      imports: [ZxaFirstNavComponent],
     });
-    fixture = TestBed.createComponent(FirstNavComponent);
+    fixture = TestBed.createComponent(ZxaFirstNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

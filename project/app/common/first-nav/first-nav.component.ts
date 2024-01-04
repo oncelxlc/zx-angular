@@ -11,16 +11,14 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./first-nav.component.scss'],
 })
 export class ZxaFirstNavComponent implements OnInit{
-  navList = [
-    {name: 'Docs', link: '/docs', icon: 'assets/header/logo.svg'},
-    {name: 'Experimental', link: '/experimental', icon: 'assets/header/logo.svg'},
-    {name: 'Knowledge', link: '/knowledge', icon: 'assets/header/logo.svg'},
-  ];
+  navList = [] as any[];
 
   constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
-    this.httpClient.get('/config/first-nav.json').subscribe(console.log);
+    this.httpClient.get('/config/first-nav.json').subscribe((res: any) => {
+      this.navList = res.nav as any[];
+    });
   }
 }

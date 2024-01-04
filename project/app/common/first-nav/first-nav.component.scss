@@ -5,6 +5,7 @@ $nav-item-default-color: var(--pink-to-highlight-to-purple-to-blue-horizontal-gr
 
 .first-nav {
   width: 100px;
+  user-select: none;
 
   > .nav-header {
     -moz-user-select: none;
