@@ -15,5 +15,11 @@
       <span class="nav-icon"><img [ngSrc]="item.icon" [alt]="item.name" width="24" height="24"></span>
       <span class="nav-name">{{ item.name }}</span>
     </div>
+    @for (item of navList; track item.link) {
+      <div [routerLink]="item.link" class="nav-item" [routerLinkActive]="'nav-item-selected'">
+        <span class="nav-icon"><img [ngSrc]="item.icon" [alt]="item.name" width="24" height="24"></span>
+        <span class="nav-name">{{ item.name }}</span>
+      </div>
+    }
   </section>
 </article>

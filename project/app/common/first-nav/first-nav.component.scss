@@ -1,4 +1,4 @@
-@use 'components/styles/theme/color';
+@use 'theme/color';
 
 $master-gradient: linear-gradient(60deg, #FA2C05, #F637E3, 52.6%, #8514F5);
 $nav-item-default-color: var(--pink-to-highlight-to-purple-to-blue-horizontal-gradient);
