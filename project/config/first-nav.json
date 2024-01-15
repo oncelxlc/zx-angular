@@ -1,0 +1,19 @@
+{
+  "nav": [
+    {
+      "name": "Docs",
+      "link": "/docs",
+      "icon": "assets/header/logo.svg"
+    },
+    {
+      "name": "Experimental",
+      "link": "/experimental",
+      "icon": "assets/header/logo.svg"
+    },
+    {
+      "name": "Knowledge",
+      "link": "/knowledge",
+      "icon": "assets/header/logo.svg"
+    }
+  ]
+}

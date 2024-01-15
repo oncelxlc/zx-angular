@@ -1,10 +1,11 @@
-@use 'components/styles/theme/color';
+@use 'theme/color';
 
 $master-gradient: linear-gradient(60deg, #FA2C05, #F637E3, 52.6%, #8514F5);
 $nav-item-default-color: var(--pink-to-highlight-to-purple-to-blue-horizontal-gradient);
 
 .first-nav {
   width: 100px;
+  user-select: none;
 
   > .nav-header {
     -moz-user-select: none;
@@ -66,7 +67,7 @@ $nav-item-default-color: var(--pink-to-highlight-to-purple-to-blue-horizontal-gr
       font-size: 14px;
       font-weight: 500;
       position: relative;
-      transition: background-position 0.8s ease-out;
+      transition: background-position 0.7s ease-in-out;
       color: transparent;
       background-image: $nav-item-default-color;
       background-position: 100% 0;

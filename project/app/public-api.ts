@@ -1,4 +1,4 @@
 export * from './common';
-export * from './docs';
-export * from './experimental';
-export * from './knowledge';
+export * from './pages/docs';
+export * from './pages/experimental';
+export * from './pages/knowledge';
