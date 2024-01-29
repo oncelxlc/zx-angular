@@ -12,8 +12,11 @@
   <section class="nav-section">
     @for (item of navList; track item.link) {
       <div [routerLink]="item.link" class="nav-item" [routerLinkActive]="'nav-item-selected'">
-        <span class="nav-icon"><img [ngSrc]="item.icon" [alt]="item.name" width="24" height="24"></span>
-        <span class="nav-name">{{ item.name }}</span>
+        <div class="nav-item-selected-extend"></div>
+        <div class="nav-item-content">
+          <span class="nav-icon"><img [ngSrc]="item.icon" [alt]="item.name" width="24" height="24"></span>
+          <span class="nav-name">{{ item.name }}</span>
+        </div>
       </div>
     }
   </section>

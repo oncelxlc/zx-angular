@@ -1,17 +1,17 @@
 {
   "nav": [
     {
-      "name": "Docs",
+      "name": "文档",
       "link": "/docs",
       "icon": "assets/nav/docs.svg"
     },
     {
-      "name": "Experimental",
+      "name": "实验性",
       "link": "/experimental",
       "icon": "assets/nav/experimental.svg"
     },
     {
-      "name": "Knowledge",
+      "name": "知识",
       "link": "/knowledge",
       "icon": "assets/nav/knowledge.svg"
     }
