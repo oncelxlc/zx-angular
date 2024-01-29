@@ -3,17 +3,17 @@
     {
       "name": "Docs",
       "link": "/docs",
-      "icon": "assets/header/logo.svg"
+      "icon": "assets/nav/docs.svg"
     },
     {
       "name": "Experimental",
       "link": "/experimental",
-      "icon": "assets/header/logo.svg"
+      "icon": "assets/nav/experimental.svg"
     },
     {
       "name": "Knowledge",
       "link": "/knowledge",
-      "icon": "assets/header/logo.svg"
+      "icon": "assets/nav/knowledge.svg"
     }
   ]
 }
