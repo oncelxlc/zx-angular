@@ -26,7 +26,6 @@
       "prefix": "zx",
       "schematics": {
         "@schematics/angular:component": {
-          "path": "components",
           "inlineTemplate": true,
           "inlineStyle": true
         }
@@ -64,11 +63,6 @@
       "root": "project",
       "sourceRoot": "project",
       "prefix": "zxa",
-      "schematics": {
-        "@schematics/angular:component": {
-          "path": "project/app"
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

@@ -1,9 +1,9 @@
-import { Route } from '@angular/router';
+import {Route} from '@angular/router';
 
 export const appRoutes: Route[] = [
   {
     path: '',
-    loadComponent: () => import('./common/home/home.component').then(c => c.HomeComponent),
+    loadChildren: () => import('./pages/home/home.routes').then(m => m.homeRoutes),
   },
   {
     path: 'docs',
