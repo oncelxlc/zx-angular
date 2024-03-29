@@ -1,9 +1,0 @@
-@mixin border-radius-left($size: 2) {
-  border-top-left-radius: $size + px;
-  border-bottom-left-radius: $size + px;
-}
-
-@mixin border-radius-right($size: 2) {
-  border-top-right-radius: $size + px;
-  border-bottom-right-radius: $size + px;
-}
