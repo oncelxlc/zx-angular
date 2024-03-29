@@ -12,11 +12,8 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "paths": {
-      "zx-ui": [
-        "components/index.ts"
-      ],
-      "zx-ui/*": [
-        "components/*"
+      "@zx-ng/*": [
+        "site/src/*"
       ]
     },
     "declaration": false,
