@@ -1,7 +1,7 @@
 {
   "builders": {
     "copy": {
-      "implementation": "./dist/md-builder.js",
+      "implementation": "./dist/src/md-builder.js",
       "schema": "./src/schema.json",
       "description": "Copies a file."
     }

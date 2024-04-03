@@ -125,7 +125,7 @@
       "prefix": "zxa",
       "architect": {
         "copy-package": {
-          "builder": "@example/builders-runner:copy",
+          "builder": "@zhexian/builders-runner:copy",
           "options": {
             "source": "package.json",
             "destination": "package-copy.json"

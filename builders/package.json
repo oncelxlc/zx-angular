@@ -2,7 +2,7 @@
   "name": "@zhexian/builders-runner",
   "version": "0.0.1-bate.1",
   "description": "",
-  "main": "dist/md-builder.js",
+  "main": "index.ts",
   "builders": "builders.json",
   "scripts": {
     "build": "tsc",
