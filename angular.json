@@ -5,7 +5,7 @@
     "packageManager": "pnpm",
     "analytics": false
   },
-  "newProjectRoot": "projects",
+  "newProjectRoot": "src",
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss",
@@ -21,11 +21,6 @@
   "projects": {
     "zx-ng": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
       "root": "site",
       "sourceRoot": "site/src",
       "prefix": "zxa",
@@ -115,11 +110,6 @@
     },
     "zx-ng-test": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
       "root": "site",
       "sourceRoot": "site/src",
       "prefix": "zxa",
