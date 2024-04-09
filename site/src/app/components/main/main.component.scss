@@ -1,10 +1,11 @@
 #zxa-main {
   position: relative;
   width: 1024px;
+  min-height: 100vh;
   margin: 0 auto;
 
   > header {
-    position: absolute;
+    position: sticky;
     top: 0;
     right: 0;
     left: 0;
@@ -12,13 +13,8 @@
   }
 
   > article {
-    position: relative;
-    top: 48px;
-    right: 0;
-    left: 0;
   }
 
   > footer {
-    position: relative;
   }
 }
