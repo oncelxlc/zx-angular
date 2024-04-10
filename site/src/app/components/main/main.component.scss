@@ -14,8 +14,18 @@
   }
 
   > article {
+    display: grid;
     width: 1024px;
     margin: 0 auto;
+    grid-template-columns: 0 1fr;
+
+    > aside {
+      overflow: hidden auto;
+    }
+
+    &.zxa-aside-show {
+      grid-template-columns: 200px 1fr;
+    }
   }
 
   > footer {

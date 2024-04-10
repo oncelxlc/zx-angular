@@ -6,4 +6,8 @@
   height: 100%;
   margin: 0 auto;
   grid-template-columns: auto 1fr auto;
+
+  > .zxa-header-title {
+    font-family: "QingNiaoHuaGuangKaiTi", sans-serif;
+  }
 }
