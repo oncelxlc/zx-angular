@@ -1,0 +1,9 @@
+.zxa-header {
+  display: grid;
+  overflow: hidden;
+  align-items: center;
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  grid-template-columns: auto 1fr auto;
+}

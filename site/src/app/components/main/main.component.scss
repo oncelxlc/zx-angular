@@ -1,8 +1,6 @@
 #zxa-main {
   position: relative;
-  width: 1024px;
   min-height: 100vh;
-  margin: 0 auto;
 
   > header {
     position: sticky;
@@ -10,11 +8,18 @@
     right: 0;
     left: 0;
     height: 48px;
+    border-bottom: 1px solid var(--header-border);
+    background: var(--header-bg);
+    backdrop-filter: blur(var(--header-blur));
   }
 
   > article {
+    width: 1024px;
+    margin: 0 auto;
   }
 
   > footer {
+    width: 1024px;
+    margin: 0 auto;
   }
 }
