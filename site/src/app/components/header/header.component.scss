@@ -1,4 +1,5 @@
 .zxa-header {
+  font-family: "AlimamaFangYuanTiVF", sans-serif;
   display: grid;
   overflow: hidden;
   align-items: center;
@@ -8,6 +9,36 @@
   grid-template-columns: auto 1fr auto;
 
   > .zxa-header-title {
-    font-family: "QingNiaoHuaGuangKaiTi", sans-serif;
+    display: flex;
+    align-items: center;
+    min-width: 72px;
+    height: 100%;
+    cursor: pointer;
+    user-select: none;
+
+    > a {
+      text-decoration: none;
+      color: inherit;
+
+      > img {
+        width: auto;
+        height: 24px;
+        background-color: var(--color-text-primary);
+      }
+    }
+  }
+
+  > .zxa-header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+
+    > .zxa-header-router-link {
+      font-size: 14px;
+      font-weight: 510;
+      min-width: 72px;
+      cursor: pointer;
+    }
   }
 }

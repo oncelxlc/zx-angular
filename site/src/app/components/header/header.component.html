@@ -1,7 +1,11 @@
 <div class="zxa-header">
   <div class="zxa-header-title">
-    謫仙
+    <a [routerLink]="'/'"><img ngSrc="assets/svg/logo.svg" alt="謫仙" height="73" width="129"></a>
   </div>
-  <div class="zxa-header-nav">nav</div>
+  <div class="zxa-header-nav">
+    @for (nav of navs; track nav.link) {
+      <div class="zxa-header-router-link" [routerLink]="nav.link">{{ nav.name }}</div>
+    }
+  </div>
   <div class="zxa-header-option">option</div>
 </div>

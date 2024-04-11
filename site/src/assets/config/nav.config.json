@@ -1,0 +1,16 @@
+{
+  "nav": [
+    {
+      "name": "Notes",
+      "link": "/notes"
+    },
+    {
+      "name": "Blog",
+      "link": "/blog"
+    },
+    {
+      "name": "试验",
+      "link": "/experiment"
+    }
+  ]
+}
