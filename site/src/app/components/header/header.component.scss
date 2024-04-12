@@ -4,9 +4,10 @@
   display: grid;
   overflow: hidden;
   align-items: center;
-  width: 1024px;
+  width: var(--main-width);
   height: 100%;
   margin: 0 auto;
+  user-select: none;
   grid-template-columns: auto 1fr auto;
 
   > .zxa-header-title {
@@ -16,7 +17,6 @@
     min-width: 72px;
     height: 100%;
     cursor: pointer;
-    user-select: none;
 
     > a {
       text-decoration: none;

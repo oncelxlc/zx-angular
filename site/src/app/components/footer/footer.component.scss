@@ -1,5 +1,15 @@
 .zxa-footer {
   display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: var(--main-width);
+  margin: 0 auto;
+  padding: 56px 0;
+  grid-template-columns: 3fr 2fr 2fr 2fr;
+
+  > .zxa-footer-item {
+    &:first-of-type {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
 }

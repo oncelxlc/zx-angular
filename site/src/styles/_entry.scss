@@ -2,6 +2,7 @@
 @import "basic/reset";
 @import "basic/base-color";
 @import "basic/font";
-@import "basic/global";
 
-@import "basic/overwrite";
+@import "app/global";
+@import "app/overwrite";
+@import "app/layout";
