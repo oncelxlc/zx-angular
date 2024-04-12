@@ -10,6 +10,28 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      > .zxa-footer-title {
+        display: flex;
+        flex-direction: column;
+
+        > .zxa-footer-logo {
+          margin-bottom: 14px;
+          user-select: none;
+
+          > img {
+            width: auto;
+            height: 36px;
+            background-color: var(--color-text-primary);
+          }
+        }
+
+        > .zxa-footer-description {
+          font-size: 14px;
+          line-height: 24px;
+          margin-bottom: 14px;
+        }
+      }
     }
   }
 }
