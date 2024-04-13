@@ -39,10 +39,10 @@
     "zone.js": "~0.14.4"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.1703.3",
-    "@angular-devkit/build-angular": "^17.3.3",
-    "@angular-devkit/core": "^17.3.3",
-    "@angular/cli": "^17.3.3",
+    "@angular-devkit/architect": "^0.1703.4",
+    "@angular-devkit/build-angular": "^17.3.4",
+    "@angular-devkit/core": "^17.3.4",
+    "@angular/cli": "^17.3.4",
     "@angular/compiler-cli": "^17.3.4",
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-angular": "^18.6.1",
@@ -64,7 +64,7 @@
     "ng-packagr": "^17.3.0",
     "path": "^0.12.7",
     "prettier": "^3.2.5",
-    "sass": "^1.74.1",
+    "sass": "^1.75.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.2.2"
   }
