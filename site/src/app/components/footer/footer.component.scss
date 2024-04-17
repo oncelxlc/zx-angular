@@ -3,6 +3,7 @@
   width: var(--main-width);
   margin: 0 auto;
   padding: 56px 0;
+  color: var(--color-text-tertiary);
   grid-template-columns: 3fr 2fr 2fr 2fr;
 
   > .zxa-footer-item {
@@ -13,23 +14,25 @@
 
       > .zxa-footer-title {
         display: flex;
+        align-items: flex-start;
         flex-direction: column;
 
         > .zxa-footer-logo {
           margin-bottom: 14px;
+          cursor: pointer;
           user-select: none;
 
           > img {
             width: auto;
             height: 36px;
-            background-color: var(--color-text-primary);
           }
         }
 
         > .zxa-footer-description {
-          font-size: 14px;
-          line-height: 24px;
+          font-size: 16px;
+          line-height: 26px;
           margin-bottom: 14px;
+          color: var(--color-text-tertiary);
         }
       }
     }
