@@ -1,1 +1,1 @@
-export * from './common/router-loading.service';
+export * from './public-api';
