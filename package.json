@@ -6,8 +6,8 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve zx-ng",
-    "build": "ng build zx-ng",
+    "start": "ng serve zx-ng:",
+    "build": "ng build zx-ng --configuration development",
     "test": "ng test zx-ng",
     "build:builders": "tsc --project builders/tsconfig.json",
     "build:test": "ng copy-package zx-ng-test",
