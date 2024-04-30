@@ -1,8 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
+import {Component, inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
+import {
+  NavigationCancel,
+  NavigationEnd, NavigationError,
+  NavigationSkipped,
+  NavigationStart,
+  Router,
+} from '@angular/router';
 import {HeaderComponent} from '@zx-ng/app/components/header/header.component';
 import {FooterComponent} from '@zx-ng/app/components/footer/footer.component';
-import {RouterLoadingService} from '@zx-ng/services';
-import * as NProgress from 'nprogress';
+import {NgProgressComponent} from 'ngx-progressbar';
+import {filter, map, switchMap, take} from 'rxjs';
+
+export const PROGRESS_BAR_DELAY = 30;
 
 @Component({
   selector: 'zxa-main',
@@ -10,26 +20,57 @@ import * as NProgress from 'nprogress';
   imports: [
     HeaderComponent,
     FooterComponent,
+    NgProgressComponent,
   ],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  constructor(private routerLoading: RouterLoadingService) {
+  private readonly router = inject(Router);
+
+  @ViewChild(NgProgressComponent, {static: true}) progressBar!: NgProgressComponent;
+
+  isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+
+  constructor() {
   }
 
   ngOnInit(): void {
-    NProgress.configure({easing: 'ease', speed: 800, trickleSpeed: 1200, showSpinner: false});
-    this.routerLoading.routerLoading().subscribe(res => {
-      if (res === 1) {
-        NProgress.start();
-      } else if (res === 0 && NProgress.isStarted()) {
-        NProgress.done();
-      } else if (res === 100) {
-        NProgress.done();
-      } else if (res > 0 && NProgress.isStarted()) {
-        NProgress.set(Number((res / 100).toFixed(2)));
-      }
-    });
+    this.setupPageNavigationDimming();
+  }
+
+  private setupPageNavigationDimming() {
+    if (!this.isBrowser) {
+      return;
+    }
+    this.router.events
+      .pipe(
+        filter((e) => e instanceof NavigationStart),
+        map(() => {
+          // Only apply set the property if the navigation is not "immediate"
+          return setTimeout(() => {
+            this.progressBar.start();
+          }, PROGRESS_BAR_DELAY);
+        }),
+        switchMap((timeoutId) => {
+          return this.router.events.pipe(
+            filter((e) => {
+              return (
+                e instanceof NavigationEnd ||
+                e instanceof NavigationCancel ||
+                e instanceof NavigationSkipped ||
+                e instanceof NavigationError
+              );
+            }),
+            take(1),
+            map(() => timeoutId),
+          );
+        }),
+      )
+      .subscribe((timeoutId) => {
+        // When the navigation finishes, prevent the navigating class from being applied in the timeout.
+        clearTimeout(timeoutId);
+        this.progressBar.complete();
+      });
   }
 }
