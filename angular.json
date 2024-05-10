@@ -5,7 +5,7 @@
     "packageManager": "pnpm",
     "analytics": false
   },
-  "newProjectRoot": "projects",
+  "newProjectRoot": "src",
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss",
@@ -21,15 +21,116 @@
   "projects": {
     "zx-ng": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
       "root": "site",
       "sourceRoot": "site/src",
       "prefix": "zxa",
       "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/zx-ng",
+            "index": "site/src/index.html",
+            "browser": "site/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "site/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "site/src/favicon.ico",
+              "site/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./docs/",
+                "output": "/docs/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "site/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "zx-ng:build:production"
+            },
+            "development": {
+              "buildTarget": "zx-ng:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "zx-ng:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "site/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "site/src/favicon.ico",
+              "site/src/assets"
+            ],
+            "styles": [
+              "site/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "zx-ng-test": {
+      "projectType": "application",
+      "root": "site",
+      "sourceRoot": "site/src",
+      "prefix": "zxa",
+      "architect": {
+        "copy-package": {
+          "builder": "@zhexian/builders-runner:copy",
+          "options": {
+            "source": "package.json",
+            "destination": "package-copy.json"
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {

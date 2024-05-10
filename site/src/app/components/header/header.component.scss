@@ -1,0 +1,43 @@
+.zxa-header {
+  font-weight: 600;
+  display: grid;
+  overflow: hidden;
+  align-items: center;
+  width: var(--main-width);
+  height: 100%;
+  margin: 0 auto;
+  user-select: none;
+  grid-template-columns: auto 1fr auto;
+
+  > .zxa-header-title {
+    font-family: "AaKaiTi", sans-serif;
+    display: flex;
+    align-items: center;
+    min-width: 72px;
+    height: 100%;
+    cursor: pointer;
+
+    > a {
+      text-decoration: none;
+      color: inherit;
+
+      > img {
+        width: auto;
+        height: 24px;
+      }
+    }
+  }
+
+  > .zxa-header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+
+    > .zxa-header-router-link {
+      font-size: 14px;
+      min-width: 72px;
+      cursor: pointer;
+    }
+  }
+}

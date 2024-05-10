@@ -1,0 +1,17 @@
+{
+  "name": "@zhexian/builders-runner",
+  "version": "0.0.1-bate.1",
+  "description": "",
+  "main": "index.ts",
+  "builders": "builders.json",
+  "scripts": {
+    "build": "tsc",
+    "test": "ts-node node_modules/jasmine/bin/jasmine src/index_spec.ts"
+  },
+  "author": "zhexian",
+  "license": "ISC",
+  "dependencies": {
+    "@angular-devkit/architect": "^0.1703.3",
+    "@angular-devkit/core": "^17.3.3"
+  }
+}
