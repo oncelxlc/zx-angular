@@ -8,12 +8,14 @@
     "ng": "ng",
     "start": "ng serve zx-ng",
     "build": "ng build zx-ng --configuration development",
+    "build:docs": "docgeni build",
     "test": "ng test zx-ng",
     "build:builders": "tsc --project builders/tsconfig.json",
     "build:test": "ng copy-package zx-ng-test",
     "build:ui-css": "node tools/sass-handler.js components/styles/index.scss ./dist/zx-ui/ng-zx-ui.css",
     "minify:ui-css": "cleancss --format breakWith=lf --output ./dist/zx-ui/ng-zx-ui.min.css ./dist/zx-ui/ng-zx-ui.css",
     "build:css:ui": "npm run build:ui-css && npm run minify:ui-css",
+    "start:docs": "docgeni serve --port 4600",
     "prepare": "husky install"
   },
   "engines": {
@@ -48,6 +50,8 @@
     "@angular/compiler-cli": "^17.3.8",
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-angular": "^18.6.1",
+    "@docgeni/cli": "2.3.2",
+    "@docgeni/template": "2.3.2",
     "@types/jasmine": "~4.3.6",
     "@types/node": "^20.12.11",
     "@types/nprogress": "^0.2.3",
