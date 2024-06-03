@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
       .pipe(
         filter((e) => e instanceof NavigationStart),
         map(() => {
-          // Only apply set the property if the navigation is not "immediate"
+          // 仅当导航不是“立即”时才应用设置属性
           return setTimeout(() => {
             this.progressBar.start();
           }, PROGRESS_BAR_DELAY);
@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
         }),
       )
       .subscribe((timeoutId) => {
-        // When the navigation finishes, prevent the navigating class from being applied in the timeout.
+        // 当导航完成时，防止在超时时间内应用导航类。
         clearTimeout(timeoutId);
         this.progressBar.complete();
       });

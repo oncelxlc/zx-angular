@@ -1,14 +1,15 @@
 <article id="zxa-main">
-  <header>
+  <header #header>
     <zxa-header></zxa-header>
   </header>
-  <article>
+  <article
+    [style]="{'min-height': 'calc(100% - ' + header.offsetHeight + 'px - ' + footer.offsetHeight + 'px)'}">
     <aside>aside</aside>
     <article>
       <ng-content select="[outlet]"></ng-content>
     </article>
   </article>
-  <footer>
+  <footer #footer>
     <zxa-footer></zxa-footer>
   </footer>
 </article>
