@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '@zx-ng/app/components/header/header.component';
 import { FooterComponent } from '@zx-ng/app/components/footer/footer.component';
-import { NgProgressComponent } from 'ngx-progressbar';
 
 export const PROGRESS_BAR_DELAY = 30;
 
@@ -11,7 +10,6 @@ export const PROGRESS_BAR_DELAY = 30;
   imports: [
     HeaderComponent,
     FooterComponent,
-    NgProgressComponent,
   ],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],

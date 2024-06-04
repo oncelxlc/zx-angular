@@ -29,6 +29,10 @@ export class AppComponent implements OnInit {
     this.setupPageNavigationDimming();
   }
 
+  /**
+   * 导航活动指示
+   * @private
+   */
   private setupPageNavigationDimming() {
     if (!this.isBrowser) {
       return;
