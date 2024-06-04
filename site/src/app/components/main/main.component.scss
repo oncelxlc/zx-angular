@@ -1,6 +1,7 @@
 #zxa-main {
   position: relative;
   height: 100%;
+  min-height: 100vh;
 
   > header {
     position: sticky;
@@ -9,7 +10,7 @@
     left: 0;
     height: 48px;
     border-bottom: 1px solid var(--header-border);
-    background: var(--header-bg);
+    background-color: var(--color-bg-primary);
     backdrop-filter: blur(var(--header-blur));
   }
 
@@ -17,11 +18,14 @@
     display: grid;
     width: 1024px;
     margin: 0 auto;
-    grid-template-columns: 0 1fr;
     padding-top: 64px;
+    grid-template-columns: 0 1fr;
 
     > aside {
       overflow: hidden auto;
+    }
+
+    > section {
     }
 
     &.zxa-aside-show {
@@ -30,7 +34,13 @@
   }
 
   > footer {
-    border-top: 1px solid var(--header-border);
     height: auto;
+    border-top: 1px solid var(--header-border);
+  }
+}
+
+@media screen and (max-height: 720px) {
+  #zxa-main {
+    height: 720px;
   }
 }

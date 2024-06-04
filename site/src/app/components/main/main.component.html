@@ -3,11 +3,11 @@
     <zxa-header></zxa-header>
   </header>
   <article
-    [style]="{'min-height': 'calc(100% - ' + header.offsetHeight + 'px - ' + footer.offsetHeight + 'px)'}">
+    [style]="{'min-height': 'calc(100vh - ' + (header.offsetHeight + footer.offsetHeight) + 'px)'}">
     <aside>aside</aside>
-    <article>
+    <section>
       <ng-content select="[outlet]"></ng-content>
-    </article>
+    </section>
   </article>
   <footer #footer>
     <zxa-footer></zxa-footer>
