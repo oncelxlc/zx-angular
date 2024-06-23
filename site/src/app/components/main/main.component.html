@@ -1,15 +1,16 @@
-<article id="zxa-main">
-  <ng-progress aria-label="Page load progress"></ng-progress>
+<article id="zxa">
   <header>
     <zxa-header></zxa-header>
   </header>
-  <article>
-    <aside>aside</aside>
-    <article>
-      <ng-content select="[outlet]"></ng-content>
-    </article>
-  </article>
-  <footer>
+  <main class="zxa-main" [style]="{'min-height': 'calc(100vh - ' + footerHeight + 'px)'}">
+    <section class="zxa-main-body">
+      <aside>aside</aside>
+      <section>
+        <ng-content select="[outlet]"></ng-content>
+      </section>
+    </section>
+  </main>
+  <footer #footer>
     <zxa-footer></zxa-footer>
   </footer>
 </article>
