@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.setupPageNavigationDimming();
+    this.loadCss("font.css", "font").then()
   }
 
   /**
@@ -66,5 +67,17 @@ export class AppComponent implements OnInit {
         clearTimeout(timeoutId);
         this.progressBar.complete();
       });
+  }
+
+  private loadCss(href: string, id: string): Promise<Event> {
+    return new Promise((resolve, reject) => {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = href;
+      style.id = id;
+      style.onload = resolve;
+      style.onerror = reject;
+      document.head.append(style);
+    });
   }
 }
