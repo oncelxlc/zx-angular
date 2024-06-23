@@ -19,6 +19,7 @@
       display: grid;
       width: 1024px;
       margin: 0 auto;
+      padding-top: 72px;
       grid-template-columns: 0 1fr;
 
       > aside {
@@ -27,7 +28,6 @@
 
       > section {
         font-size: 60px;
-        height: 2000px;
       }
 
       &.zxa-aside-show {

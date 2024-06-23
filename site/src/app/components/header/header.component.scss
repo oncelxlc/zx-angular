@@ -10,10 +10,10 @@
   top: 16px;
   width: calc(var(--main-width) + 24px);
   height: 48px;
+  background: hsla(0, 0%, 4%, .2);
   margin-inline: auto;
   inset-inline: 0;
   backdrop-filter: blur(24px) saturate(140%);
-  background: hsla(0, 0%, 4%, .2);
 
   .zxa-header {
     font-weight: 600;
@@ -42,7 +42,7 @@
 
         > img {
           width: auto;
-          height: 24px;
+          height: 20px;
         }
       }
     }
@@ -52,12 +52,18 @@
       align-items: center;
       justify-content: flex-end;
       height: 100%;
+      color: hsla(0, 0%, 100%, .8);
 
       > .zxa-header-router-link {
         font-size: 14px;
         min-width: 72px;
         cursor: pointer;
       }
+    }
+
+    > .zxa-header-option {
+      color: hsla(0, 0%, 100%, .8);
+      font-size: 14px;
     }
   }
 }

@@ -1,9 +1,8 @@
 <article id="zxa">
-  <header #header>
+  <header>
     <zxa-header></zxa-header>
   </header>
-  <main class="zxa-main"
-    [style]="{'min-height': 'calc(100vh - ' + (header.offsetHeight + footer.offsetHeight) + 'px)'}">
+  <main class="zxa-main" [style]="{'min-height': 'calc(100vh - ' + footerHeight + 'px)'}">
     <section class="zxa-main-body">
       <aside>aside</aside>
       <section>
