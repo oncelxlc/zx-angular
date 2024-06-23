@@ -4,32 +4,35 @@
   min-height: 100vh;
 
   > header {
-    position: sticky;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
-    height: 48px;
-    border-bottom: 1px solid var(--header-border);
-    background-color: var(--color-bg-primary);
-    backdrop-filter: blur(var(--header-blur));
+    width: 100%;
   }
 
-  > article {
-    display: grid;
-    width: 1024px;
-    margin: 0 auto;
-    padding-top: 64px;
-    grid-template-columns: 0 1fr;
+  > main.zxa-main {
+    width: 100%;
+    padding-top: 80px;
 
-    > aside {
-      overflow: hidden auto;
-    }
+    > .zxa-main-body {
+      display: grid;
+      width: 1024px;
+      margin: 0 auto;
+      grid-template-columns: 0 1fr;
 
-    > section {
-    }
+      > aside {
+        overflow: hidden auto;
+      }
 
-    &.zxa-aside-show {
-      grid-template-columns: 200px 1fr;
+      > section {
+        font-size: 60px;
+        height: 2000px;
+      }
+
+      &.zxa-aside-show {
+        grid-template-columns: 200px 1fr;
+      }
     }
   }
 

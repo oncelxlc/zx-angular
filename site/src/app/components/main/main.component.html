@@ -2,13 +2,15 @@
   <header #header>
     <zxa-header></zxa-header>
   </header>
-  <article
+  <main class="zxa-main"
     [style]="{'min-height': 'calc(100vh - ' + (header.offsetHeight + footer.offsetHeight) + 'px)'}">
-    <aside>aside</aside>
-    <section>
-      <ng-content select="[outlet]"></ng-content>
+    <section class="zxa-main-body">
+      <aside>aside</aside>
+      <section>
+        <ng-content select="[outlet]"></ng-content>
+      </section>
     </section>
-  </article>
+  </main>
   <footer #footer>
     <zxa-footer></zxa-footer>
   </footer>
