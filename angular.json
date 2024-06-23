@@ -51,7 +51,12 @@
               }
             ],
             "styles": [
-              "site/src/styles.scss"
+              "site/src/styles.scss",
+              {
+                "input": "ng-zorro-antd/ng-zorro-antd.dark.min.css",
+                "bundleName": "dark",
+                "inject": false
+              }
             ],
             "scripts": []
           },
