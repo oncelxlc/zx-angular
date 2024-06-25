@@ -10,6 +10,7 @@
     "build": "ng build zx-ng --configuration development",
     "test": "ng test zx-ng",
     "build:zx": "ng build ngx-zx",
+    "test:zx": "ng test ngx-zx",
     "build:builders": "tsc --project builders/tsconfig.json",
     "build:test-builders": "ng copy-package zx-ng-test",
     "build:ui-css": "node tools/sass-handler.js components/styles/index.scss ./dist/zx-ui/ng-zx-ui.css",

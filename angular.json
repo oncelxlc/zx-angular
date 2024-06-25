@@ -114,16 +114,7 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "site/tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "site/src/favicon.ico",
-              "site/src/assets"
-            ],
-            "styles": [
-              "site/src/styles.scss"
-            ],
-            "scripts": []
+            "tsConfig": "site/tsconfig.spec.json"
           }
         }
       }
@@ -227,7 +218,7 @@
     "ngx-zx": {
       "projectType": "library",
       "root": "components",
-      "sourceRoot": "components/src",
+      "sourceRoot": "components",
       "prefix": "zx",
       "architect": {
         "build": {
