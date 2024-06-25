@@ -22,36 +22,7 @@
   font-weight: 600;
 }
 
-@font-face {
-  font-family: "AaKaiTi";
-  src: url("../font/AaKaiTi.woff2") format("woff2"),
-  url("../font/AaKaiTi.woff") format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "AlimamaFangYuanTiVF";
-  src: url("AlimamaFangYuanTiVF-Thin-2.woff") format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "FZKaiTiChaoDaZiFuJi";
-  src: url("FZKaiTiChaoDaZiFuJi.woff") format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "QingNiaoHuaGuangKaiTi";
-  src: url("QingNiaoHuaGuangKaiTi-2.woff") format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SanJiKaiShu";
-  src: url("SanJiKaiShu-2.woff") format("woff");
-  font-display: swap;
-}
-
 @import "AaKaiTi/result";
 @import "FangZhengKaiTi-GBK/result";
+@import "FangZhengKaiTiJianTi-1/result.css";
+@import "FangZhengKaiTiFanTi-1/result.css";
