@@ -16,7 +16,8 @@
     "build:ui-css": "node tools/sass-handler.js components/styles/index.scss ./dist/zx-ui/ng-zx-ui.css",
     "minify:ui-css": "cleancss --format breakWith=lf --output ./dist/zx-ui/ng-zx-ui.min.css ./dist/zx-ui/ng-zx-ui.css",
     "build:css:ui": "npm run build:ui-css && npm run minify:ui-css",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "ng lint"
   },
   "engines": {
     "node": "^18.19.1 || ^20.11.1 || >=22.0.0",
@@ -54,7 +55,9 @@
     "@types/node": "^20.14.9",
     "@types/nprogress": "^0.2.3",
     "@zhexian/builders-runner": "link:builders",
+    "angular-eslint": "18.0.1",
     "clean-css-cli": "^5.6.3",
+    "eslint": "^9.3.0",
     "fs-extra": "^11.2.0",
     "husky": "^8.0.3",
     "jasmine": "^5.1.0",
@@ -70,6 +73,7 @@
     "prettier": "^3.3.2",
     "sass": "^1.77.6",
     "ts-node": "^10.9.2",
-    "typescript": "~5.4.5"
+    "typescript": "~5.4.5",
+    "typescript-eslint": "8.0.0-alpha.20"
   }
 }
