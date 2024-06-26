@@ -39,6 +39,7 @@
             "assets": [
               "site/src/favicon.ico",
               "site/src/assets",
+              "site/src/robots.txt",
               {
                 "glob": "**/*",
                 "input": "./docs/",
