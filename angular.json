@@ -117,6 +117,15 @@
             ],
             "tsConfig": "site/tsconfig.spec.json"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "site/**/*.ts",
+              "site/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -244,6 +253,15 @@
             "polyfills": [
               "zone.js",
               "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "components/**/*.ts",
+              "components/**/*.html"
             ]
           }
         }

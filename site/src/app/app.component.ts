@@ -25,9 +25,9 @@ export class AppComponent implements OnInit {
 
   isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.setupPageNavigationDimming();
-    this.loadCss('font.css', 'font').then();
+    await this.loadCss('font.css', 'font').then();
   }
 
   /**

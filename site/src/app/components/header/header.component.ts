@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import { Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -19,7 +19,7 @@ export class HeaderComponent {
   constructor(private http: HttpClient) {
     this.http.get('assets/config/nav.config.json', {responseType: 'json'}).subscribe(res => {
       if (res) {
-        this.navs = (res as any).nav;
+        this.navs = (res as { nav: { name: string, link: string }[] }).nav;
       }
     });
   }

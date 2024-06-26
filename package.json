@@ -75,5 +75,29 @@
     "ts-node": "^10.9.2",
     "typescript": "~5.4.5",
     "typescript-eslint": "8.0.0-alpha.20"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": ["*.ts"],
+        "parserOptions": {
+          "project": "./tsconfig.json",
+          "createDefaultProgram": true
+        },
+        "plugins": [
+          "@typescript-eslint"
+        ],
+        "extends": [
+          "plugin:@angular-eslint/recommended",
+          "plugin:@typescript-eslint/recommended",
+          "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        ]
+      },
+      {
+        "files": ["*.html"],
+        "extends": ["plugin:@angular-eslint/template/recommended"],
+        "rules": {}
+      }
+    ]
   }
 }
