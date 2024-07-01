@@ -12,7 +12,7 @@
     "build:zx": "ng build ngx-zx",
     "test:zx": "ng test ngx-zx",
     "build:builders": "tsc --project builders/tsconfig.json",
-    "build:test-builders": "ng copy-package zx-ng-test",
+    "build:test-builders": "ng run copy zx-ng-test",
     "build:ui-css": "node tools/sass-handler.js components/styles/index.scss ./dist/zx-ui/ng-zx-ui.css",
     "minify:ui-css": "cleancss --format breakWith=lf --output ./dist/zx-ui/ng-zx-ui.min.css ./dist/zx-ui/ng-zx-ui.css",
     "build:css:ui": "npm run build:ui-css && npm run minify:ui-css",
@@ -101,8 +101,7 @@
         ],
         "extends": [
           "plugin:@angular-eslint/template/recommended"
-        ],
-        "rules": {}
+        ]
       }
     ]
   }
