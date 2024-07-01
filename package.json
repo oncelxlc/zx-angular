@@ -57,7 +57,7 @@
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "18.0.1",
     "clean-css-cli": "^5.6.3",
-    "eslint": "^9.5.0",
+    "eslint": "^9.6.0",
     "fs-extra": "^11.2.0",
     "husky": "^8.0.3",
     "jasmine": "^5.1.0",
