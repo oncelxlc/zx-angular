@@ -17,7 +17,10 @@
     "minify:ui-css": "cleancss --format breakWith=lf --output ./dist/zx-ui/ng-zx-ui.min.css ./dist/zx-ui/ng-zx-ui.css",
     "build:css:ui": "npm run build:ui-css && npm run minify:ui-css",
     "prepare": "husky install",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "lint:zxa": "ng lint zx-ng",
+    "lint:zx": "ng lint ngx-zx",
+    "lint:all": "ng lint:zx && ng lint:zxa"
   },
   "engines": {
     "node": "^18.19.1 || ^20.11.1 || >=22.0.0",

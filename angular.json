@@ -124,7 +124,8 @@
             "lintFilePatterns": [
               "site/**/*.ts",
               "site/**/*.html"
-            ]
+            ],
+            "eslintConfig": "site/eslint.config.js"
           }
         }
       }
@@ -181,7 +182,8 @@
             "lintFilePatterns": [
               "components/**/*.ts",
               "components/**/*.html"
-            ]
+            ],
+            "eslintConfig": "components/eslint.config.js"
           }
         }
       }
