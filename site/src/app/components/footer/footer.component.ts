@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import { Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'zxa-footer',

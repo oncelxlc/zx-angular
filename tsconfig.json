@@ -11,20 +11,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "paths": {
-      "@zx-ng/*": [
-        "site/src/*"
-      ],
-      "ngx-zx": [
-        "./dist/ngx-zx"
-      ],
-      "@ngx-zx": [
-        "./components"
-      ],
-      "@ngx-zx/*": [
-        "./components/*"
-      ]
-    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
