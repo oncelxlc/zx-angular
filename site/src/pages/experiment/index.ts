@@ -1,2 +1,1 @@
-export * from './experiment.component';
-export * from './views';
+export * from './public-api';

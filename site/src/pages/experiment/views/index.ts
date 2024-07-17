@@ -1,1 +1,1 @@
-export * from './overlay-exp/overlay-exp.component';
+export * from './public-api';
