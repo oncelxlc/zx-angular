@@ -15,11 +15,8 @@ export const PROGRESS_BAR_DELAY = 30;
   styleUrls: ["./main.component.scss"],
 })
 export class MainComponent implements AfterViewInit {
-  footerHeight: number = 0;
+  footerHeight = 0;
   @ViewChild("footer") private footer!: ElementRef<HTMLDivElement>;
-
-  constructor() {
-  }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
