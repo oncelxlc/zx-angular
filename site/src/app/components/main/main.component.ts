@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
-import { FooterComponent } from "@zx-ng/app/components/footer/footer.component";
-import { HeaderComponent } from "@zx-ng/app/components/header/header.component";
+import { FooterComponent } from "../footer/footer.component";
+import { HeaderComponent } from "../header/header.component";
 
 export const PROGRESS_BAR_DELAY = 30;
 
