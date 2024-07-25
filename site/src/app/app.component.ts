@@ -9,7 +9,9 @@ import {
 } from '@angular/router';
 import { NgProgressComponent } from 'ngx-progressbar';
 import { filter, map, switchMap, take } from 'rxjs';
-import { MainComponent, PROGRESS_BAR_DELAY } from "./components";
+import { MainComponent } from "./components";
+
+export const PROGRESS_BAR_DELAY = 30;
 
 @Component({
   selector: 'zxa-root',
