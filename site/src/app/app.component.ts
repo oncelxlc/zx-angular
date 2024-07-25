@@ -1,35 +1,33 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { isPlatformBrowser } from "@angular/common";
+import { Component, inject, OnInit, PLATFORM_ID, ViewChild } from "@angular/core";
 import {
   NavigationCancel,
-  NavigationEnd, NavigationError, NavigationSkipped,
+  NavigationEnd,
+  NavigationError,
+  NavigationSkipped,
   NavigationStart,
   Router,
   RouterOutlet,
-} from '@angular/router';
-import { NgProgressComponent } from 'ngx-progressbar';
-import { filter, map, switchMap, take } from 'rxjs';
+} from "@angular/router";
+import { NgProgressComponent } from "ngx-progressbar";
+import { filter, map, switchMap, take } from "rxjs";
 import { MainComponent } from "./components";
 
-export const PROGRESS_BAR_DELAY = 30;
-
 @Component({
-  selector: 'zxa-root',
+  selector: "zxa-root",
   standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.scss",
   imports: [RouterOutlet, MainComponent, NgProgressComponent],
 })
 export class AppComponent implements OnInit {
+  @ViewChild(NgProgressComponent, {static: true}) progressBar!: NgProgressComponent;
+  isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private readonly router = inject(Router);
 
-  @ViewChild(NgProgressComponent, {static: true}) progressBar!: NgProgressComponent;
-
-  isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
-
-  async ngOnInit(): Promise<void> {
+  ngOnInit() {
     this.setupPageNavigationDimming();
-    await this.loadCss('font.css', 'font').then();
+    this.loadCss("font.css", "font").then();
   }
 
   /**
@@ -73,17 +71,19 @@ export class AppComponent implements OnInit {
 
   private loadCss(href: string, id: string): Promise<Event> {
     return new Promise((resolve, reject) => {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
       link.href = href;
       link.id = id;
-      link.media = 'print';
+      link.media = "print";
       link.onload = resolve;
       link.onerror = reject;
       document.head.append(link);
       link.onload = function () {
-        link.media = 'all'; // 加载完成后，设置为 all 以应用样式
+        link.media = "all"; // 加载完成后，设置为 all 以应用样式
       };
     });
   }
 }
+
+export const PROGRESS_BAR_DELAY = 30;
