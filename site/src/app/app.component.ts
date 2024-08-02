@@ -27,7 +27,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.setupPageNavigationDimming();
-    this.loadCss("font.css", "font").then();
   }
 
   /**
@@ -67,22 +66,6 @@ export class AppComponent implements OnInit {
         clearTimeout(timeoutId);
         this.progressBar.complete();
       });
-  }
-
-  private loadCss(href: string, id: string): Promise<Event> {
-    return new Promise((resolve, reject) => {
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = href;
-      link.id = id;
-      link.media = "print";
-      link.onload = resolve;
-      link.onerror = reject;
-      document.head.append(link);
-      link.onload = function () {
-        link.media = "all"; // 加载完成后，设置为 all 以应用样式
-      };
-    });
   }
 }
 
