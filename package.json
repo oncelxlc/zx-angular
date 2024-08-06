@@ -43,7 +43,7 @@
     "ngx-progressbar": "^11.1.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.3",
-    "zone.js": "~0.14.8"
+    "zone.js": "~0.14.10"
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.1800.7",
@@ -76,6 +76,5 @@
     "ts-node": "^10.9.2",
     "typescript": "~5.4.5",
     "typescript-eslint": "8.0.0-alpha.20"
-  },
-  "packageManager": "pnpm@8.15.4+sha256.cea6d0bdf2de3a0549582da3983c70c92ffc577ff4410cbf190817ddc35137c2"
+  }
 }

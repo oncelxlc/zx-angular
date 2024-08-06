@@ -57,11 +57,6 @@
                 "input": "site/src/styles/font/_font.scss",
                 "bundleName": "font",
                 "inject": true
-              },
-              {
-                "input": "ng-zorro-antd/ng-zorro-antd.dark.min.css",
-                "bundleName": "dark",
-                "inject": false
               }
             ],
             "scripts": []
