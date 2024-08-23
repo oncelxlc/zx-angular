@@ -2,7 +2,7 @@
   <header>
     <zxa-header></zxa-header>
   </header>
-  <main class="zxa-main" [style]="{'min-height': 'calc(100vh - ' + footerHeight + 'px)'}">
+  <main #main class="zxa-main">
     <section class="zxa-main-body">
       <aside>aside</aside>
       <section>
@@ -10,7 +10,7 @@
       </section>
     </section>
   </main>
-  <footer #footer>
+  <footer #footer zxHeightObserver [targetElement]="main">
     <zxa-footer></zxa-footer>
   </footer>
 </article>
