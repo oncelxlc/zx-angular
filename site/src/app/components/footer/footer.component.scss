@@ -1,10 +1,12 @@
 .zxa-footer {
+  font-size: 16px;
   display: grid;
   width: var(--main-width);
   margin: 0 auto;
   padding: 56px 0;
   color: var(--color-text-tertiary);
   grid-template-columns: 3fr 2fr 2fr 2fr;
+  line-height: 1;
 
   > .zxa-footer-item {
     &:first-of-type {

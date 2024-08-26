@@ -22,7 +22,7 @@ import { debounceTime, Subject } from "rxjs";
 export class HeightObserverDirective implements OnInit, OnDestroy {
   @Input({required: true}) targetElement!: HTMLElement;
   @Input({transform: numberAttribute}) debounceTime = 100; // 默认防抖时间为100ms
-  @Input({transform: booleanAttribute}) useParentHeight = true; // 是否使用父元素高度
+  @Input({transform: booleanAttribute}) isDocumentHeight = true; // 是否文档高度
   @Input({transform: numberAttribute}) fixedHeight?: number; // 可选的固定高度值
 
   private resizeObserver!: ResizeObserver;
@@ -49,14 +49,8 @@ export class HeightObserverDirective implements OnInit, OnDestroy {
     this.resizeObserver = new ResizeObserver(() => {
       this.heightChangeSubject.next();
     });
-
-    this.resizeObserver.observe(this.el.nativeElement);
-    if (this.useParentHeight) {
-      const parent = this.el.nativeElement.parentElement;
-      if (parent) {
-        this.resizeObserver.observe(parent);
-      }
-    }
+    this.resizeObserver.observe(document.documentElement);
+    this.resizeObserver.observe(this.targetElement);
   }
 
   /**
@@ -79,9 +73,8 @@ export class HeightObserverDirective implements OnInit, OnDestroy {
     if (!this.targetElement) return;
 
     let availableHeight: number;
-    if (this.useParentHeight) {
-      const parent = this.el.nativeElement.parentElement;
-      availableHeight = parent ? parent.clientHeight : 0;
+    if (this.isDocumentHeight) {
+      availableHeight = document.documentElement.clientHeight;
     } else if (this.fixedHeight !== undefined) {
       availableHeight = this.fixedHeight;
     } else {
