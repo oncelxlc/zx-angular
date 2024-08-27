@@ -74,7 +74,7 @@ export class HeightObserverDirective implements OnInit, OnDestroy {
 
     let availableHeight: number;
     if (this.isDocumentHeight) {
-      availableHeight = document.documentElement.clientHeight;
+      availableHeight = document.documentElement.offsetHeight;
     } else if (this.fixedHeight !== undefined) {
       availableHeight = this.fixedHeight;
     } else {
