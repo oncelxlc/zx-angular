@@ -13,7 +13,7 @@ import { debounceTime, Subject } from "rxjs";
 /**
  * 监听元素高度变化
  *
- * TODO 默认高度设置，定位的父元素高度
+ * TODO 进一步优化，支持更多场景
  */
 @Directive({
   selector: "[zxHeightObserver]",
