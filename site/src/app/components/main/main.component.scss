@@ -31,7 +31,13 @@
       }
 
       &.zxa-aside-show {
+        width: 1472px;
         grid-template-columns: 200px 1fr;
+        gap: 24px;
+
+        > section {
+          padding-right: 224px;
+        }
       }
     }
   }
