@@ -1,28 +1,19 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { FooterComponent } from "@zx-ng/app/components/footer/footer.component";
-import { HeaderComponent } from "@zx-ng/app/components/header/header.component";
-
-export const PROGRESS_BAR_DELAY = 30;
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { HeightObserverDirective } from '@ngx-zx/directive';
+import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
-  selector: "zxa-main",
+  selector: 'zxa-main',
   standalone: true,
-  imports: [
-    HeaderComponent,
-    FooterComponent,
-  ],
-  templateUrl: "./main.component.html",
-  styleUrls: ["./main.component.scss"],
+  imports: [HeaderComponent, FooterComponent, HeightObserverDirective],
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit, AfterViewInit {
-  footerHeight: number = 0;
-  @ViewChild("footer") private footer!: ElementRef<any>;
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
+export class MainComponent implements AfterViewInit {
+  footerHeight = 0;
+  @ViewChild('footer')
+  private footer!: ElementRef<HTMLDivElement>;
 
   ngAfterViewInit(): void {
     setTimeout(() => {

@@ -16,7 +16,6 @@
   backdrop-filter: blur(24px) saturate(140%);
 
   .zxa-header {
-    font-weight: 600;
     display: grid;
     overflow: hidden;
     align-items: center;
@@ -57,13 +56,15 @@
       > .zxa-header-router-link {
         font-size: 14px;
         min-width: 72px;
+        padding: 0 16px;
         cursor: pointer;
       }
     }
 
     > .zxa-header-option {
-      color: hsla(0, 0%, 100%, .8);
       font-size: 14px;
+      padding-left: 16px;
+      color: hsla(0, 0%, 100%, .8);
     }
   }
 }

@@ -1,19 +1,27 @@
-import {Injectable, OnDestroy} from '@angular/core';
+import { Injectable, OnDestroy } from "@angular/core";
 import {
   ActivationEnd,
-  ActivationStart, ChildActivationEnd,
-  ChildActivationStart, GuardsCheckEnd,
-  GuardsCheckStart, NavigationCancel, NavigationEnd, NavigationError, NavigationSkipped,
-  NavigationStart, ResolveEnd, ResolveStart,
+  ActivationStart,
+  ChildActivationEnd,
+  ChildActivationStart,
+  GuardsCheckEnd,
+  GuardsCheckStart,
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationSkipped,
+  NavigationStart,
+  ResolveEnd,
+  ResolveStart,
   RouteConfigLoadEnd,
   RouteConfigLoadStart,
   Router,
   RoutesRecognized,
-} from '@angular/router';
-import {map, Subject} from 'rxjs';
+} from "@angular/router";
+import { map, Subject } from "rxjs";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class RouterLoadingService implements OnDestroy {
   private unsubscribe$ = new Subject<void>();

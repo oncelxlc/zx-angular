@@ -1,10 +1,10 @@
-import {Routes} from '@angular/router';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('../pages/index/index.component').then(m => m.IndexComponent),
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'blog',
@@ -12,7 +12,7 @@ export const routes: Routes = [
   },
   {
     path: 'experiment',
-    loadComponent: () => import('../pages/experiment/experiment.component').then(m => m.ExperimentComponent),
+    loadChildren: () => import('../routes/experiment.routes').then(m => m.experimentRoutes),
   },
   {
     path: 'notes',
@@ -24,6 +24,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/not-found'
-  }
+    redirectTo: '/not-found',
+  },
 ];

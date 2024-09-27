@@ -1,33 +1,32 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { isPlatformBrowser } from "@angular/common";
+import { Component, inject, OnInit, PLATFORM_ID, ViewChild } from "@angular/core";
 import {
   NavigationCancel,
-  NavigationEnd, NavigationError, NavigationSkipped,
+  NavigationEnd,
+  NavigationError,
+  NavigationSkipped,
   NavigationStart,
   Router,
   RouterOutlet,
-} from '@angular/router';
-import { MainComponent, PROGRESS_BAR_DELAY } from '@zx-ng/app/components';
-import { NgProgressComponent } from 'ngx-progressbar';
-import { filter, map, switchMap, take } from 'rxjs';
+} from "@angular/router";
+import { NgProgressComponent } from "ngx-progressbar";
+import { filter, map, switchMap, take } from "rxjs";
+import { MainComponent } from "./components";
 
 @Component({
-  selector: 'zxa-root',
+  selector: "zxa-root",
   standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.scss",
   imports: [RouterOutlet, MainComponent, NgProgressComponent],
 })
 export class AppComponent implements OnInit {
+  @ViewChild(NgProgressComponent, {static: true}) progressBar!: NgProgressComponent;
+  isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private readonly router = inject(Router);
 
-  @ViewChild(NgProgressComponent, {static: true}) progressBar!: NgProgressComponent;
-
-  isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.setupPageNavigationDimming();
-    this.loadCss("font.css", "font").then()
   }
 
   /**
@@ -68,16 +67,6 @@ export class AppComponent implements OnInit {
         this.progressBar.complete();
       });
   }
-
-  private loadCss(href: string, id: string): Promise<Event> {
-    return new Promise((resolve, reject) => {
-      const style = document.createElement('link');
-      style.rel = 'stylesheet';
-      style.href = href;
-      style.id = id;
-      style.onload = resolve;
-      style.onerror = reject;
-      document.head.append(style);
-    });
-  }
 }
+
+export const PROGRESS_BAR_DELAY = 30;

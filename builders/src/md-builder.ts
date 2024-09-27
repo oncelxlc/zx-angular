@@ -7,12 +7,7 @@ interface Options extends JsonObject {
   destination: string;
 }
 
-export default createBuilder(copyFileBuilder);
-
-async function copyFileBuilder(
-  options: Options,
-  context: BuilderContext,
-): Promise<BuilderOutput> {
+async function copyFileBuilder(options: Options, context: BuilderContext): Promise<BuilderOutput> {
   context.reportStatus(`Copying ${options.source} to ${options.destination}.`);
   try {
     await fs.copyFile(options.source, options.destination);
@@ -27,3 +22,5 @@ async function copyFileBuilder(
   context.reportStatus('Done.');
   return { success: true };
 }
+
+export default createBuilder(copyFileBuilder);
