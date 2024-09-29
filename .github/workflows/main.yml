@@ -35,6 +35,6 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "dist/zx-ng/"
+        source: "dist/zx-ng/browser/*"
         target: "/usr/local/nginx/ng/"
         rm: true
