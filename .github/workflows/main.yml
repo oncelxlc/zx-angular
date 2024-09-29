@@ -1,41 +1,50 @@
+# 工作流程的名称
 name: Angular CI/CD
 
+# 触发工作流程的事件
 on:
   push:
-    branches: [ master ]
+    branches: [ master ]  # 在推送到 master 分支时触发
 
+# 定义要运行的作业
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # 在最新版本的 Ubuntu 上运行
 
     steps:
+    # 检出代码到 GitHub Actions 运行器
     - uses: actions/checkout@v4
 
+    # 安装 pnpm
     - name: Install pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: 9
-        run_install: false
+        version: 9  # 使用 pnpm 版本 9
+        run_install: false  # 不自动运行 pnpm install
 
+    # 设置 Node.js 环境
     - name: Install Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18.x'
-        cache: 'pnpm'
+        node-version: '18.x'  # 使用 Node.js 18.x 版本
+        cache: 'pnpm'  # 使用 pnpm 进行依赖缓存
 
+    # 安装项目依赖
     - name: Install dependencies
       run: pnpm install
 
+    # 构建项目
     - name: Build
       run: pnpm run build
 
+    # 部署到服务器
     - name: Deploy to server
       uses: appleboy/scp-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "dist/zx-ng/browser/*"
-        target: "/usr/local/nginx/ng/"
-        strip_components: 3
-        rm: true
+        host: ${{ secrets.HOST }}  # 从 GitHub secrets 获取主机地址
+        username: ${{ secrets.USERNAME }}  # 从 GitHub secrets 获取用户名
+        key: ${{ secrets.SSH_PRIVATE_KEY }}  # 从 GitHub secrets 获取 SSH 私钥
+        source: "dist/zx-ng/browser/*"  # 指定要传输的源文件
+        target: "/usr/local/nginx/ng/"  # 指定目标服务器上的部署路径
+        strip_components: 3  # 去除源路径的前三个组件
+        rm: true  # 在传输前删除目标路径中的所有文件和目录
