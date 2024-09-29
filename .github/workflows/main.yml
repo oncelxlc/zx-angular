@@ -3,8 +3,6 @@ name: Angular CI/CD
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build-and-deploy:
@@ -29,7 +27,7 @@ jobs:
       run: pnpm install
 
     - name: Build
-      run: pnpm run build:zx --prod
+      run: pnpm run build:zx
 
     - name: Deploy to server
       uses: appleboy/scp-action@master
@@ -39,3 +37,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "dist/zx-ng/"
         target: "/usr/local/nginx/ng/"
+        
