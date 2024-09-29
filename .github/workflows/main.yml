@@ -37,4 +37,5 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "dist/zx-ng/browser/*"
         target: "/usr/local/nginx/ng/"
+        strip_components: 3
         rm: true
