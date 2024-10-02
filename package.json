@@ -47,9 +47,9 @@
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.1800.7",
-    "@angular-devkit/build-angular": "^18.2.6",
-    "@angular-devkit/core": "^18.2.6",
-    "@angular/cli": "^18.2.6",
+    "@angular-devkit/build-angular": "^18.2.7",
+    "@angular-devkit/core": "^18.2.7",
+    "@angular/cli": "^18.2.7",
     "@angular/compiler-cli": "^18.2.6",
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-angular": "^18.6.1",
