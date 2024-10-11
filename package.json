@@ -7,7 +7,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve zx-ng",
-    "start:host": "ng serve zx-ng --host 0.0.0.0",
+    "start:host": "ng serve zx-ng",
     "build": "ng build zx-ng --configuration production",
     "test": "ng test zx-ng",
     "build:zx": "ng build ngx-zx",
@@ -72,7 +72,7 @@
     "ng-packagr": "^18.2.1",
     "path": "^0.12.7",
     "prettier": "^3.3.3",
-    "sass": "^1.79.4",
+    "sass": "^1.79.5",
     "ts-node": "^10.9.2",
     "typescript": "~5.4.5",
     "typescript-eslint": "8.0.0-alpha.20"

@@ -93,6 +93,10 @@
             },
             "development": {
               "buildTarget": "zx-ng:build:development"
+            },
+            "option": {
+              "port": 4200,
+              "host": "0.0.0.0"
             }
           },
           "defaultConfiguration": "development"
