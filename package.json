@@ -54,7 +54,7 @@
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-angular": "^18.6.1",
     "@types/jasmine": "~4.3.6",
-    "@types/node": "^20.16.12",
+    "@types/node": "^20.16.13",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "18.0.1",
     "clean-css-cli": "^5.6.3",
