@@ -58,7 +58,7 @@
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "18.0.1",
     "clean-css-cli": "^5.6.3",
-    "eslint": "^9.13.0",
+    "eslint": "^9.14.0",
     "fs-extra": "^11.2.0",
     "husky": "^8.0.3",
     "jasmine": "^5.4.0",
@@ -71,7 +71,7 @@
     "ng-packagr": "^18.2.1",
     "path": "^0.12.7",
     "prettier": "^3.3.3",
-    "sass": "^1.80.5",
+    "sass": "^1.80.6",
     "ts-node": "^10.9.2",
     "typescript": "~5.5.4",
     "typescript-eslint": "^8.12.2"
