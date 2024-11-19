@@ -33,8 +33,17 @@ const writeFileRecursive = function(path, buffer, callback){
   });
 }
 
+/**
+ * Writes the compiled CSS to a file.
+ *
+ * @param {string} filePath - The path to the file to be written.
+ * @param {Buffer} buffer - The content of the file to be written.
+ * @param {function} callback - The callback function to be called once the file is written.
+ * @returns {void}
+ */
 writeFileRecursive(args[1], result.css, (err) => {
   if (err) {
-    console.log(err)
+    // Log the error if the file cannot be written.
+    console.log(err);
   }
 });
