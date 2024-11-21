@@ -1,6 +1,6 @@
 {
   "name": "@zhexian/builders-runner",
-  "version": "0.0.1-bate.1",
+  "version": "0.0.1",
   "description": "",
   "main": "index.ts",
   "builders": "builders.json",
