@@ -11,8 +11,8 @@
   "author": "zhexian",
   "license": "ISC",
   "dependencies": {
-    "@angular-devkit/architect": "^0.1802.12",
-    "@angular-devkit/build-angular": "^18.2.12",
-    "@angular-devkit/core": "^18.2.12"
+    "@angular-devkit/architect": "^0.1900.0",
+    "@angular-devkit/build-angular": "^19.0.0",
+    "@angular-devkit/core": "^19.0.0"
   }
 }
