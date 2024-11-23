@@ -57,7 +57,7 @@
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-angular": "^19.6.0",
     "@types/jasmine": "^5.1.4",
-    "@types/node": "^22.9.1",
+    "@types/node": "^22.9.3",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "^18.4.1",
     "clean-css-cli": "^5.6.3",
@@ -76,7 +76,7 @@
     "prettier": "^3.3.3",
     "sass": "^1.81.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3",
+    "typescript": "~5.6.3",
     "typescript-eslint": "^8.15.0"
   }
 }
