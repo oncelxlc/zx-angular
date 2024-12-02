@@ -139,8 +139,8 @@
         "copy": {
           "builder": "@zhexian/builders-runner:copy",
           "options": {
-            "source": "package.json",
-            "destination": "package-copy.json"
+            "watchFolder": "docs",
+            "ignored": ["*.tmp", "*.log"]
           }
         }
       }
