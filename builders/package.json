@@ -5,14 +5,15 @@
   "main": "index.ts",
   "builders": "builders.json",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.json",
     "test": "ts-node node_modules/jasmine/bin/jasmine src/index_spec.ts"
   },
   "author": "zhexian",
   "license": "ISC",
   "dependencies": {
-    "@angular-devkit/architect": "^0.1900.0",
-    "@angular-devkit/build-angular": "^19.0.0",
-    "@angular-devkit/core": "^19.0.0"
+    "@angular-devkit/architect": "^0.1900.2",
+    "@angular-devkit/build-angular": "^19.0.2",
+    "@angular-devkit/core": "^19.0.2",
+    "typescript": "~5.6.3"
   }
 }
