@@ -57,7 +57,7 @@
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-angular": "^19.6.0",
     "@types/jasmine": "^5.1.5",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.2",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "^19.0.2",
     "chokidar": "^4.0.1",
