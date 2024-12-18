@@ -60,7 +60,7 @@
     "@types/node": "^22.10.2",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "^19.0.2",
-    "chokidar": "^4.0.1",
+    "chokidar": "^4.0.2",
     "clean-css-cli": "^5.6.3",
     "eslint": "^9.17.0",
     "fs-extra": "^11.2.0",
@@ -78,6 +78,6 @@
     "sass": "^1.83.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.6.3",
-    "typescript-eslint": "^8.18.0"
+    "typescript-eslint": "^8.18.1"
   }
 }
