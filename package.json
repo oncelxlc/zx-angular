@@ -17,7 +17,7 @@
     "build:ui-css": "node tools/sass-handler.js components/styles/_index.scss ./dist/zx-ui/ng-zx-ui.css",
     "minify:ui-css": "cleancss --format breakWith=lf --output ./dist/zx-ui/ng-zx-ui.min.css ./dist/zx-ui/ng-zx-ui.css",
     "build:css:ui": "npm run build:ui-css && npm run minify:ui-css",
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "ng lint",
     "lint:zxa": "ng lint zx-ng",
     "lint:zx": "ng lint ngx-zx",
@@ -41,7 +41,7 @@
     "@angular/platform-browser": "^19.0.5",
     "@angular/platform-browser-dynamic": "^19.0.5",
     "@angular/router": "^19.0.5",
-    "@ant-design/colors": "^7.1.0",
+    "@ant-design/colors": "^7.2.0",
     "markdown-it": "^14.1.0",
     "ngx-progressbar": "^13.0.0",
     "rxjs": "~7.8.1",
@@ -78,6 +78,6 @@
     "sass": "^1.83.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.6.3",
-    "typescript-eslint": "^8.18.2"
+    "typescript-eslint": "^8.19.0"
   }
 }
