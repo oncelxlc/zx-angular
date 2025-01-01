@@ -1,7 +1,7 @@
-@import "basic/normalize";
-@import "basic/reset";
-@import "basic/base-color";
+@use "basic/normalize";
+@use "basic/reset";
+@use "basic/base-color";
 
-@import "app/global";
-@import "app/overwrite";
-@import "app/layout";
+@use "app/global";
+@use "app/overwrite";
+@use "app/layout";

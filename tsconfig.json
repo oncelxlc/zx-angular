@@ -25,9 +25,6 @@
       "dom"
     ],
     "paths": {
-      "@zx-ng/*": [
-        "site/src/*"
-      ],
       "@ngx-zx/*": [
         "components/*"
       ]

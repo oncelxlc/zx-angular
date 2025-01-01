@@ -3,7 +3,7 @@
 ## 本地安装
 
 ```shell
-pnpm add .\builders --save-dev
+pnpm add ./builders --save-dev
 ```
 
 ## 运行

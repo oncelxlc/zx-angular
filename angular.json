@@ -52,6 +52,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "site/src/styles.scss",
               {
                 "input": "site/src/styles/font/_font.scss",
@@ -138,8 +139,8 @@
         "copy": {
           "builder": "@zhexian/builders-runner:copy",
           "options": {
-            "source": "package.json",
-            "destination": "package-copy.json"
+            "watchFolder": "docs",
+            "ignored": ["*.tmp", "*.log"]
           }
         }
       }

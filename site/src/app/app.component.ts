@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from "@angular/common";
-import { Component, inject, OnInit, PLATFORM_ID, ViewChild } from "@angular/core";
+import { Component, inject, OnInit, PLATFORM_ID, Signal, viewChild } from "@angular/core";
 import {
   NavigationCancel,
   NavigationEnd,
@@ -9,7 +9,7 @@ import {
   Router,
   RouterOutlet,
 } from "@angular/router";
-import { NgProgressComponent } from "ngx-progressbar";
+import { NgProgressbar, NgProgressRef } from "ngx-progressbar";
 import { filter, map, switchMap, take } from "rxjs";
 import { MainComponent } from "./components";
 
@@ -18,11 +18,11 @@ import { MainComponent } from "./components";
   standalone: true,
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
-  imports: [RouterOutlet, MainComponent, NgProgressComponent],
+  imports: [RouterOutlet, MainComponent, NgProgressbar],
 })
 export class AppComponent implements OnInit {
-  @ViewChild(NgProgressComponent, {static: true}) progressBar!: NgProgressComponent;
   isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private progressBar: Signal<NgProgressRef | undefined> = viewChild(NgProgressRef);
   private readonly router = inject(Router);
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
         map(() => {
           // 仅当导航不是“立即”时才应用设置属性
           return setTimeout(() => {
-            this.progressBar.start();
+            this.progressBar()?.start();
           }, PROGRESS_BAR_DELAY);
         }),
         switchMap((timeoutId) => {
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
       .subscribe((timeoutId) => {
         // 当导航完成时，防止在超时时间内应用导航类。
         clearTimeout(timeoutId);
-        this.progressBar.complete();
+        this.progressBar()?.complete();
       });
   }
 }

@@ -1,3 +1,8 @@
+@use "AaKaiTi/result" as *;
+@use "FangZhengKaiTi-GBK/result" as *;
+@use "JetBrainsMono-Italic-5/result" as *;
+@use "JetBrainsMono-Medium-Italic-4/result" as *;
+
 @font-face {
   font-family: "阿里巴巴普惠体 Regular";
   src: url("lPrBw2lqXjUy.woff2") format("woff2"),
@@ -21,10 +26,5 @@
   font-display: swap;
   font-weight: 600;
 }
-
-@import "AaKaiTi/result";
-@import "FangZhengKaiTi-GBK/result";
-@import "JetBrainsMono-Italic-5/result.css";
-@import "JetBrainsMono-Medium-Italic-4/result.css";
 //@import "FangZhengKaiTiJianTi-1/result.css";
 //@import "FangZhengKaiTiFanTi-1/result.css";
