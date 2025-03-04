@@ -56,7 +56,7 @@
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-angular": "^19.7.1",
     "@types/jasmine": "^5.1.7",
-    "@types/node": "^22.13.8",
+    "@types/node": "^22.13.9",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "^19.2.0",
     "chokidar": "^4.0.3",
@@ -77,6 +77,6 @@
     "sass": "^1.85.1",
     "ts-node": "^10.9.2",
     "typescript": "~5.6.3",
-    "typescript-eslint": "^8.25.0"
+    "typescript-eslint": "^8.26.0"
   }
 }
