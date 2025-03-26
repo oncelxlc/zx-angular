@@ -31,12 +31,12 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.2.3",
-    "@angular/cdk": "^19.2.6",
+    "@angular/cdk": "^19.2.7",
     "@angular/common": "^19.2.3",
     "@angular/compiler": "^19.2.3",
     "@angular/core": "^19.2.3",
     "@angular/forms": "^19.2.3",
-    "@angular/material": "^19.2.6",
+    "@angular/material": "^19.2.7",
     "@angular/platform-browser": "^19.2.3",
     "@angular/platform-browser-dynamic": "^19.2.3",
     "@angular/router": "^19.2.3",
@@ -49,14 +49,14 @@
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.1901.9",
-    "@angular-devkit/build-angular": "^19.2.4",
-    "@angular-devkit/core": "^19.2.4",
-    "@angular/cli": "^19.2.4",
+    "@angular-devkit/build-angular": "^19.2.5",
+    "@angular-devkit/core": "^19.2.5",
+    "@angular/cli": "^19.2.5",
     "@angular/compiler-cli": "^19.2.3",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-angular": "^19.8.0",
     "@types/jasmine": "^5.1.7",
-    "@types/node": "^22.13.11",
+    "@types/node": "^22.13.13",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "^19.3.0",
     "chokidar": "^4.0.3",
@@ -77,7 +77,7 @@
     "sass": "^1.86.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.6.3",
-    "typescript-eslint": "^8.27.0"
+    "typescript-eslint": "^8.28.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
