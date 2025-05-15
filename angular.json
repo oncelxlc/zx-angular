@@ -60,7 +60,12 @@
                 "inject": true
               }
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -140,7 +145,10 @@
           "builder": "@zhexian/builders-runner:copy",
           "options": {
             "watchFolder": "docs",
-            "ignored": ["*.tmp", "*.log"]
+            "ignored": [
+              "*.tmp",
+              "*.log"
+            ]
           }
         }
       }
