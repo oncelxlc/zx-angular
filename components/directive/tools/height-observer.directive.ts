@@ -1,5 +1,5 @@
 import {
-  afterNextRender, afterRenderEffect,
+  afterNextRender,
   booleanAttribute, DestroyRef,
   Directive,
   ElementRef, inject,
