@@ -1,10 +1,10 @@
 import {
-  booleanAttribute,
+  afterNextRender, afterRenderEffect,
+  booleanAttribute, DestroyRef,
   Directive,
-  ElementRef,
+  ElementRef, inject,
   Input,
   numberAttribute,
-  OnDestroy,
   OnInit,
   Renderer2,
 } from "@angular/core";
@@ -19,7 +19,7 @@ import { debounceTime, Subject } from "rxjs";
   selector: "[zxHeightObserver]",
   standalone: true,
 })
-export class HeightObserverDirective implements OnInit, OnDestroy {
+export class HeightObserverDirective implements OnInit {
   @Input({required: true}) targetElement!: HTMLElement;
   @Input({transform: numberAttribute}) debounceTime = 100; // 默认防抖时间为100ms
   @Input({transform: booleanAttribute}) isDocumentHeight = true; // 是否文档高度
@@ -28,17 +28,20 @@ export class HeightObserverDirective implements OnInit, OnDestroy {
   private resizeObserver!: ResizeObserver;
   private heightChangeSubject = new Subject<void>();
 
+  private destroyRef = inject(DestroyRef);
+
   constructor(private el: ElementRef, private renderer: Renderer2) {
+    afterNextRender(() => {
+      this.setupResizeObserver();
+      this.setupHeightChangeSubscription();
+      this.destroyRef.onDestroy(() => {
+        this.resizeObserver.disconnect();
+        this.heightChangeSubject.complete();
+      });
+    });
   }
 
   ngOnInit(): void {
-    this.setupResizeObserver();
-    this.setupHeightChangeSubscription();
-  }
-
-  ngOnDestroy(): void {
-    this.resizeObserver.disconnect();
-    this.heightChangeSubject.complete();
   }
 
   /**
@@ -85,7 +88,7 @@ export class HeightObserverDirective implements OnInit, OnDestroy {
     const currentElementHeight = this.el.nativeElement.offsetHeight;
     const targetMinHeight = Math.max(0, availableHeight - currentElementHeight);
 
-    this.renderer.setStyle(this.targetElement, "minHeight", `${ targetMinHeight }px`);
+    this.renderer.setStyle(this.targetElement, "minHeight", `${targetMinHeight}px`);
   }
 
 }

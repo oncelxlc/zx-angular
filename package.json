@@ -20,7 +20,8 @@
     "lint": "ng lint",
     "lint:zxa": "ng lint zx-ng",
     "lint:zx": "ng lint ngx-zx",
-    "lint:all": "ng lint:zx && ng lint:zxa"
+    "lint:all": "ng lint:zx && ng lint:zxa",
+    "serve:ssr:zx-ng": "node dist/zx-ng/server/server.mjs"
   },
   "engines": {
     "node": "^18.19.1 || ^20.11.1 || >=22.0.0",
@@ -38,8 +39,11 @@
     "@angular/material": "^20.0.1",
     "@angular/platform-browser": "^20.0.0",
     "@angular/platform-browser-dynamic": "^20.0.0",
+    "@angular/platform-server": "^20.0.0",
     "@angular/router": "^20.0.0",
+    "@angular/ssr": "^20.0.0",
     "@ant-design/colors": "^7.2.1",
+    "express": "^5.1.0",
     "markdown-it": "^14.1.0",
     "ngx-progressbar": "^13.0.0",
     "rxjs": "~7.8.2",
@@ -54,8 +58,9 @@
     "@angular/compiler-cli": "^20.0.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-angular": "^19.8.1",
+    "@types/express": "^5.0.1",
     "@types/jasmine": "^5.1.8",
-    "@types/node": "^22.15.27",
+    "@types/node": "^20.17.19",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "^19.6.0",
     "chokidar": "^4.0.3",

@@ -83,6 +83,11 @@
               "includePaths": [
                 "node_modules"
               ]
+            },
+            "server": "site/src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "site/src/server.ts"
             }
           },
           "configurations": {
