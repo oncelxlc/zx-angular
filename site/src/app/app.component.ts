@@ -15,7 +15,6 @@ import { MainComponent } from "./components";
 
 @Component({
   selector: "zxa-root",
-  standalone: true,
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
   imports: [RouterOutlet, MainComponent, NgProgressbar],

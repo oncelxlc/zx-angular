@@ -4,7 +4,6 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'zxa-footer',
-  standalone: true,
   imports: [
     NgOptimizedImage,
     RouterLink,

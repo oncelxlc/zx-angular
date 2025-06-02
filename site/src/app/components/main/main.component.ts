@@ -5,7 +5,6 @@ import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'zxa-main',
-  standalone: true,
   imports: [HeaderComponent, FooterComponent, HeightObserverDirective],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],

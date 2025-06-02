@@ -17,7 +17,6 @@ import { debounceTime, Subject } from "rxjs";
  */
 @Directive({
   selector: "[zxHeightObserver]",
-  standalone: true,
 })
 export class HeightObserverDirective implements OnInit {
   @Input({required: true}) targetElement!: HTMLElement;

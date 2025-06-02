@@ -8,7 +8,6 @@ import { HeightObserverDirective } from './height-observer.directive';
     <div #observed style="height: 100px;">Observed</div>
     <div #target zxHeightObserver [targetElement]="target" [isDocumentHeight]="isDocumentHeight" [fixedHeight]="fixedHeight">Target</div>
   `,
-  standalone: true,
   imports: [HeightObserverDirective],
 })
 class TestComponent {

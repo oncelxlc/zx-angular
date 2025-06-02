@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'zxa-header',
-  standalone: true,
   imports: [
     NgOptimizedImage,
     RouterLink,
