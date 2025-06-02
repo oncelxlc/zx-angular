@@ -27,7 +27,7 @@ export class HeightObserverDirective implements OnInit {
   private resizeObserver!: ResizeObserver;
   private heightChangeSubject = new Subject<void>();
 
-  private destroyRef = inject(DestroyRef);
+  destroyRef = inject(DestroyRef);
 
   constructor(private el: ElementRef, private renderer: Renderer2) {
     afterNextRender(() => {
