@@ -1,33 +1,7 @@
-@use "AaKaiTi/result" as *;
 @use "FangZhengKaiTi-GBK/result" as *;
-@use "JetBrainsMono-Italic-5/result" as *;
-@use "JetBrainsMono-Medium-Italic-4/result" as *;
+@use "JetBrainsMono-LightItalic/result" as *;
 
-@font-face {
-  font-family: "阿里巴巴普惠体 Regular";
-  src: url("lPrBw2lqXjUy.woff2") format("woff2"),
-  url("lPrBw2lqXjUy.woff") format("woff");
-  font-display: swap;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "阿里巴巴普惠体 Medium";
-  src: url("PaSLV45UCFzD.woff2") format("woff2"),
-  url("PaSLV45UCFzD.woff") format("woff");
-  font-display: swap;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "阿里巴巴普惠体 Bold";
-  src: url("Zi2rWhjdcOsG.woff2") format("woff2"),
-  url("Zi2rWhjdcOsG.woff") format("woff");
-  font-display: swap;
-  font-weight: 600;
-}
-
-@font-face {
+/*@font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
@@ -48,7 +22,4 @@
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
-}
-
-//@import "FangZhengKaiTiJianTi-1/result.css";
-//@import "FangZhengKaiTiFanTi-1/result.css";
+}*/
