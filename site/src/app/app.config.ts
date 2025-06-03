@@ -29,7 +29,7 @@ export const appConfig: ApplicationConfig = {
     provideNgProgressRouter({
       startEvents: [GuardsCheckEnd],
       completeEvents: [NavigationEnd, NavigationCancel, NavigationError],
-      minDuration: 50,
+      minDuration: 0,
     }),
   ],
 };

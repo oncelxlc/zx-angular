@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgProgressbar } from 'ngx-progressbar';
 import { NgProgressRouter } from 'ngx-progressbar/router';
@@ -10,11 +10,8 @@ import { MainComponent } from './components';
   styleUrl: './app.component.scss',
   imports: [RouterOutlet, MainComponent, NgProgressbar, NgProgressRouter],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }
