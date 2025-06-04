@@ -1,9 +1,11 @@
 section.zxa-main {
   display: flex;
+  min-width: var(--main-min-width);
   height: 100%;
+  min-height: var(--main-min-height);
 
   > aside {
-    width: 240px;
+    width: var(--main-aside-width);
   }
 
   > article.zxa-main-article {

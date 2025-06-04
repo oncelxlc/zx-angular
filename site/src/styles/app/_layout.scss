@@ -1,4 +1,11 @@
 :root {
-  --header-height: 64px;
-  --main-width: 1280px;
+  --main-min-width: 1280px;
+  --main-min-height: 720px;
+
+  --main-aside-width: 224px;
+
+  --main-header-height: 64px;
+
+  --main-footer-height: 56px;
+  --main-footer-padding: 16px;
 }

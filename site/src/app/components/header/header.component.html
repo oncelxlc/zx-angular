@@ -1,14 +1,8 @@
-<div class="zxa-header-mask"></div>
-<div class="zxa-header-wrap">
-  <div class="zxa-header">
-    <div class="zxa-header-title">
-      <a [routerLink]="'/'"><img ngSrc="assets/svg/logo.svg" priority alt="謫仙" height="44" width="100"></a>
-    </div>
-    <div class="zxa-header-nav">
-      @for (nav of navs; track nav.link) {
-        <div class="zxa-header-router-link" [routerLink]="nav.link">{{ nav.name }}</div>
-      }
-    </div>
-    <div class="zxa-header-option">option</div>
-  </div>
+<div class="zxa-header">
+  <!--todo: 获取配置的路由名称-->
+  <div class="zxa-header-title">路由名称</div>
+  <!--todo: 导航或标签内容-->
+  <div class="zxa-header-customize">导航或标签</div>
+  <!--todo: 用户信息等-->
+  <div class="zxa-header-operation">用户信息等</div>
 </div>

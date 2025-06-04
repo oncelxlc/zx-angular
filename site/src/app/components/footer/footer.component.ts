@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'zxa-footer',
-  imports: [
-    NgOptimizedImage,
-    RouterLink,
-  ],
+  imports: [],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
