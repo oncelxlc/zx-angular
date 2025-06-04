@@ -7,7 +7,7 @@ body {
 
 ::-moz-selection {
   color: var(--color-selection-text);
-  background: var(--color-selection-bg)
+  background: var(--color-selection-bg);
 }
 
 ::selection {
@@ -17,10 +17,11 @@ body {
 
 img::-moz-selection {
   color: var(--color-selection-text);
-  background: var(--color-selection-dim)
+  background: var(--color-selection-dim);
 }
 
 img::selection {
   color: var(--color-selection-text);
-  background: var(--color-selection-dim)
+  background: var(--color-selection-dim);
+
 }

@@ -13,6 +13,7 @@ section.zxa-aside {
 
     > a > img {
       filter: var(--filter-invert);
+      user-select: none;
     }
   }
 
