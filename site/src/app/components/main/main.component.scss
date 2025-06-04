@@ -6,6 +6,8 @@ section.zxa-main {
 
   > aside {
     width: var(--main-aside-width);
+    border-right: 2px solid var(--color-border-primary);
+    box-shadow: var(--main-aside-shadow);
   }
 
   > article.zxa-main-article {
@@ -22,5 +24,6 @@ section.zxa-main > article.zxa-main-article {
 
   > section {
     flex: auto;
+    padding: var(--main-section-padding);
   }
 }

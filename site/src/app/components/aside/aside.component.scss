@@ -10,6 +10,10 @@ section.zxa-aside {
     justify-content: center;
     width: 100%;
     height: var(--main-header-height);
+
+    > a > img {
+      filter: var(--filter-invert);
+    }
   }
 
   > section {
