@@ -1,0 +1,33 @@
+[data-theme=dark] {
+  color-scheme: dark;
+  --header-bg: hsla(0, 0%, 4%, .8);
+  --header-border: hsla(0, 0%, 100%, .08);
+  --color-bg-primary: #08090A;
+  --color-bg-secondary: #161616;
+  --color-bg-tertiary: #1C1C1C;
+  --color-bg-quaternary: #232323;
+  --color-bg-quinary: #282828;
+  --color-border-primary: #23252A;
+  --color-border-secondary: #292B30;
+  --color-border-tertiary: #2C2E33;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #E3E4E6;
+  --color-text-tertiary: #969799;
+  --color-text-quaternary: #595A5C;
+  --color-link-primary: #7281FF;
+  --color-link-hover: #FFFFFF;
+  --color-brand-bg: #5E69D1;
+  --color-brand-text: #FFFFFF;
+  --color-selection-bg: #474747;
+  --color-selection-text: #FFFFFF;
+  --color-selection-dim: hsla(0, 0%, 100%, .2);
+  --focus-ring-color: hsla(0, 0%, 100%, .4);
+  --color-overlay-dim-rgb: 255, 255, 255;
+  --color-overlay-primary: rgba(0, 0, 0, .4);
+  --color-alpha: 255;
+  --shadow-low: 0px 2px 4px rgba(0, 0, 0, .1);
+  --shadow-medium: 0px 4px 24px rgba(0, 0, 0, .2);
+  --shadow-high: 0px 7px 32px rgba(0, 0, 0, .35);
+  --shadow-stack-low: 0px -1px 1px 0px rgba(0, 0, 0, .11) inset, 0px 8px 2px 0px transparent, 0px 5px 2px 0px rgba(0, 0, 0, .01), 0px 3px 2px 0px rgba(0, 0, 0, .04), 0px 1px 1px 0px rgba(0, 0, 0, .07), 0px 0px 1px 0px rgba(0, 0, 0, .08);
+  --icon-grayscale-image-filter: grayscale(100%) brightness(400%)
+}

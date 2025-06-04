@@ -1,16 +1,14 @@
-<article id="zxa">
-  <header>
-    <zxa-header></zxa-header>
-  </header>
-  <main #main class="zxa-main">
-    <section class="zxa-main-body">
-      <aside>aside</aside>
-      <section>
-        <ng-content select="[outlet]"></ng-content>
-      </section>
+<section class="zxa-main">
+  <aside>aside</aside>
+  <article class="zxa-main-article">
+    <header>
+      <zxa-header></zxa-header>
+    </header>
+    <section>
+      <ng-content select="[outlet]"></ng-content>
     </section>
-  </main>
-  <footer #footer zxHeightObserver [targetElement]="main">
-    <zxa-footer></zxa-footer>
-  </footer>
-</article>
+    <footer>
+      <zxa-footer></zxa-footer>
+    </footer>
+  </article>
+</section>
