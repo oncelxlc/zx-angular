@@ -34,6 +34,9 @@
   --scrollbar-color-active: rgba(0, 0, 0, .3);
   --icon-grayscale-image-filter: grayscale(100%) brightness(0%);
 
-  --color-shadow: rgba(0, 0, 0, .09);
-  --filter-invert: invert(100%)
+  --filter-invert: invert(100%);
+  --color-text-reversal: #FFFFFF;
+  --color-selection-dim: var(--color-primary-bg-hover);
+  --color-selection-text: var(--color-text-reversal);
+  --color-selection-bg: var(--color-primary-hover);
 }
