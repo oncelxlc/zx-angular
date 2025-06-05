@@ -3,7 +3,8 @@ div.zxa-header {
   align-items: center;
   width: 100%;
   height: var(--main-header-height);
-  gap: 8px;
+  padding: var(--main-header-padding);
+  gap: var(--main-header-gap);
 
   > div.zxa-header-customize {
     flex: auto;
