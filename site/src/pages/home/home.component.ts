@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'zxa-home',
   imports: [],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
 
