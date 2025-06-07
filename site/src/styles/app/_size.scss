@@ -1,0 +1,16 @@
+:root {
+  --main-min-width: 1280px;
+  --main-min-height: 720px;
+
+  --main-aside-width: 240px;
+  --main-aside-shadow: 2px 0px 6px rgba(0, 0, 0, .09);
+
+  --main-section-padding: var(--padding-normol);
+
+  --main-header-height: 64px;
+  --main-header-padding: 0 var(--padding-normol);
+  --main-header-gap: var(--gap);
+
+  --main-footer-height: 56px;
+  --main-footer-padding: var(--padding-normol);
+}
