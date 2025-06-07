@@ -3,7 +3,6 @@ import { TableComponent } from '@ngx-zx/table';
 
 @Component({
   selector: 'zxa-experiment',
-  standalone: true,
   imports: [
     TableComponent,
   ],

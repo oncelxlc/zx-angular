@@ -1,0 +1,39 @@
+[data-theme=light] {
+  color-scheme: light;
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F9F8F9;
+  --color-bg-tertiary: #F4F2F4;
+  --color-bg-quaternary: #EEEDEF;
+  --color-bg-quinary: #E9E8EA;
+  --color-border-secondary: #E4E2E4;
+  --color-border-tertiary: #DCDBDD;
+  --color-text-primary: #282A30;
+  --color-text-secondary: #3C4149;
+  --color-text-tertiary: #6F6E77;
+  --color-text-quaternary: #1A1523;
+  --color-link-primary: #7070FF;
+  --color-link-hover: var(--color-text-primary);
+  --color-brand-bg: #7070FF;
+  --color-brand-text: #FFFFFF;
+  --color-overlay-dim-rgb: 0, 0, 0;
+  --color-overlay-primary: hsla(0, 0%, 100%, .65);
+  --color-alpha: 0;
+  --shadow-low: 0px 1px 4px -1px rgba(0, 0, 0, .09);
+  --shadow-medium: 0px 3px 12px rgba(0, 0, 0, .09);
+  --shadow-high: 0px 7px 24px rgba(0, 0, 0, .06);
+  --shadow-stack-low: 0px -1px 1px 0px rgba(0, 0, 0, .11) inset, 0px 8px 2px 0px transparent, 0px 5px 2px 0px rgba(0, 0, 0, .01), 0px 3px 2px 0px rgba(0, 0, 0, .04), 0px 1px 1px 0px rgba(0, 0, 0, .07), 0px 0px 1px 0px rgba(0, 0, 0, .08);
+  --font-weight-regular: 400;
+  --color-border-primary: #E9E8EA;
+  --font-weight-medium: 510;
+  --font-weight-semibold: 590;
+  --font-weight-bold: 680;
+  --scrollbar-color: rgba(0, 0, 0, .1);
+  --scrollbar-color-active: rgba(0, 0, 0, .3);
+  --icon-grayscale-image-filter: grayscale(100%) brightness(0%);
+
+  --filter-invert: invert(100%);
+  --color-text-reversal: #FFFFFF;
+  --color-selection-dim: var(--color-primary-bg-hover);
+  --color-selection-text: var(--color-text-reversal);
+  --color-selection-bg: var(--color-primary-hover);
+}

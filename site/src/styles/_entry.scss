@@ -1,9 +1,7 @@
-@use "components/styles/entry.scss";
+@use "components/styles/entry";
 
-@use "basic/normalize";
-@use "basic/reset";
-@use "basic/base-color";
+@use "themes/theme";
 
 @use "app/global";
 @use "app/overwrite";
-@use "app/layout";
+@use "app/size";

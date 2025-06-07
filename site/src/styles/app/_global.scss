@@ -1,6 +1,26 @@
 body {
-  font-family: "JetBrains Mono", "JetBrains Mono Medium", "FZKai-Z03S", "FZKai-Z03T", "FZKai-Z03", sans-serif;
-  height: auto;
+  font-family: "JetBrains Mono Light", "FZKai-Z03", sans-serif;
+  height: 100%;
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
+}
+
+::-moz-selection {
+  color: var(--color-selection-text);
+  background: var(--color-selection-bg);
+}
+
+::selection {
+  color: var(--color-selection-text);
+  background: var(--color-selection-bg);
+}
+
+img::-moz-selection {
+  color: var(--color-selection-text);
+  background: var(--color-selection-dim);
+}
+
+img::selection {
+  color: var(--color-selection-text);
+  background: var(--color-selection-dim);
 }

@@ -9,13 +9,31 @@
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss",
-      "standalone": true
+      "standalone": true,
+      "type": "component"
     },
     "@schematics/angular:directive": {
-      "standalone": true
+      "standalone": true,
+      "type": "directive"
     },
     "@schematics/angular:pipe": {
-      "standalone": true
+      "standalone": true,
+      "typeSeparator": "."
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
     }
   },
   "projects": {
@@ -26,7 +44,7 @@
       "prefix": "zxa",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/zx-ng",
             "index": "site/src/index.html",
@@ -60,7 +78,17 @@
                 "inject": true
               }
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            },
+            "server": "site/src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "site/src/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -87,29 +115,29 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "zx-ng:build:production"
             },
             "development": {
               "buildTarget": "zx-ng:build:development"
-            },
-            "option": {
-              "port": 4200,
-              "host": "0.0.0.0"
             }
+          },
+          "options": {
+            "port": 4200,
+            "host": "0.0.0.0"
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@angular/build:extract-i18n",
           "options": {
             "buildTarget": "zx-ng:build"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
             "polyfills": [
               "zone.js",
@@ -140,7 +168,10 @@
           "builder": "@zhexian/builders-runner:copy",
           "options": {
             "watchFolder": "docs",
-            "ignored": ["*.tmp", "*.log"]
+            "ignored": [
+              "*.tmp",
+              "*.log"
+            ]
           }
         }
       }
@@ -152,7 +183,7 @@
       "prefix": "zx",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular/build:ng-packagr",
           "options": {
             "project": "components/ng-package.json"
           },
@@ -167,7 +198,7 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
             "tsConfig": "components/tsconfig.spec.json",
             "polyfills": [

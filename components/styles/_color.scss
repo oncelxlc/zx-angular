@@ -1,14 +1,4 @@
 :root {
-  // region color
-  --color-emerald-green: #00755A; // 祖母绿
-  --color-cypress-green: #355E3B; // 松柏绿
-  --color-mars-green: #008C88; // 马尔斯绿
-  --color-jade-green: #42A246; // 翡翠绿
-  --color-bamboo-green: #78A355; // 竹青绿
-  --color-a-legendary-land: #7BA57B; // 只此青绿
-  --color-cyan-white: #D6EEDD; // 青白
-  // endregion
-
   // region 中国色
   --color-rubai: #F9F4DC; // 乳白
   --color-xingrenhuang: #F7E8AA; // 杏仁黄
@@ -537,4 +527,84 @@
   --color-yanhui: #80766E; // 雁灰
   --color-shenhui: #81776E; // 深灰
   // endregion
+
+  --color-gray-1: #FFFFFF;
+  --color-gray-2: #FAFAFA;
+  --color-gray-3: #F5F5F5;
+  --color-gray-4: #F0F0F0;
+  --color-gray-5: #D9D9D9;
+  --color-gray-6: #BFBFBF;
+  --color-gray-7: #8C8C8C;
+  --color-gray-8: #595959;
+  --color-gray-9: #434343;
+  --color-gray-10: #262626;
+  --color-gray-11: #1F1F1F;
+  --color-gray-12: #141414;
+  --color-gray-13: #000000;
+
+  --color-primary-bg: #E6F4FF;
+  --color-primary-bg-hover: #BAE0FF;
+  --color-primary-border: #91CAFF;
+  --color-primary-border-hover: #69B1FF;
+  --color-primary-hover: #4096FF;
+  --color-primary: #1677FF;
+  --color-primary-active: #0958D9;
+  --color-primary-text-hover: #4096FF;
+  --color-primary-text: #1677FF;
+  --color-primary-text-active: #0958D9;
+
+  --color-success-bg: #F6FFED;
+  --color-success-bg-hover: #D9F7BE;
+  --color-success-border: #B7EB8F;
+  --color-success-border-hover: #95DE64;
+  --color-success-hover: #95DE64;
+  --color-success: #52C41A;
+  --color-success-active: #389E0D;
+  --color-success-text-hover: #73D13D;
+  --color-success-text: #52C41A;
+  --color-success-text-active: #389E0D;
+
+  --color-warning-bg: #FFFBE6;
+  --color-warning-bg-hover: #FFF1B8;
+  --color-warning-border: #FFE58F;
+  --color-warning-border-hover: #FFD666;
+  --color-warning-hover: #FFD666;
+  --color-warning: #FAAD14;
+  --color-warning-active: #D48806;
+  --color-warning-text-hover: #FFC53D;
+  --color-warning-text: #FAAD14;
+  --color-warning-text-active: #D48806;
+
+  --color-error-bg: #FFF2F0;
+  --color-error-bg-hover: #FFF1F0;
+  --color-error-border: #FFCCC7;
+  --color-error-border-hover: #FFA39E;
+  --color-error-hover: #FF7875;
+  --color-error: #FF4D4F;
+  --color-error-active: #D9363E;
+  --color-error-text-hover: #FF7875;
+  --color-error-text: #FF4D4F;
+  --color-error-text-active: #D9363E;
+
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-hover);
+  --color-link-active: var(--color-primary-active);
+
+  --color-text-base: var(--color-gray-13);
+  --color-bg-base: var(--color-gray-1);
+  --color-text: rgba(0, 0, 0, 0.88);
+  --color-text-secondary: rgba(0, 0, 0, 0.65);
+  --color-text-tertiary: rgba(0, 0, 0, 0.45);
+  --color-text-quaternary: rgba(0, 0, 0, 0.25);
+  --color-border: var(--color-gray-5);
+  --color-border-secondary: var(--color-gray-4);
+  --color-fill: rgba(0, 0, 0, 0.15);
+  --color-fill-secondary: rgba(0, 0, 0, 0.06);
+  --color-fill-tertiary: rgba(0, 0, 0, 0.04);
+  --color-fill-quaternary: rgba(0, 0, 0, 0.02);
+  --color-bg-container: var(--color-gray-1);
+  --color-bg-elevated: var(--color-gray-1);
+  --color-bg-lyout: var(--color-gray-3);
+  --color-bg-spotlight: rgba(0, 0, 0, 0.85);
+  --color-bg-mask: rgba(0, 0, 0, 0.45);
 }

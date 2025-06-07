@@ -1,0 +1,12 @@
+div.zxa-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--main-header-height);
+  padding: var(--main-header-padding);
+  gap: var(--main-header-gap);
+
+  > div.zxa-header-customize {
+    flex: auto;
+  }
+}
