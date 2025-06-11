@@ -31,12 +31,12 @@
   },
   "dependencies": {
     "@angular/animations": "^20.0.2",
-    "@angular/cdk": "^20.0.2",
+    "@angular/cdk": "^20.0.3",
     "@angular/common": "^20.0.2",
     "@angular/compiler": "^20.0.2",
     "@angular/core": "^20.0.2",
     "@angular/forms": "^20.0.2",
-    "@angular/material": "^20.0.2",
+    "@angular/material": "^20.0.3",
     "@angular/platform-browser": "^20.0.2",
     "@angular/platform-browser-dynamic": "^20.0.2",
     "@angular/platform-server": "^20.0.2",
@@ -78,10 +78,10 @@
     "ng-packagr": "^20.0.0",
     "path": "^0.12.7",
     "prettier": "^3.5.3",
-    "sass": "^1.89.1",
+    "sass": "^1.89.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.33.1"
+    "typescript-eslint": "^8.34.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
