@@ -1,21 +1,17 @@
 /* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
-  "extends": "./tsconfig.json",
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "../release",
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "ngx-zx/*": [
+        "./*"
+      ]
+    },
     "alwaysStrict": true,
-    "declaration": true,
-    "inlineSources": true,
-    "declarationMap": true,
-    "lib": [
-      "es2020",
-      "dom"
-    ],
-    "sourceMap": true,
-    "strictFunctionTypes": true,
-    "stripInternal": true
+    "strictFunctionTypes": true
   },
   "angularCompilerOptions": {
     "strictInputAccessModifiers": true,
@@ -27,6 +23,6 @@
     "strictInjectionParameters": true
   },
   "include": [
-    "**/*.ts"
+    "./**/*.ts"
   ]
 }
