@@ -2,26 +2,21 @@
 
 ## 概述
 
-Angular 18 于 2024 年 5 月正式发布，这是一个重要的版本更新，专注于性能优化、开发者体验提升和现代 Web 应用开发能力的增强。本版本引入了多项革命性功能，包括无区域变更检测、原生异步支持、部分水合等核心特性。
+Angular 18 是一个重要的版本更新，发布于2024年5月。本版本包含了无区域变更检测、原生异步支持、部分水合、Material 3 稳定化、控件状态事件、改进的 SSR 和调试，以及灵活的路由重定向等重大功能。
 
----
+## 主要新特性
 
-## 🚀 主要新功能
+### 1. 实验性无区域变更检测 (Experimental Zoneless Change Detection)
 
-### 1. 无区域变更检测 (Zoneless Change Detection)
+#### 概述
+Angular 18 引入了实验性的无区域变更检测机制，旨在解决 Zone.js 带来的一些挑战。虽然仍然是实验性功能，但这代表了 Angular 变更检测的重要发展方向。
 
-Angular 18 最重要的更新之一是引入了实验性的无区域变更检测系统。
-
-#### 特性说明
-- **移除 Zone.js 依赖**: 无区域变更检测精确定位报告变更的特定组件，而不是扫描整个组件树，使过程更加高效
-- **手动精确控制**: 为开发者提供更精细的变更检测触发控制，提高性能并减少内存开销
-- **性能提升**: 显著减少不必要的变更检测周期
-- **更小的包体积**: 移除 Zone.js 可以减少应用包的大小
-
-#### 使用方式
+#### 启用方式
 ```typescript
+// main.ts
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { AppComponent } from './app/app.component';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -31,214 +26,526 @@ bootstrapApplication(AppComponent, {
 });
 ```
 
-#### 注意事项
-- 目前处于实验性阶段
-- 需要手动管理变更检测触发
-- 可能需要调整现有代码以适配新的检测机制
+#### 使用示例
+```typescript
+// 组件示例
+import { Component, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 
-### 2. Material 3 设计系统支持
+@Component({
+  selector: 'app-counter',
+  template: `
+    <div>
+      <p>计数: {{ count() }}</p>
+      <p>双倍: {{ doubleCount() }}</p>
+      <button (click)="increment()">增加</button>
+      <button (click)="reset()">重置</button>
+    </div>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class CounterComponent {
+  count = signal(0);
+  doubleCount = computed(() => this.count() * 2);
 
-Angular Material 组件库全面支持 Material 3 设计系统。
+  increment() {
+    this.count.update(value => value + 1);
+  }
 
-#### 新特性
-- **Material 3 主题**: 全新的设计语言和视觉风格
-- **动态颜色**: 支持动态主题色彩系统
-- **组件更新**: 所有组件都已更新以符合 Material 3 规范
-- **水合支持**: 所有 Angular Material 组件现在都支持客户端水合，不再被跳过，这增强了性能和用户体验
-
-### 3. 服务端渲染 (SSR) 增强
-
-#### 部分水合 (Partial Hydration)
-部分水合是一种允许在服务端渲染后串行水合应用的方法，改善了性能并限制了前端加载的 JavaScript
-
-#### 国际化水合支持
-- Angular 18 通过 i18n 水合支持、更好的调试和事件重放增强了服务端渲染
-- 提供更强大和交互式的 SSR 体验
-
-#### 事件重放 (Event Replay)
-- 事件重放功能在开发者预览版中可用，在 SSR 期间捕获用户交互并在页面完全加载后重放
-- 基于 Google 的事件分发库实现
-- 提升用户体验的连续性
-
-### 4. 内置控制流程增强
-
-#### ng-content 默认内容
-现在可以为 ng-content 指定默认内容
-
-```html
-<ng-content select="header">
-  <h1>默认标题</h1>
-</ng-content>
+  reset() {
+    this.count.set(0);
+  }
+}
 ```
 
-#### 改进的条件渲染
-- 更高效的 `@if`、`@for`、`@switch` 控制流
-- 更好的类型推断和编译时优化
+### 2. 增强的 Signals 支持
 
----
+#### Signal-based Inputs (开发者预览)
+```typescript
+import { Component, input, computed } from '@angular/core';
 
-## 🛠️ 开发者体验改进
+@Component({
+  selector: 'app-user-profile',
+  template: `
+    <div>
+      <h2>{{ displayName() }}</h2>
+      <p>年龄: {{ age() }}</p>
+      <p>状态: {{ userStatus() }}</p>
+    </div>
+  `
+})
+export class UserProfileComponent {
+  // 必需的 input signal
+  firstName = input.required<string>();
+  lastName = input.required<string>();
+  
+  // 可选的 input signal (带默认值)
+  age = input(18);
+  
+  // 计算属性
+  displayName = computed(() => `${this.firstName()} ${this.lastName()}`);
+  userStatus = computed(() => this.age() >= 18 ? '成年人' : '未成年人');
+}
+```
 
-### 1. 调试功能增强
-- 改进的 SSR 调试体验
-- 更清晰的错误信息和堆栈跟踪
-- 开发工具集成优化
+使用方式：
+```html
+<app-user-profile 
+  firstName="张" 
+  lastName="三" 
+  [age]="25">
+</app-user-profile>
+```
 
-### 2. 构建系统优化
-- 更快的构建速度
-- 改进的 Tree-shaking
-- 优化的包体积分析
+#### Signal-based Queries (开发者预览)
+```typescript
+import { Component, viewChild, viewChildren, contentChild, contentChildren } from '@angular/core';
 
-### 3. TypeScript 支持
-- 支持最新版本的 TypeScript
-- 改进的类型推断
-- 更好的 IDE 集成
+@Component({
+  selector: 'app-parent',
+  template: `
+    <div #container>
+      <button #btn>按钮1</button>
+      <button #btn>按钮2</button>
+      <input #input type="text">
+      <ng-content></ng-content>
+    </div>
+  `
+})
+export class ParentComponent {
+  // 单个元素查询
+  container = viewChild<ElementRef>('container');
+  input = viewChild<ElementRef>('input');
+  
+  // 多个元素查询
+  buttons = viewChildren<ElementRef>('btn');
+  
+  // 内容查询
+  projectedContent = contentChildren('projected');
 
----
+  ngAfterViewInit() {
+    console.log('容器元素:', this.container()?.nativeElement);
+    console.log('按钮数量:', this.buttons().length);
+  }
+}
+```
 
-## 📦 依赖项更新
+### 3. Material 3 设计系统支持
 
-### 核心依赖
-- Node.js: 最低版本要求更新
-- TypeScript: 支持最新版本
-- RxJS: 版本兼容性改进
+#### 升级到 Material 3
+```bash
+ng add @angular/material
+```
 
-### 可选依赖
-- Zone.js: 在无区域模式下可选
-- 各种第三方库的兼容性更新
+```typescript
+// app.config.ts
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
----
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideAnimationsAsync(),
+    // 其他 providers
+  ]
+};
+```
 
-## 🔄 迁移指南
+#### Material 3 主题配置
+```scss
+// styles.scss
+@use '@angular/material' as mat;
+
+// 定义 Material 3 调色板
+$primary-palette: mat.define-palette(mat.$azure-palette);
+$accent-palette: mat.define-palette(mat.$blue-palette);
+$warn-palette: mat.define-palette(mat.$red-palette);
+
+// 创建 Material 3 主题
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $primary-palette,
+    tertiary: $accent-palette,
+  ),
+  typography: (
+    brand-family: 'Roboto, sans-serif',
+    plain-family: 'Roboto, sans-serif',
+  ),
+));
+
+// 应用主题
+@include mat.all-component-themes($theme);
+```
+
+### 4. 控件状态事件 (Control State Events)
+
+#### 增强的响应式表单
+```typescript
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-form',
+  template: `
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <input formControlName="email" placeholder="邮箱">
+      <div *ngIf="emailControl.invalid && emailControl.touched">
+        邮箱格式不正确
+      </div>
+      
+      <input formControlName="password" type="password" placeholder="密码">
+      <div *ngIf="passwordControl.invalid && passwordControl.dirty">
+        密码至少6位
+      </div>
+      
+      <button type="submit" [disabled]="userForm.invalid">提交</button>
+    </form>
+    
+    <div>
+      <p>表单状态: {{ formStatus }}</p>
+      <p>邮箱状态: {{ emailStatus }}</p>
+    </div>
+  `
+})
+export class FormComponent {
+  private fb = inject(FormBuilder);
+  
+  userForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  });
+
+  get emailControl() { return this.userForm.get('email')!; }
+  get passwordControl() { return this.userForm.get('password')!; }
+  
+  get formStatus() { return this.userForm.status; }
+  get emailStatus() { return this.emailControl.status; }
+
+  constructor() {
+    // 监听表单状态变化
+    this.userForm.statusChanges.subscribe(status => {
+      console.log('表单状态变化:', status);
+    });
+    
+    // 监听特定控件状态变化
+    this.emailControl.statusChanges.subscribe(status => {
+      console.log('邮箱状态变化:', status);
+    });
+  }
+
+  onSubmit() {
+    if (this.userForm.valid) {
+      console.log('表单数据:', this.userForm.value);
+    }
+  }
+}
+```
+
+### 5. 灵活的路由重定向
+
+#### 函数式重定向
+Angular 18 使 redirectTo 属性更加灵活，可以接受返回字符串的函数，而不仅仅是字符串值。这提供了基于运行时状态的更复杂重定向逻辑。
+
+```typescript
+// app-routing.module.ts
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: 'dashboard',
+    redirectTo: (route) => {
+      // 基于查询参数的条件重定向
+      const userRole = route.queryParams['role'];
+      return userRole === 'admin' ? '/admin-dashboard' : '/user-dashboard';
+    }
+  },
+  {
+    path: 'profile',
+    redirectTo: (route) => {
+      // 基于路径参数的重定向
+      const userId = route.params['id'];
+      return userId ? `/users/${userId}/profile` : '/login';
+    }
+  },
+  {
+    path: 'legacy/:id',
+    redirectTo: (route) => {
+      // 动态重定向逻辑
+      const id = route.params['id'];
+      const timestamp = Date.now();
+      return `/new-route/${id}?t=${timestamp}`;
+    }
+  }
+];
+```
+
+### 6. ng-content 的 fallback 支持
+
+#### 内容投影增强
+```typescript
+@Component({
+  selector: 'app-card',
+  template: `
+    <div class="card">
+      <div class="card-header">
+        <ng-content select="[slot=header]">
+          <!-- fallback 内容 -->
+          <h3>默认标题</h3>
+        </ng-content>
+      </div>
+      
+      <div class="card-body">
+        <ng-content>
+          <!-- 默认插槽的 fallback -->
+          <p>暂无内容</p>
+        </ng-content>
+      </div>
+      
+      <div class="card-footer">
+        <ng-content select="[slot=footer]">
+          <!-- footer 的 fallback -->
+          <button>确定</button>
+        </ng-content>
+      </div>
+    </div>
+  `,
+  styles: [`
+    .card { border: 1px solid #ddd; border-radius: 8px; }
+    .card-header { padding: 16px; border-bottom: 1px solid #eee; }
+    .card-body { padding: 16px; }
+    .card-footer { padding: 16px; border-top: 1px solid #eee; }
+  `]
+})
+export class CardComponent {}
+```
+
+使用示例：
+```html
+<!-- 使用自定义内容 -->
+<app-card>
+  <h2 slot="header">自定义标题</h2>
+  <p>这是卡片内容</p>
+  <div slot="footer">
+    <button>取消</button>
+    <button>保存</button>
+  </div>
+</app-card>
+
+<!-- 使用 fallback 内容（空卡片） -->
+<app-card></app-card>
+```
+
+### 7. 改进的服务端渲染 (SSR)
+
+#### 增量静态再生 (ISR) 支持
+```typescript
+// app.config.server.ts
+import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
+import { provideServerRendering } from '@angular/platform-server';
+import { appConfig } from './app.config';
+
+const serverConfig: ApplicationConfig = {
+  providers: [
+    provideServerRendering(),
+    // ISR 配置
+    {
+      provide: 'ISR_CONFIG',
+      useValue: {
+        revalidate: 60, // 60秒后重新生成
+        fallback: 'blocking' // 或 'non-blocking'
+      }
+    }
+  ]
+};
+
+export const config = mergeApplicationConfig(appConfig, serverConfig);
+```
+
+#### 流式 SSR
+```typescript
+// 支持流式服务端渲染
+@Component({
+  selector: 'app-async-data',
+  template: `
+    <div>
+      @if (data$ | async; as data) {
+        <div>{{ data.title }}</div>
+      } @else {
+        <div>加载中...</div>
+      }
+    </div>
+  `
+})
+export class AsyncDataComponent {
+  data$ = this.http.get<any>('/api/data').pipe(
+    delay(2000) // 模拟慢速 API
+  );
+
+  constructor(private http: HttpClient) {}
+}
+```
+
+### 8. 开发体验改进
+
+#### 增强的 Hot Module Replacement (HMR)
+```json
+// angular.json
+{
+  "serve": {
+    "builder": "@angular-devkit/build-angular:dev-server",
+    "options": {
+      "hmr": true,
+      "liveReload": true
+    }
+  }
+}
+```
+
+#### 改进的错误提示
+```typescript
+// 更好的类型错误提示
+@Component({
+  selector: 'app-example',
+  template: `
+    <!-- Angular 18 会提供更精确的模板类型检查 -->
+    <div>{{ user.name }}</div> <!-- 如果 user 可能为空，会有清晰的错误提示 -->
+  `
+})
+export class ExampleComponent {
+  user: User | null = null;
+}
+```
+
+### 9. 新的控制流语法 (稳定版)
+
+#### @if, @for, @switch 语法
+```typescript
+@Component({
+  selector: 'app-control-flow',
+  template: `
+    <!-- 条件渲染 -->
+    @if (user) {
+      <div>欢迎, {{ user.name }}!</div>
+    } @else if (loading) {
+      <div>加载中...</div>
+    } @else {
+      <div>请登录</div>
+    }
+
+    <!-- 列表渲染 -->
+    @for (item of items; track item.id) {
+      <div class="item">
+        {{ item.name }} - {{ item.price | currency }}
+      </div>
+    } @empty {
+      <div>暂无数据</div>
+    }
+
+    <!-- Switch 语句 -->
+    @switch (status) {
+      @case ('loading') {
+        <div>正在加载...</div>
+      }
+      @case ('success') {
+        <div>加载成功!</div>
+      }
+      @case ('error') {
+        <div>加载失败</div>
+      }
+      @default {
+        <div>未知状态</div>
+      }
+    }
+  `
+})
+export class ControlFlowComponent {
+  user: User | null = null;
+  loading = false;
+  items: Item[] = [];
+  status: 'loading' | 'success' | 'error' | 'idle' = 'idle';
+}
+```
+
+### 10. 性能优化
+
+#### 改进的包体积
+```typescript
+// 更好的 tree-shaking 支持
+import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+@Component({
+  selector: 'app-optimized',
+  template: `...`
+})
+export class OptimizedComponent {
+  private destroyRef = inject(DestroyRef);
+
+  constructor(private http: HttpClient) {
+    // 自动取消订阅，无需手动管理
+    this.http.get('/api/data')
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
+}
+```
+
+## 升级指南
 
 ### 从 Angular 17 升级到 18
 
-#### 1. 更新依赖项
+1. **更新 Angular CLI**
+```bash
+npm install -g @angular/cli@latest
+```
+
+2. **更新项目依赖**
 ```bash
 ng update @angular/core @angular/cli
+ng update @angular/material  # 如果使用 Material
 ```
 
-#### 2. 检查破坏性变更
-- 检查已弃用的 API 使用
-- 更新自定义 schematics
-- 验证第三方库兼容性
-
-#### 3. 可选：启用无区域变更检测
+3. **检查废弃功能**
 ```typescript
-// 仅在准备好处理手动变更检测时启用
-provideExperimentalZonelessChangeDetection()
+// 检查并替换废弃的 API
+// 例如：ViewChild 查询现在推荐使用 signal-based 查询
 ```
 
-#### 4. 测试应用
-- 运行完整的测试套件
-- 进行端到端测试
-- 验证 SSR 功能（如果使用）
+4. **启用新功能**
+```typescript
+// 可选：启用实验性功能
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 
----
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideExperimentalZonelessChangeDetection(), // 实验性
+    // 其他 providers
+  ]
+});
+```
 
-## ⚠️ 破坏性变更
+## 注意事项
 
-### API 变更
-- 某些内部 API 的签名变更
-- 弃用的功能移除时间表更新
+### 实验性功能
+- 无区域变更检测仍然是实验性功能，不建议在生产环境使用
+- Signal-based inputs 和 queries 处于开发者预览阶段
 
-### 行为变更
-- 变更检测行为的细微调整
-- SSR 渲染时序的优化
+### 兼容性
+- 需要 Node.js 18.19.1 或更高版本
+- TypeScript 5.4 或更高版本
+- 支持的浏览器版本保持不变
 
-### 第三方库影响
-- 需要验证第三方库与新版本的兼容性
-- 特别是依赖 Zone.js 的库在无区域模式下的表现
-
----
-
-## 🎯 性能改进
-
-### 运行时性能
-- 无区域变更检测带来的显著性能提升
-- 改进的内存使用模式
-- 更高效的组件更新机制
-
-### 构建性能
-- 更快的编译速度
-- 优化的依赖解析
-- 改进的 Hot Module Replacement
-
-### 包大小优化
-- Tree-shaking 改进
-- 移除 Zone.js 后的包大小减少
-- 更精确的依赖分析
-
----
-
-## 🔮 实验性功能
-
-### 1. 无区域变更检测
-- 状态: 实验性
-- 预期稳定版本: Angular 19+
-- 使用建议: 仅在新项目或具备充分测试的项目中尝试
-
-### 2. 事件重放
-- 状态: 开发者预览
-- 应用场景: SSR 应用
-- 注意事项: 可能影响现有事件处理逻辑
-
-### 3. 高级 SSR 功能
-- 部分水合仍在持续优化
-- 更多 SSR 相关功能正在开发中
-
----
-
-## 📚 学习资源
-
-### 官方文档
-- [Angular 官方网站](https://angular.dev)
-- [无区域变更检测指南](https://angular.dev/guide/experimental/zoneless)
-- [水合文档](https://angular.dev/guide/hydration)
-
-### 社区资源
-- Angular 博客文章和教程
-- 开发者社区讨论
-- 第三方技术博客分析
-
----
-
-## 🤝 社区贡献
-
-Angular 18 的开发得到了广泛的社区支持：
-
-- 数百个贡献者参与开发
-- 大量的 bug 修复和功能改进
-- 活跃的反馈和测试社区
-
----
-
-## 📅 发布时间线
-
-- **2024年5月22日**: Angular 18.0.0 正式发布
-- **2024年6月**: 18.1.x 系列补丁版本
-- **2024年7月**: 18.2.x 功能增强版本
-- **持续更新**: 定期安全更新和 bug 修复
-
----
-
-## 🔗 相关链接
-
-- [GitHub 发布页面](https://github.com/angular/angular/releases)
-- [NPM 包页面](https://www.npmjs.com/package/@angular/core)
-- [官方博客公告](https://blog.angular.dev)
-- [变更日志](https://github.com/angular/angular/blob/main/CHANGELOG.md)
-
----
+### 性能建议
+- 在使用无区域变更检测时，确保正确使用 signals
+- 利用新的控制流语法提高模板性能
+- 合理使用 SSR 和 ISR 功能
 
 ## 总结
 
-Angular 18 是一个具有里程碑意义的版本，引入了无区域变更检测这一革命性功能，同时在 SSR、Material Design 和开发者体验方面都有显著改进。虽然一些功能仍处于实验阶段，但这个版本为 Angular 的未来发展奠定了坚实基础。
+Angular 18 带来了许多激动人心的新功能，特别是：
+- 实验性无区域变更检测为未来的性能优化奠定基础
+- Signal-based APIs 提供了更好的响应式编程体验
+- 改进的 SSR 和开发工具提升了开发效率
+- 新的控制流语法使模板更加简洁和性能更好
 
-建议开发者根据项目需求谨慎评估升级时机，特别是对于生产环境应用，应充分测试无区域变更检测等新功能的稳定性和兼容性。
-
----
-
-*文档最后更新: 2025年6月*
-*Angular 版本: 18.x*
-*文档版本: 1.0*
+这些改进使 Angular 18 成为一个更加现代化、高性能的前端框架，为开发者提供了更好的开发体验和更强大的功能。
