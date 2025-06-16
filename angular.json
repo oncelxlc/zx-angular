@@ -9,15 +9,12 @@
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss",
-      "standalone": true,
       "type": "component"
     },
     "@schematics/angular:directive": {
-      "standalone": true,
       "type": "directive"
     },
     "@schematics/angular:pipe": {
-      "standalone": true,
       "typeSeparator": "."
     },
     "@schematics/angular:service": {
@@ -158,29 +155,16 @@
         }
       }
     },
-    "zx-ng-test": {
-      "projectType": "application",
-      "root": "site",
-      "sourceRoot": "site/src",
-      "prefix": "zxa",
-      "architect": {
-        "copy": {
-          "builder": "@zhexian/builders-runner:copy",
-          "options": {
-            "watchFolder": "docs",
-            "ignored": [
-              "*.tmp",
-              "*.log"
-            ]
-          }
-        }
-      }
-    },
     "ngx-zx": {
       "projectType": "library",
       "root": "components",
       "sourceRoot": "components",
       "prefix": "zx",
+      "schematics": {
+        "@schematics/angular:component": {
+          "flat": true
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
