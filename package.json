@@ -63,10 +63,10 @@
     "@types/jasmine": "^5.1.8",
     "@types/node": "^20.19.0",
     "@zhexian/builders-runner": "link:builders",
-    "angular-eslint": "^19.8.0",
+    "angular-eslint": "^20.0.0",
     "chokidar": "^4.0.3",
     "clean-css-cli": "^5.6.3",
-    "eslint": "^9.29.0",
+    "eslint": "^9.28.0",
     "fs-extra": "^11.3.0",
     "husky": "^9.1.7",
     "jasmine": "^5.8.0",
@@ -82,7 +82,7 @@
     "sass": "^1.89.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.34.0"
+    "typescript-eslint": "^8.33.1"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
