@@ -72,6 +72,9 @@ importers:
       '@angular-devkit/core':
         specifier: ^20.0.2
         version: 20.0.2(chokidar@4.0.3)
+      '@angular-eslint/builder':
+        specifier: ^20.1.0
+        version: 20.1.0(chokidar@4.0.3)(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
       '@angular/build':
         specifier: ^20.0.2
         version: 20.0.2(37badd049b9a04b0af2103f320b7a444)
@@ -188,6 +191,12 @@ packages:
 
   '@angular-eslint/builder@20.0.0':
     resolution: {integrity: sha512-9jS3VvY+K+EHw9pofsdwKxDirKuTuRBnjMZdaKoUfLoYy5eS1XGJBXoMdaQiM+mSlTv113+L0SK4U565xiBLHQ==}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0
+      typescript: '*'
+
+  '@angular-eslint/builder@20.1.0':
+    resolution: {integrity: sha512-ixOUDYXmsIWibTkAvpxT1gonsxA3OZJvKedJ5Kp+a2Q8yXSlMq76M1fIlG3jVFZ+Dpgk1ir5sqs7Pbj3A0bMGQ==}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
       typescript: '*'
@@ -3948,6 +3957,15 @@ snapshots:
       - chokidar
 
   '@angular-eslint/builder@20.0.0(chokidar@4.0.3)(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)':
+    dependencies:
+      '@angular-devkit/architect': 0.2000.2(chokidar@4.0.3)
+      '@angular-devkit/core': 20.0.2(chokidar@4.0.3)
+      eslint: 9.29.0(jiti@2.4.2)
+      typescript: 5.8.3
+    transitivePeerDependencies:
+      - chokidar
+
+  '@angular-eslint/builder@20.1.0(chokidar@4.0.3)(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
       '@angular-devkit/architect': 0.2000.2(chokidar@4.0.3)
       '@angular-devkit/core': 20.0.2(chokidar@4.0.3)
