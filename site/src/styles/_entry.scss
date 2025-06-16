@@ -1,7 +1,7 @@
 @use "components/styles/entry";
 
-@use "themes/theme";
+@use "themes/theme.site";
 
-@use "app/global";
-@use "app/overwrite";
-@use "app/size";
+@use "app/global.site";
+@use "app/overwrite.site";
+@use "app/size.site";
