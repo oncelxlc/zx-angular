@@ -5,7 +5,6 @@ import {
   ElementRef, inject,
   Input,
   numberAttribute,
-  OnInit,
   Renderer2,
 } from "@angular/core";
 import { debounceTime, Subject } from "rxjs";
@@ -18,7 +17,7 @@ import { debounceTime, Subject } from "rxjs";
 @Directive({
   selector: "[zxHeightObserver]",
 })
-export class HeightObserverDirective implements OnInit {
+export class HeightObserverDirective {
   @Input({required: true}) targetElement!: HTMLElement;
   @Input({transform: numberAttribute}) debounceTime = 100; // 默认防抖时间为100ms
   @Input({transform: booleanAttribute}) isDocumentHeight = true; // 是否文档高度
@@ -28,8 +27,10 @@ export class HeightObserverDirective implements OnInit {
   private heightChangeSubject = new Subject<void>();
 
   destroyRef = inject(DestroyRef);
+  private el: ElementRef = inject(ElementRef);
+  private renderer: Renderer2 = inject(Renderer2);
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {
+  constructor() {
     afterNextRender(() => {
       this.setupResizeObserver();
       this.setupHeightChangeSubscription();
@@ -38,9 +39,6 @@ export class HeightObserverDirective implements OnInit {
         this.heightChangeSubject.complete();
       });
     });
-  }
-
-  ngOnInit(): void {
   }
 
   /**
@@ -72,8 +70,9 @@ export class HeightObserverDirective implements OnInit {
    * @private
    */
   private updateTargetHeight() {
-    if (!this.targetElement) return;
-
+    if (!this.targetElement) {
+      return;
+    }
     let availableHeight: number;
     if (this.isDocumentHeight) {
       availableHeight = document.documentElement.offsetHeight;

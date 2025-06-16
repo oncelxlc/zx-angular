@@ -25,7 +25,7 @@ export class MenuItemComponent {
   item = input.required<MenuItem>();
   config = input.required<MenuConfig>();
   level = input<number>(0);
-  itemClick = output<MenuItem>();
+  readonly itemClick = output<MenuItem>();
 
   isSelected = computed(() => this.item().key === this.config().selectedKey);
 
@@ -37,7 +37,9 @@ export class MenuItemComponent {
   });
 
   handleClick() {
-    if (this.item().disabled) return;
+    if (this.item().disabled) {
+      return;
+    }
     this.itemClick.emit(this.item());
   }
 }

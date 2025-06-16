@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from "@angular/core";
+import { inject, Injectable, OnDestroy } from "@angular/core";
 import {
   ActivationEnd,
   ActivationStart,
@@ -25,9 +25,7 @@ import { map, Subject } from "rxjs";
 })
 export class RouterLoadingService implements OnDestroy {
   private unsubscribe$ = new Subject<void>();
-
-  constructor(private router: Router) {
-  }
+  private router: Router = inject(Router);
 
   public routerLoading() {
     return this.router.events.pipe(

@@ -10,7 +10,4 @@ import { NgProgressRouter } from 'ngx-progressbar/router';
   imports: [RouterOutlet, NgProgressbar, NgProgressRouter],
 })
 export class AppComponent {
-
-  constructor() {
-  }
 }

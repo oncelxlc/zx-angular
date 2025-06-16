@@ -58,7 +58,6 @@ describe("HeightObserverDirective", () => {
     spyOn<any>(document.documentElement, "offsetHeight").and.returnValue(500);
     spyOn<any>(observedEl.nativeElement, "offsetHeight").and.returnValue(100);
 
-    directive.ngOnInit();
     tick(directive.debounceTime + 1);
 
     expect(targetEl.nativeElement.style.minHeight).toBe("400px");
@@ -71,7 +70,6 @@ describe("HeightObserverDirective", () => {
 
     spyOn<any>(observedEl.nativeElement, "offsetHeight").and.returnValue(100);
 
-    directive.ngOnInit();
     tick(directive.debounceTime + 1);
 
     expect(targetEl.nativeElement.style.minHeight).toBe("200px");
@@ -85,7 +83,6 @@ describe("HeightObserverDirective", () => {
     spyOn(console, "warn");
     spyOn<any>(observedEl.nativeElement, "offsetHeight").and.returnValue(100);
 
-    directive.ngOnInit();
     tick(directive.debounceTime + 1);
 
     expect(console.warn)
