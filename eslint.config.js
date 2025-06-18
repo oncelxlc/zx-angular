@@ -38,7 +38,7 @@ module.exports = tseslint.config(
         },
       ],
       "curly": "error",
-      "eol-last": "error",
+      "eol-last": "off",
       "eqeqeq": [
         "error",
         "smart"

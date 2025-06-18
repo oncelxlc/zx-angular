@@ -12,7 +12,9 @@ import { MenuItemComponent } from "./menu-item.component";
         [class.ant-menu-submenu-open]="isOpen()"
         [class.ant-menu-submenu-disabled]="item().disabled">
 
-      <div class="ant-menu-submenu-title" [style.padding-left.px]="titlePaddingLeft()" tabindex="1"
+      <div class="ant-menu-submenu-title"
+           [style.padding-left.px]="titlePaddingLeft()"
+           tabindex="0"
            (click)="toggleOpen()">
         <span class="ant-menu-title-content">
           @if (item().icon) {
