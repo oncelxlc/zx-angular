@@ -2,13 +2,19 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "ngx-zx/*": [
-        "../components/*"
-      ]
-    }
+    "declaration": false,
+    "outDir": "./dist/out-tsc",
+    "ngx-zx/*": [
+      "../components/*"
+    ]
   },
-  "angularCompilerOptions": {
-  }
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/test.ts",
+    "node_modules"
+  ]
 }
