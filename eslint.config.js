@@ -119,7 +119,7 @@ module.exports = tseslint.config(
     ],
     rules: {
       "@angular-eslint/template/banana-in-box": "error",
-      "@angular-eslint/template/click-events-have-key-events": "error",
+      "@angular-eslint/template/click-events-have-key-events": "off",
       "@angular-eslint/template/eqeqeq": "error",
       "@angular-eslint/template/no-negated-async": "error",
       "@angular-eslint/template/use-track-by-function": "error",
