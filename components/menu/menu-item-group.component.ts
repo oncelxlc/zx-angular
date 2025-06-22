@@ -45,8 +45,8 @@ export class MenuItemGroupComponent {
   config = input.required<MenuConfig>();
   level = input<number>(0);
   openKeys = input<string[]>([]);
-  itemClick = output<MenuItem>();
-  openChange = output<{ key: string, open: boolean }>();
+  readonly itemClick = output<MenuItem>();
+  readonly openChange = output<{ key: string, open: boolean }>();
 
   titlePaddingLeft = computed(() => {
     if (this.config().mode === "horizontal") {

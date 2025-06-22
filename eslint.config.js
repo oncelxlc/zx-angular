@@ -22,9 +22,9 @@ module.exports = tseslint.config(
     rules: {
       "max-params": "off",
       "@angular-eslint/component-class-suffix": ["error", {suffixes: ["Component", "Directive"]}],
-      '@angular-eslint/no-attribute-decorator': 'error',
-      '@angular-eslint/prefer-output-readonly': 'error',
-      '@angular-eslint/use-component-view-encapsulation': 'off',
+      "@angular-eslint/no-attribute-decorator": "error",
+      "@angular-eslint/prefer-output-readonly": "error",
+      "@angular-eslint/use-component-view-encapsulation": "off",
       "@angular-eslint/no-inputs-metadata-property": "error",
       "@angular-eslint/no-output-on-prefix": "off",
       "@angular-eslint/no-output-rename": "error",
@@ -32,13 +32,13 @@ module.exports = tseslint.config(
       "@angular-eslint/use-lifecycle-interface": "error",
       "@angular-eslint/use-pipe-transform-interface": "off",
       "complexity": [
-        'error',
+        "error",
         {
           max: 40,
         },
       ],
       "curly": "error",
-      "eol-last": "error",
+      "eol-last": "off",
       "eqeqeq": [
         "error",
         "smart"
@@ -75,7 +75,7 @@ module.exports = tseslint.config(
       "prefer-const": "error",
       "@typescript-eslint/dot-notation": "off",
       "prefer-promise-reject-errors": "off",
-      'max-nested-callbacks': ['error', 6],
+      "max-nested-callbacks": ["error", 6],
       "@typescript-eslint/no-this-alias": "off",
       "accessor-pairs": "off",
       "max-depth": "off",
@@ -117,6 +117,15 @@ module.exports = tseslint.config(
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
     ],
-    rules: {},
+    rules: {
+      "@angular-eslint/template/banana-in-box": "error",
+      "@angular-eslint/template/click-events-have-key-events": "off",
+      "@angular-eslint/template/eqeqeq": "error",
+      "@angular-eslint/template/no-negated-async": "error",
+      "@angular-eslint/template/use-track-by-function": "error",
+      "@angular-eslint/template/no-positive-tabindex": "error",
+      "@angular-eslint/template/no-autofocus": "error",
+      "@angular-eslint/template/mouse-events-have-key-events": "error",
+    },
   }
 );

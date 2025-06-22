@@ -9,8 +9,8 @@ import { MenuConfig, MenuItem } from "./menu.interface";
         [class.ant-menu-item-selected]="isSelected()"
         [class.ant-menu-item-disabled]="item().disabled"
         [style.padding-left.px]="paddingLeft()"
-        (click)="handleClick()">
-      <span class="ant-menu-title-content">
+        (click)="handleClick()"
+        tabindex="0">
       <span class="ant-menu-title-content">
         @if (item().icon) {
           <i [class]="item().icon" class="ant-menu-item-icon"></i>
@@ -25,7 +25,7 @@ export class MenuItemComponent {
   item = input.required<MenuItem>();
   config = input.required<MenuConfig>();
   level = input<number>(0);
-  itemClick = output<MenuItem>();
+  readonly itemClick = output<MenuItem>();
 
   isSelected = computed(() => this.item().key === this.config().selectedKey);
 
@@ -37,7 +37,9 @@ export class MenuItemComponent {
   });
 
   handleClick() {
-    if (this.item().disabled) return;
+    if (this.item().disabled) {
+      return;
+    }
     this.itemClick.emit(this.item());
   }
 }

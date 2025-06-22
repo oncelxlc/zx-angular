@@ -1,5 +1,5 @@
 import { Component, DebugElement } from "@angular/core";
-import { ComponentFixture, fakeAsync, TestBed, tick } from "@angular/core/testing";
+import { ComponentFixture, TestBed, fakeAsync, tick } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
 import { HeightObserverDirective } from "./height-observer.directive";
 
@@ -55,10 +55,9 @@ describe("HeightObserverDirective", () => {
   });
 
   it("should update target height when using document height", fakeAsync(() => {
-    spyOn<any>(document.documentElement, "offsetHeight").and.returnValue(500);
-    spyOn<any>(observedEl.nativeElement, "offsetHeight").and.returnValue(100);
+    spyOnProperty(document.documentElement, "offsetHeight", "get").and.returnValue(500);
+    spyOnProperty(observedEl.nativeElement, "offsetHeight", "get").and.returnValue(100);
 
-    directive.ngOnInit();
     tick(directive.debounceTime + 1);
 
     expect(targetEl.nativeElement.style.minHeight).toBe("400px");
@@ -69,9 +68,8 @@ describe("HeightObserverDirective", () => {
     component.fixedHeight = 300;
     fixture.detectChanges();
 
-    spyOn<any>(observedEl.nativeElement, "offsetHeight").and.returnValue(100);
+    spyOnProperty(observedEl.nativeElement, "offsetHeight", "get").and.returnValue(100);
 
-    directive.ngOnInit();
     tick(directive.debounceTime + 1);
 
     expect(targetEl.nativeElement.style.minHeight).toBe("200px");
@@ -83,9 +81,8 @@ describe("HeightObserverDirective", () => {
     fixture.detectChanges();
 
     spyOn(console, "warn");
-    spyOn<any>(observedEl.nativeElement, "offsetHeight").and.returnValue(100);
+    spyOnProperty(observedEl.nativeElement, "offsetHeight", "get").and.returnValue(100);
 
-    directive.ngOnInit();
     tick(directive.debounceTime + 1);
 
     expect(console.warn)

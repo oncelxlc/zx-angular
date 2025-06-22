@@ -14,6 +14,7 @@ import { MenuItemComponent } from "./menu-item.component";
 
       <div class="ant-menu-submenu-title"
            [style.padding-left.px]="titlePaddingLeft()"
+           tabindex="0"
            (click)="toggleOpen()">
         <span class="ant-menu-title-content">
           @if (item().icon) {
@@ -61,8 +62,8 @@ export class SubmenuComponent {
   config = input.required<MenuConfig>();
   level = input<number>(0);
   openKeys = input<string[]>([]);
-  itemClick = output<MenuItem>();
-  openChange = output<{ key: string, open: boolean }>();
+  readonly itemClick = output<MenuItem>();
+  readonly openChange = output<{ key: string, open: boolean }>();
 
   isOpen = computed(() => this.openKeys().includes(this.item().key));
 
@@ -74,7 +75,9 @@ export class SubmenuComponent {
   });
 
   toggleOpen() {
-    if (this.item().disabled) return;
+    if (this.item().disabled) {
+      return;
+    }
     this.openChange.emit({
       key: this.item().key,
       open: !this.isOpen()

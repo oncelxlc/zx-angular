@@ -71,8 +71,8 @@ export class MenuComponent {
   openKeys = input<string[]>([]);
   inlineIndent = input<number>(24);
 
-  itemClick = output<MenuItem>();
-  openChange = output<string[]>();
+  readonly itemClick = output<MenuItem>();
+  readonly openChange = output<string[]>();
 
   menuConfig = computed<MenuConfig>(() => ({
     mode: this.mode(),
