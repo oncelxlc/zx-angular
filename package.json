@@ -79,11 +79,11 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^20.0.1",
     "path": "^0.12.7",
-    "prettier": "^3.6.0",
+    "prettier": "^3.6.1",
     "sass": "^1.89.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.34.1"
+    "typescript-eslint": "^8.35.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
