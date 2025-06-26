@@ -72,7 +72,7 @@ export class MyComponent {
 
 ## 更进阶示例：基于元素定位的下拉菜单
 
-```ts
+```typescript
 openDropdown(trigger: ElementRef) {
   const positionStrategy = this.overlay.position()
     .flexibleConnectedTo(trigger)

@@ -163,11 +163,11 @@ export class MyPopupComponent {}
 ```ts
 @Component({
   selector: 'video-preview',
-  template: \`
+  template: `
     <div class="preview">
       <video autoplay controls [src]="url | safe: 'resourceUrl'"></video>
     </div>
-  \`
+  `
 })
 export class VideoPreviewComponent {
   @Input() url!: string;
