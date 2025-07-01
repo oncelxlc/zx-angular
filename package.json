@@ -59,15 +59,15 @@
     "@angular/compiler-cli": "^20.0.5",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-angular": "^19.8.1",
-    "@eslint/js": "^9.29.0",
+    "@eslint/js": "^9.30.0",
     "@types/express": "^5.0.3",
     "@types/jasmine": "^5.1.8",
-    "@types/node": "^20.19.1",
+    "@types/node": "^20.19.2",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "^20.1.1",
     "chokidar": "^4.0.3",
     "clean-css-cli": "^5.6.3",
-    "eslint": "^9.29.0",
+    "eslint": "^9.30.0",
     "fs-extra": "^11.3.0",
     "husky": "^9.1.7",
     "jasmine": "^5.8.0",
@@ -79,11 +79,11 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^20.0.1",
     "path": "^0.12.7",
-    "prettier": "^3.6.1",
+    "prettier": "^3.6.2",
     "sass": "^1.89.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.35.0"
+    "typescript-eslint": "^8.35.1"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
