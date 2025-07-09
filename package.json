@@ -62,7 +62,7 @@
     "@eslint/js": "^9.30.1",
     "@types/express": "^5.0.3",
     "@types/jasmine": "^5.1.8",
-    "@types/node": "^20.19.4",
+    "@types/node": "^20.19.6",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "^20.1.1",
     "chokidar": "^4.0.3",
