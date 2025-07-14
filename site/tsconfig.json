@@ -4,9 +4,11 @@
   "compilerOptions": {
     "declaration": false,
     "outDir": "./dist/out-tsc",
-    "ngx-zx/*": [
-      "../components/*"
-    ]
+    "paths": {
+      "ngx-zx/*": [
+        "../components/*"
+      ]
+    }
   },
   "include": [
     "src/**/*"

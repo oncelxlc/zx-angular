@@ -70,7 +70,7 @@
               "@angular/material/prebuilt-themes/azure-blue.css",
               "site/src/styles.scss",
               {
-                "input": "site/src/styles/font/_font.scss",
+                "input": "site/src/styles/font/_font.site.scss",
                 "bundleName": "font",
                 "inject": true
               }
