@@ -6,8 +6,8 @@
     "declaration": false,
     "outDir": "./dist/out-tsc",
     "paths": {
-      "ngx-zx/*": [
-        "../components/*"
+      "@ngx-zx/*": [
+        "../ngx-zx/*"
       ],
       "@zxa-components/*": [
         "./src/components/*"
