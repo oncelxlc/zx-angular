@@ -11,6 +11,12 @@
       ],
       "@zxa-components/*": [
         "./src/components/*"
+      ],
+      "@zxa-pages/*": [
+        "./src/pages/*"
+      ],
+      "@zxa-routes/*": [
+        "./src/routes/*"
       ]
     }
   },
