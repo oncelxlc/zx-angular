@@ -1,12 +1,14 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { MainComponent } from "./main/main.component";
+import { AsideComponent, FooterComponent, HeaderComponent } from "@zxa-components/container";
 
 @Component({
   selector: "zxa-container",
   imports: [
-    MainComponent,
     RouterOutlet,
+    AsideComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
   templateUrl: "./container.component.html",
   styleUrl: "./container.component.scss"
