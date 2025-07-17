@@ -5,17 +5,17 @@ import { MenuConfig, MenuItem } from "./menu.interface";
   selector: "zx-menu-item",
   imports: [],
   template: `
-    <li class="ant-menu-item"
-        [class.ant-menu-item-selected]="isSelected()"
-        [class.ant-menu-item-disabled]="item().disabled"
+    <li class="zx-menu-item"
+        [class.zx-menu-item-selected]="isSelected()"
+        [class.zx-menu-item-disabled]="item().disabled"
         [style.padding-left.px]="paddingLeft()"
         (click)="handleClick()"
         tabindex="0">
-      <span class="ant-menu-title-content">
+      <span class="zx-menu-title-content">
         @if (item().icon) {
-          <i [class]="item().icon" class="ant-menu-item-icon"></i>
+          <i [class]="item().icon" class="zx-menu-item-icon"></i>
         }
-        <span class="ant-menu-title-text">{{ item().label }}</span>
+        <span class="zx-menu-title-text">{{ item().label }}</span>
       </span>
     </li>
   `,

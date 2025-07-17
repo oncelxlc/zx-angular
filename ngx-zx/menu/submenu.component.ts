@@ -8,30 +8,30 @@ import { MenuItemComponent } from "./menu-item.component";
     MenuItemComponent
   ],
   template: `
-    <li class="ant-menu-submenu"
-        [class.ant-menu-submenu-open]="isOpen()"
-        [class.ant-menu-submenu-disabled]="item().disabled">
+    <li class="zx-menu-submenu"
+        [class.zx-menu-submenu-open]="isOpen()"
+        [class.zx-menu-submenu-disabled]="item().disabled">
 
-      <div class="ant-menu-submenu-title"
+      <div class="zx-menu-submenu-title"
            [style.padding-left.px]="titlePaddingLeft()"
            tabindex="0"
            (click)="toggleOpen()">
-        <span class="ant-menu-title-content">
+        <span class="zx-menu-title-content">
           @if (item().icon) {
-            <i [class]="item().icon" class="ant-menu-item-icon"></i>
+            <i [class]="item().icon" class="zx-menu-item-icon"></i>
           }
-          <span class="ant-menu-title-text">{{ item().label }}</span>
+          <span class="zx-menu-title-text">{{ item().label }}</span>
         </span>
-        <i class="ant-menu-submenu-arrow"
-           [class.ant-menu-submenu-arrow-up]="isOpen()"></i>
+        <i class="zx-menu-submenu-arrow"
+           [class.zx-menu-submenu-arrow-up]="isOpen()"></i>
       </div>
 
-      <ul class="ant-menu ant-menu-sub"
-          [class.ant-menu-hidden]="!isOpen()"
-          [class.ant-menu-vertical]="config().mode !== 'horizontal'"
-          [class.ant-menu-horizontal]="config().mode === 'horizontal'"
-          [class.ant-menu-dark]="config().theme === 'dark'"
-          [class.ant-menu-light]="config().theme === 'light'">
+      <ul class="zx-menu zx-menu-sub"
+          [class.zx-menu-hidden]="!isOpen()"
+          [class.zx-menu-vertical]="config().mode !== 'horizontal'"
+          [class.zx-menu-horizontal]="config().mode === 'horizontal'"
+          [class.zx-menu-dark]="config().theme === 'dark'"
+          [class.zx-menu-light]="config().theme === 'light'">
 
         @for (child of item().children; track child.key) {
           @if (!child.children || child.children.length === 0) {

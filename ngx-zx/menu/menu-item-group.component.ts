@@ -10,12 +10,12 @@ import { MenuItemComponent } from "./menu-item.component";
     SubmenuComponent
   ],
   template: `
-    <li class="ant-menu-item-group">
-      <div class="ant-menu-item-group-title"
+    <li class="zx-menu-item-group">
+      <div class="zx-menu-item-group-title"
            [style.padding-left.px]="titlePaddingLeft()">
         {{ item().label }}
       </div>
-      <ul class="ant-menu-item-group-list">
+      <ul class="zx-menu-item-group-list">
         @for (child of item().children; track child.key) {
           @if (!child.children || child.children.length === 0) {
             <zx-menu-item

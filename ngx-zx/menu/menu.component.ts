@@ -12,17 +12,17 @@ import { SubmenuComponent } from "./submenu.component";
     MenuItemComponent
   ],
   template: `
-    <ul class="ant-menu"
-        [class.ant-menu-vertical]="mode() === 'vertical'"
-        [class.ant-menu-horizontal]="mode() === 'horizontal'"
-        [class.ant-menu-inline]="mode() === 'inline'"
-        [class.ant-menu-dark]="theme() === 'dark'"
-        [class.ant-menu-light]="theme() === 'light'">
+    <ul class="zx-menu"
+        [class.zx-menu-vertical]="mode() === 'vertical'"
+        [class.zx-menu-horizontal]="mode() === 'horizontal'"
+        [class.zx-menu-inline]="mode() === 'inline'"
+        [class.zx-menu-dark]="theme() === 'dark'"
+        [class.zx-menu-light]="theme() === 'light'">
 
       @for (item of items(); track item.key) {
         <!-- 分割线 -->
         @if (item.type === 'divider') {
-          <li class="ant-menu-item-divider"></li>
+          <li class="zx-menu-item-divider"></li>
         }
 
         <!-- 菜单组 -->
