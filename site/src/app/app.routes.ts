@@ -3,43 +3,39 @@ import { Routes } from "@angular/router";
 export const routes: Routes = [
   {
     path: "",
-    loadComponent: () => import("@zxa-pages/container/container.component").then(m => m.ContainerComponent),
-    pathMatch: "full",
+    loadComponent: () => import("@zxa-pages/container/container.component").then(c => c.ContainerComponent),
     children: [
       {
         path: "",
-        loadComponent: () => import("@zxa-pages/home/home.component").then(m => m.HomeComponent),
+        loadComponent: () => import("@zxa-pages/home/home.component").then(c => c.HomeComponent),
+        pathMatch: "full",
         title: "首页",
       },
       {
         path: "blog",
-        loadComponent: () => import("@zxa-pages/blog/blog.component").then(m => m.BlogComponent),
+        loadComponent: () => import("@zxa-pages/blog/blog.component").then(c => c.BlogComponent),
         title: "博客",
       },
       {
         path: "experiment",
-        loadChildren: () => import("@zxa-routes/experiment.routes").then(m => m.experimentRoutes),
+        loadChildren: () => import("@zxa-routes/experiment.routes").then(r => r.experimentRoutes),
         title: "实验",
       },
       {
         path: "notes",
-        loadComponent: () => import("@zxa-pages/notes/notes.component").then(m => m.NotesComponent),
+        loadComponent: () => import("@zxa-pages/notes/notes.component").then(c => c.NotesComponent),
         title: "笔记",
-      },
-      {
-        path: "**",
-        redirectTo: "",
       },
     ],
   },
   {
     path: "login",
-    loadComponent: () => import("@zxa-pages/login/login.component").then(m => m.LoginComponent),
+    loadComponent: () => import("@zxa-pages/login/login.component").then(c => c.LoginComponent),
     title: "登录",
   },
   {
     path: "not-found",
-    loadComponent: () => import("@zxa-pages/not-found/not-found.component").then(m => m.NotFoundComponent),
+    loadComponent: () => import("@zxa-pages/not-found/not-found.component").then(c => c.NotFoundComponent),
     title: "找不到页面",
   },
   {
