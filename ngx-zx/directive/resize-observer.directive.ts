@@ -1,4 +1,5 @@
 import {
+  booleanAttribute,
   computed,
   DestroyRef,
   Directive,
@@ -9,35 +10,42 @@ import {
   NgZone,
   OnInit,
   output,
-  signal,
+  signal, WritableSignal,
 } from "@angular/core";
 import { ResizeState, SizeData } from "./resize-observer.type";
 
 @Directive({
   selector: "[zxResizeObserver]",
 })
-export class ResizeObserverDirective implements OnInit {// 使用新的输出API
-  // 输出事件
+export class ResizeObserverDirective implements OnInit {// 16 9
+  // 宽度和高度变化事件
   readonly sizeChange = output<SizeData>();
+  // 开始和结束调整大小事件
   readonly sizeChangeStart = output<SizeData>();
   readonly sizeChangeEnd = output<SizeData>();
+  // 调整大小状态变化事件
   readonly resizeStateChange = output<ResizeState>();
 
-  // 输入属性
+  // 防抖设置, 默认16ms
   debounceTime = input<number>(16);
+  // 是否启用防抖, 默认启用
   enableDebounce = input<boolean>(true);
+  // 是否在Angular外部运行
   runOutsideAngular = input<boolean>(true);
+  // 尺寸变化阈值，单位为像素
   threshold = input<number>(1);
-  enableLogging = input<boolean>(false);
+  // 是否启用日志记录
+  enableLogging = input<boolean, boolean | string | null>(false, {transform: booleanAttribute});
 
   // 依赖注入
   private elementRef = inject(ElementRef<HTMLElement>);
   private destroyRef = inject(DestroyRef);
   private ngZone = inject(NgZone);
 
-  // 响应式状态
-  private lastSize = signal<SizeData | null>(null);
-  private resizeState = signal<ResizeState>({
+  // 最后一次尺寸数据
+  private lastSize: WritableSignal<SizeData | null> = signal<SizeData | null>(null);
+  // 调整大小状态
+  private resizeState: WritableSignal<ResizeState> = signal<ResizeState>({
     isResizing: false,
     startTime: 0,
     changeCount: 0,
