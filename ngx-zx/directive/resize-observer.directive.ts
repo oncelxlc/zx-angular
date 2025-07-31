@@ -10,10 +10,11 @@ import {
   OnInit,
   output,
   signal,
-} from '@angular/core';
+} from "@angular/core";
+import { ResizeState, SizeData } from "./resize-observer.type";
 
 @Directive({
-  selector: '[zxResizeObserver]',
+  selector: "[zxResizeObserver]",
 })
 export class ResizeObserverDirective implements OnInit {// 使用新的输出API
   // 输出事件
@@ -55,7 +56,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
     // 监听配置变化
     effect(() => {
       if (this.enableLogging()) {
-        console.log('ResizeObserver配置更新:', {
+        console.log("ResizeObserver配置更新:", {
           debounceTime: this.debounceTime(),
           enableDebounce: this.enableDebounce(),
           threshold: this.threshold(),
@@ -96,7 +97,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
     this.resizeObserver.observe(this.elementRef.nativeElement);
 
     if (this.enableLogging()) {
-      console.log('ResizeObserver 已初始化');
+      console.log("ResizeObserver 已初始化");
     }
   }
 
@@ -166,7 +167,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
       });
 
       if (this.enableLogging()) {
-        console.log('开始调整大小');
+        console.log("开始调整大小");
       }
     }
 
@@ -215,7 +216,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
       });
 
       if (this.enableLogging()) {
-        console.log('结束调整大小，总变化次数:', state.changeCount);
+        console.log("结束调整大小，总变化次数:", state.changeCount);
       }
 
       this.endTimer = null;
@@ -230,7 +231,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
     });
 
     if (this.enableLogging()) {
-      console.log('尺寸变化:', sizeData);
+      console.log("尺寸变化:", sizeData);
     }
   }
 
@@ -264,7 +265,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
     });
 
     if (this.enableLogging()) {
-      console.log('ResizeObserver 已清理');
+      console.log("ResizeObserver 已清理");
     }
   }
 
@@ -315,17 +316,4 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
       changeCount: 0,
     });
   }
-}
-
-export interface SizeData {
-  width: number;
-  height: number;
-  contentWidth: number;
-  contentHeight: number;
-}
-
-export interface ResizeState {
-  isResizing: boolean;
-  startTime: number;
-  changeCount: number;
 }
