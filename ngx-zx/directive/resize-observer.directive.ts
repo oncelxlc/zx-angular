@@ -9,11 +9,11 @@ import {
   NgZone,
   OnInit,
   output,
-  signal
-} from "@angular/core";
+  signal,
+} from '@angular/core';
 
 @Directive({
-  selector: "[zxResizeObserver]"
+  selector: '[zxResizeObserver]',
 })
 export class ResizeObserverDirective implements OnInit {// 使用新的输出API
   // 输出事件
@@ -39,7 +39,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
   private resizeState = signal<ResizeState>({
     isResizing: false,
     startTime: 0,
-    changeCount: 0
+    changeCount: 0,
   });
 
   // 计算属性
@@ -55,11 +55,11 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
     // 监听配置变化
     effect(() => {
       if (this.enableLogging()) {
-        console.log("ResizeObserver配置更新:", {
+        console.log('ResizeObserver配置更新:', {
           debounceTime: this.debounceTime(),
           enableDebounce: this.enableDebounce(),
           threshold: this.threshold(),
-          runOutsideAngular: this.runOutsideAngular()
+          runOutsideAngular: this.runOutsideAngular(),
         });
       }
     });
@@ -82,12 +82,6 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
   }
 
   private initResizeObserver(): void {
-    if (!window.ResizeObserver) {
-      console.warn("ResizeObserver is not supported in this browser");
-      this.fallbackToWindowResize();
-      return;
-    }
-
     const observerCallback = (entries: ResizeObserverEntry[]) => {
       if (this.runOutsideAngular()) {
         this.ngZone.runOutsideAngular(() => {
@@ -102,7 +96,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
     this.resizeObserver.observe(this.elementRef.nativeElement);
 
     if (this.enableLogging()) {
-      console.log("ResizeObserver 已初始化");
+      console.log('ResizeObserver 已初始化');
     }
   }
 
@@ -131,7 +125,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
       width: Math.round(element.offsetWidth),
       height: Math.round(element.offsetHeight),
       contentWidth: Math.round(width),
-      contentHeight: Math.round(height)
+      contentHeight: Math.round(height),
     };
   }
 
@@ -163,7 +157,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
       const newState: ResizeState = {
         isResizing: true,
         startTime: Date.now(),
-        changeCount: 0
+        changeCount: 0,
       };
       this.resizeState.set(newState);
 
@@ -172,14 +166,14 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
       });
 
       if (this.enableLogging()) {
-        console.log("开始调整大小");
+        console.log('开始调整大小');
       }
     }
 
     // 更新变化计数
     this.resizeState.update(state => ({
       ...state,
-      changeCount: state.changeCount + 1
+      changeCount: state.changeCount + 1,
     }));
 
     // 主要的尺寸变化事件
@@ -213,7 +207,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
       const state = this.resizeState();
       this.resizeState.set({
         ...state,
-        isResizing: false
+        isResizing: false,
       });
 
       this.ngZone.run(() => {
@@ -221,7 +215,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
       });
 
       if (this.enableLogging()) {
-        console.log("结束调整大小，总变化次数:", state.changeCount);
+        console.log('结束调整大小，总变化次数:', state.changeCount);
       }
 
       this.endTimer = null;
@@ -236,31 +230,8 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
     });
 
     if (this.enableLogging()) {
-      console.log("尺寸变化:", sizeData);
+      console.log('尺寸变化:', sizeData);
     }
-  }
-
-  private fallbackToWindowResize(): void {
-    console.warn("使用 window resize 降级方案");
-
-    const handleWindowResize = () => {
-      const currentSize = this.getCurrentSize();
-      if (currentSize && this.hasSignificantResize(currentSize)) {
-        this.handleSizeChange(currentSize);
-      }
-    };
-
-    if (this.runOutsideAngular()) {
-      this.ngZone.runOutsideAngular(() => {
-        window.addEventListener("resize", handleWindowResize);
-      });
-    } else {
-      window.addEventListener("resize", handleWindowResize);
-    }
-
-    this.destroyRef.onDestroy(() => {
-      window.removeEventListener("resize", handleWindowResize);
-    });
   }
 
   private cleanup(): void {
@@ -289,11 +260,11 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
     this.resizeState.set({
       isResizing: false,
       startTime: 0,
-      changeCount: 0
+      changeCount: 0,
     });
 
     if (this.enableLogging()) {
-      console.log("ResizeObserver 已清理");
+      console.log('ResizeObserver 已清理');
     }
   }
 
@@ -310,10 +281,13 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
       width: Math.round(element.offsetWidth),
       height: Math.round(element.offsetHeight),
       contentWidth: Math.round(rect.width),
-      contentHeight: Math.round(rect.height)
+      contentHeight: Math.round(rect.height),
     };
   }
 
+  /**
+   * 强制检查当前元素的大小变化
+   */
   forceCheck(): void {
     const currentSize = this.getCurrentSize();
     if (currentSize) {
@@ -322,11 +296,14 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
     }
   }
 
+  /**
+   * 获取当前的调整大小状态和统计信息
+   */
   getResizeStats() {
     return {
       currentState: this.resizeState(),
       lastSize: this.lastSize(),
-      hasSize: this.hasSize()
+      hasSize: this.hasSize(),
     };
   }
 
@@ -335,7 +312,7 @@ export class ResizeObserverDirective implements OnInit {// 使用新的输出API
     this.resizeState.set({
       isResizing: false,
       startTime: 0,
-      changeCount: 0
+      changeCount: 0,
     });
   }
 }
