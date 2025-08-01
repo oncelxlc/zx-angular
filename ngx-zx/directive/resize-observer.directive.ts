@@ -8,9 +8,11 @@ import {
   inject,
   input,
   NgZone,
+  numberAttribute,
   OnInit,
   output,
-  signal, WritableSignal,
+  signal,
+  WritableSignal,
 } from "@angular/core";
 import { ResizeState, SizeData } from "./resize-observer.type";
 
@@ -27,7 +29,7 @@ export class ResizeObserverDirective implements OnInit {// 16 9
   readonly resizeStateChange = output<ResizeState>();
 
   // 防抖设置, 默认16ms
-  debounceTime = input<number>(16);
+  debounceTime = input<number, number | string>(16, {transform: numberAttribute});
   // 是否启用防抖, 默认启用
   enableDebounce = input<boolean>(true);
   // 是否在Angular外部运行
