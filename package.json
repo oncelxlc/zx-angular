@@ -10,7 +10,7 @@
     "build": "ng build zx-ng --configuration production",
     "test": "ng test zx-ng",
     "build:zx": "ng build ngx-zx",
-    "test:zx": "ng test ngx-zx",
+    "test:zx": "set CHROME_BIN=C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome.exe && ng test ngx-zx",
     "build:builders": "tsc --project builders/tsconfig.json",
     "build:test-builders": "ng run zx-ng-test:copy",
     "build:ui-css": "node tools/sass-handler.js ngx-zx/styles/_index.scss ./dist/zx-ui/ng-zx-ui.css",
