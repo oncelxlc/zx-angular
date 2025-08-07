@@ -31,13 +31,13 @@ export class ResizeObserverDirective implements OnInit {// 16 9
   // 防抖设置, 默认16ms
   debounceTime = input<number, number | string>(16, {transform: numberAttribute});
   // 是否启用防抖, 默认启用
-  enableDebounce = input<boolean>(true);
+  enableDebounce = input<boolean, boolean | null>(true, {transform: booleanAttribute});
   // 是否在Angular外部运行
-  runOutsideAngular = input<boolean>(true);
+  runOutsideAngular = input<boolean, boolean | null>(true, {transform: booleanAttribute});
   // 尺寸变化阈值，单位为像素
-  threshold = input<number>(1);
+  threshold = input<number, number | string>(1, {transform: numberAttribute});
   // 是否启用日志记录
-  enableLogging = input<boolean, boolean | string | null>(false, {transform: booleanAttribute});
+  enableLogging = input<boolean, boolean | null>(false, {transform: booleanAttribute});
 
   // 依赖注入
   private elementRef = inject(ElementRef<HTMLElement>);
