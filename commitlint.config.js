@@ -8,6 +8,6 @@ module.exports = {
     'scope-case': [0, 'always'],
     'subject-empty': [2, 'never'],
     'subject-case': [0, 'never'],
-    'header-max-length': [2, 'always', 88],
+    'header-max-length': [2, 'always', 120],
   },
 };

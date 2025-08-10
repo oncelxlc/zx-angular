@@ -8,10 +8,10 @@ import {
   inject,
   input,
   NgZone,
-  numberAttribute,
+  numberAttribute, OnChanges,
   OnInit,
   output,
-  signal,
+  signal, SimpleChanges,
   WritableSignal,
 } from "@angular/core";
 import { ResizeState, SizeData } from "./resize-observer.type";
@@ -19,7 +19,7 @@ import { ResizeState, SizeData } from "./resize-observer.type";
 @Directive({
   selector: "[zxResizeObserver]",
 })
-export class ResizeObserverDirective implements OnInit {// 16 9
+export class ResizeObserverDirective implements OnInit, OnChanges {
   // 宽度和高度变化事件
   readonly sizeChange = output<SizeData>();
   // 开始和结束调整大小事件
@@ -90,6 +90,12 @@ export class ResizeObserverDirective implements OnInit {// 16 9
 
   ngOnInit(): void {
     this.initResizeObserver();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes["threshold"]) {
+      console.log(changes["threshold"]);
+    }
   }
 
   private initResizeObserver(): void {
@@ -235,7 +241,6 @@ export class ResizeObserverDirective implements OnInit {// 16 9
 
   private emitSizeChange(sizeData: SizeData): void {
     this.lastSize.set({...sizeData});
-
     this.ngZone.run(() => {
       this.sizeChange.emit(sizeData);
     });
