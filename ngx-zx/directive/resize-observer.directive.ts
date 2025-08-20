@@ -1,3 +1,4 @@
+import { isPlatformBrowser } from "@angular/common";
 import {
   booleanAttribute,
   computed,
@@ -10,7 +11,7 @@ import {
   NgZone,
   numberAttribute, OnChanges,
   OnInit,
-  output,
+  output, PLATFORM_ID,
   signal, SimpleChanges,
   WritableSignal,
 } from "@angular/core";
@@ -43,6 +44,7 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
   private elementRef = inject(ElementRef<HTMLElement>);
   private destroyRef = inject(DestroyRef);
   private ngZone = inject(NgZone);
+  private platformId = inject(PLATFORM_ID);
 
   // 最后一次尺寸数据
   private lastSize: WritableSignal<SizeData | null> = signal<SizeData | null>(null);
@@ -89,7 +91,9 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.initResizeObserver();
+    if (isPlatformBrowser(this.platformId)) {
+      this.initResizeObserver();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
