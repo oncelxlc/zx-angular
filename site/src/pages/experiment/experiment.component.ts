@@ -4,10 +4,10 @@ import { ResizeObserverDirective, SizeData } from "@ngx-zx/directive";
 @Component({
   selector: "zxa-experiment",
   imports: [
-    ResizeObserverDirective
+    ResizeObserverDirective,
   ],
   templateUrl: "./experiment.component.html",
-  styleUrl: "./experiment.component.scss"
+  styleUrl: "./experiment.component.scss",
 })
 export class ExperimentComponent {
   onSizeChange(event: SizeData) {

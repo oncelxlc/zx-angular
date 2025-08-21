@@ -86,10 +86,8 @@ interface MockHTMLElement extends HTMLElement {
       #testElement
       zxResizeObserver
       [debounceTime]="debounceTime"
-      [enableDebounce]="enableDebounce"
       [runOutsideAngular]="runOutsideAngular"
       [threshold]="threshold"
-      [enableLogging]="enableLogging"
       (sizeChange)="onSizeChange($event)"
       (sizeChangeStart)="onSizeChangeStart($event)"
       (sizeChangeEnd)="onSizeChangeEnd($event)"
@@ -192,10 +190,8 @@ describe("ResizeObserverDirective", () => {
 
     it("应该设置默认输入属性", () => {
       expect(directive.debounceTime()).toBe(16);
-      expect(directive.enableDebounce()).toBe(true);
       expect(directive.runOutsideAngular()).toBe(true);
       expect(directive.threshold()).toBe(1);
-      expect(directive.enableLogging()).toBe(false);
     });
   });
 
@@ -209,7 +205,6 @@ describe("ResizeObserverDirective", () => {
     it("应该更新启用防抖设置", () => {
       component.enableDebounce = false;
       fixture.detectChanges();
-      expect(directive.enableDebounce()).toBe(false);
     });
 
     it("应该更新阈值设置", () => {
@@ -221,7 +216,6 @@ describe("ResizeObserverDirective", () => {
     it("应该更新日志记录设置", () => {
       component.enableLogging = true;
       fixture.detectChanges();
-      expect(directive.enableLogging()).toBe(true);
     });
   });
 

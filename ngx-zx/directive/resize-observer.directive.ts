@@ -9,14 +9,33 @@ import {
   inject,
   input,
   NgZone,
-  numberAttribute, OnChanges,
+  numberAttribute,
+  OnChanges,
   OnInit,
-  output, PLATFORM_ID,
-  signal, SimpleChanges,
+  output,
+  PLATFORM_ID,
+  signal,
+  SimpleChanges,
   WritableSignal,
 } from "@angular/core";
+import {
+  Subject,
+  animationFrameScheduler,
+  merge,
+  filter,
+  map,
+  observeOn,
+  shareReplay,
+  takeUntil,
+  tap,
+  debounceTime,
+} from "rxjs";
 import { ResizeState, SizeData } from "./resize-observer.type";
 
+/**
+ * 用于监听元素大小变化的指令
+ * 该指令使用ResizeObserver API来检测元素的尺寸变化，并提供相关事件和状态管理。
+ */
 @Directive({
   selector: "[zxResizeObserver]",
 })
@@ -31,8 +50,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
 
   // 防抖设置, 默认16ms
   debounceTime = input<number, number | string>(16, {transform: numberAttribute});
-  // 是否启用防抖, 默认启用
-  enableDebounce = input<boolean, boolean | null>(true, {transform: booleanAttribute});
   // 是否在Angular外部运行
   runOutsideAngular = input<boolean, boolean | null>(true, {transform: booleanAttribute});
   // 尺寸变化阈值，单位为像素
@@ -57,10 +74,11 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
   readonly currentResizeState = computed(() => this.resizeState());
   readonly hasSize = computed(() => this.lastSize() !== null);
 
+  // RxJS Subjects
+  private destroy$ = new Subject<void>();
+  private resizeEntries$ = new Subject<ResizeObserverEntry[]>();
+  private forceCheck$ = new Subject<void>();
   private resizeObserver: ResizeObserver | null = null;
-  private debounceTimer: number | null = null;
-  private endTimer: number | null = null;
-  private rafId: number | null = null;
 
   constructor() {
     // 监听状态变化并发出事件
@@ -80,6 +98,7 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.initResizeObserver();
+      this.setupResizeStream();
     }
   }
 
@@ -93,10 +112,10 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
     const observerCallback = (entries: ResizeObserverEntry[]) => {
       if (this.runOutsideAngular()) {
         this.ngZone.runOutsideAngular(() => {
-          this.handleResize(entries);
+          this.resizeEntries$.next(entries);
         });
       } else {
-        this.handleResize(entries);
+        this.resizeEntries$.next(entries);
       }
     };
 
@@ -104,21 +123,82 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
     this.resizeObserver.observe(this.elementRef.nativeElement);
   }
 
-  private handleResize(entries: ResizeObserverEntry[]): void {
-    if (entries.length === 0) {
-      return;
-    }
-    if (this.rafId) {
-      cancelAnimationFrame(this.rafId);
-    }
-    this.rafId = requestAnimationFrame(() => {
-      const entry = entries[0];
-      const newSize = this.extractSizeData(entry);
+  private setupResizeStream(): void {
+    // 主要的resize流处理
+    const resizeStream$ = merge(
+      // 来自ResizeObserver的事件
+      this.resizeEntries$.pipe(
+        filter(entries => entries.length > 0),
+        map(entries => entries[0]),
+        observeOn(animationFrameScheduler), // 替代requestAnimationFrame
+        map(entry => this.extractSizeData(entry)),
+      ),
+      // 强制检查的事件
+      this.forceCheck$.pipe(
+        map(() => this.getCurrentSize()),
+        filter((size): size is SizeData => size !== null),
+      ),
+    ).pipe(
+      // 过滤出有意义的尺寸变化
+      filter(newSize => this.hasSignificantResize(newSize)),
+      shareReplay(1),
+      takeUntil(this.destroy$),
+    );
 
-      if (this.hasSignificantResize(newSize)) {
-        this.handleSizeChange(newSize);
-      }
-    });
+    // 处理resize开始事件
+    resizeStream$.pipe(
+      filter(() => !this.resizeState().isResizing),
+      tap(sizeData => {
+        const newState: ResizeState = {
+          isResizing: true,
+          startTime: Date.now(),
+          changeCount: 0,
+        };
+        this.resizeState.set(newState);
+
+        this.ngZone.run(() => {
+          this.sizeChangeStart.emit({...sizeData});
+        });
+      }),
+      takeUntil(this.destroy$),
+    ).subscribe();
+
+    // 更新变化计数
+    resizeStream$.pipe(
+      tap(() => {
+        this.resizeState.update(state => ({
+          ...state,
+          changeCount: state.changeCount + 1,
+        }));
+      }),
+      takeUntil(this.destroy$),
+    ).subscribe();
+
+    // 处理防抖的尺寸变化事件
+    resizeStream$.pipe(
+      debounceTime(this.debounceTime()),
+      tap(sizeData => {
+        this.emitSizeChange(sizeData);
+      }),
+      takeUntil(this.destroy$),
+    ).subscribe();
+
+    // 处理resize结束事件
+    resizeStream$.pipe(
+      debounceTime(this.debounceTime()),
+      tap(sizeData => {
+        const state = this.resizeState();
+        this.resizeState.set({
+          ...state,
+          isResizing: false,
+        });
+
+        this.ngZone.run(() => {
+          this.sizeChangeEnd.emit({...sizeData});
+        });
+      }),
+      takeUntil(this.destroy$),
+    ).subscribe();
   }
 
   private extractSizeData(entry: ResizeObserverEntry): SizeData {
@@ -153,71 +233,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
     );
   }
 
-  private handleSizeChange(sizeData: SizeData): void {
-    const currentState = this.resizeState();
-
-    // 触发开始事件
-    if (!currentState.isResizing) {
-      const newState: ResizeState = {
-        isResizing: true,
-        startTime: Date.now(),
-        changeCount: 0,
-      };
-      this.resizeState.set(newState);
-
-      this.ngZone.run(() => {
-        this.sizeChangeStart.emit({...sizeData});
-      });
-    }
-
-    // 更新变化计数
-    this.resizeState.update(state => ({
-      ...state,
-      changeCount: state.changeCount + 1,
-    }));
-
-    // 主要的尺寸变化事件
-    if (this.enableDebounce() && this.debounceTime() > 0) {
-      this.debounceEmit(sizeData);
-    } else {
-      this.emitSizeChange(sizeData);
-    }
-
-    // 设置结束计时器
-    this.scheduleEndEvent(sizeData);
-  }
-
-  private debounceEmit(sizeData: SizeData): void {
-    if (this.debounceTimer) {
-      clearTimeout(this.debounceTimer);
-    }
-
-    this.debounceTimer = window.setTimeout(() => {
-      this.emitSizeChange(sizeData);
-      this.debounceTimer = null;
-    }, this.debounceTime());
-  }
-
-  private scheduleEndEvent(sizeData: SizeData): void {
-    if (this.endTimer) {
-      clearTimeout(this.endTimer);
-    }
-
-    this.endTimer = window.setTimeout(() => {
-      const state = this.resizeState();
-      this.resizeState.set({
-        ...state,
-        isResizing: false,
-      });
-
-      this.ngZone.run(() => {
-        this.sizeChangeEnd.emit({...sizeData});
-      });
-
-      this.endTimer = null;
-    }, this.debounceTime() + 100);
-  }
-
   private emitSizeChange(sizeData: SizeData): void {
     this.lastSize.set({...sizeData});
     this.ngZone.run(() => {
@@ -226,25 +241,18 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
   }
 
   private cleanup(): void {
+    // 触发destroy流
+    this.destroy$.next();
+    this.destroy$.complete();
+
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
       this.resizeObserver = null;
     }
 
-    if (this.debounceTimer) {
-      clearTimeout(this.debounceTimer);
-      this.debounceTimer = null;
-    }
-
-    if (this.endTimer) {
-      clearTimeout(this.endTimer);
-      this.endTimer = null;
-    }
-
-    if (this.rafId) {
-      cancelAnimationFrame(this.rafId);
-      this.rafId = null;
-    }
+    // 完成所有subjects
+    this.resizeEntries$.complete();
+    this.forceCheck$.complete();
 
     // 重置信号状态
     this.lastSize.set(null);
@@ -276,11 +284,8 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
    * 强制检查当前元素的大小变化
    */
   forceCheck(): void {
-    const currentSize = this.getCurrentSize();
-    if (currentSize) {
-      this.lastSize.set(null); // 强制触发变化
-      this.handleSizeChange(currentSize);
-    }
+    this.lastSize.set(null); // 强制触发变化
+    this.forceCheck$.next();
   }
 
   /**
