@@ -37,8 +37,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
   runOutsideAngular = input<boolean, boolean | null>(true, {transform: booleanAttribute});
   // 尺寸变化阈值，单位为像素
   threshold = input<number, number | string>(1, {transform: numberAttribute});
-  // 是否启用日志记录
-  enableLogging = input<boolean, boolean | null>(false, {transform: booleanAttribute});
 
   // 依赖注入
   private elementRef = inject(ElementRef<HTMLElement>);
@@ -65,17 +63,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
   private rafId: number | null = null;
 
   constructor() {
-    // 监听配置变化
-    effect(() => {
-      if (this.enableLogging()) {
-        console.log("ResizeObserver配置更新:", {
-          debounceTime: this.debounceTime(),
-          enableDebounce: this.enableDebounce(),
-          threshold: this.threshold(),
-          runOutsideAngular: this.runOutsideAngular(),
-        });
-      }
-    });
     // 监听状态变化并发出事件
     effect(() => {
       const state = this.resizeState();
@@ -115,10 +102,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
 
     this.resizeObserver = new ResizeObserver(observerCallback);
     this.resizeObserver.observe(this.elementRef.nativeElement);
-
-    if (this.enableLogging()) {
-      console.log("ResizeObserver 已初始化");
-    }
   }
 
   private handleResize(entries: ResizeObserverEntry[]): void {
@@ -185,10 +168,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
       this.ngZone.run(() => {
         this.sizeChangeStart.emit({...sizeData});
       });
-
-      if (this.enableLogging()) {
-        console.log("开始调整大小");
-      }
     }
 
     // 更新变化计数
@@ -235,10 +214,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
         this.sizeChangeEnd.emit({...sizeData});
       });
 
-      if (this.enableLogging()) {
-        console.log("结束调整大小，总变化次数:", state.changeCount);
-      }
-
       this.endTimer = null;
     }, this.debounceTime() + 100);
   }
@@ -248,10 +223,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
     this.ngZone.run(() => {
       this.sizeChange.emit(sizeData);
     });
-
-    if (this.enableLogging()) {
-      console.log("尺寸变化:", sizeData);
-    }
   }
 
   private cleanup(): void {
@@ -282,10 +253,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
       startTime: 0,
       changeCount: 0,
     });
-
-    if (this.enableLogging()) {
-      console.log("ResizeObserver 已清理");
-    }
   }
 
   // 公共方法
