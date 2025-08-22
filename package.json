@@ -54,7 +54,7 @@
   "devDependencies": {
     "@angular-devkit/architect": "^0.2000.6",
     "@angular-devkit/core": "^20.2.0",
-    "@angular-eslint/builder": "^20.1.1",
+    "@angular-eslint/builder": "^20.2.0",
     "@angular/build": "^20.2.0",
     "@angular/cli": "^20.2.0",
     "@angular/compiler-cli": "^20.2.1",
@@ -65,7 +65,7 @@
     "@types/jasmine": "^5.1.9",
     "@types/node": "^20.19.11",
     "@zhexian/builders-runner": "link:builders",
-    "angular-eslint": "^20.1.1",
+    "angular-eslint": "^20.2.0",
     "chokidar": "^4.0.3",
     "clean-css-cli": "^5.6.3",
     "eslint": "^9.33.0",
