@@ -14,14 +14,14 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class {{ClassName}} {
-  protected readonly isServerRunning = signal(true);
+protected readonly isServerRunning = signal(true);
   toggleServerStatus() {
     this.isServerRunning.update(isServerRunning => !isServerRunning);
   }
 }
 ```
 
-```scss
+```css
 .container {
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@ export class {{ClassName}} {
 </section>
 ```
 
-When you update a component, be sure to put the logic in the ts file, the styles in the scss file and the html template in the html file.
+When you update a component, be sure to put the logic in the ts file, the styles in the css file and the html template in the html file.
 
 ## Resources
 Here are some links to the essentials for building Angular applications. Use these to get an understanding of how some of the core functionality works
@@ -83,7 +83,7 @@ Here is a link to the most recent Angular style guide https://angular.dev/style-
 - Prefer inline templates for small components
 - Prefer Reactive forms instead of Template-driven ones
 - Do NOT use `ngClass`, use `class` bindings instead, for context: https://angular.dev/guide/templates/binding#css-class-and-style-property-bindings
-- DO NOT use `ngStyle`, use `style` bindings instead, for context: https://angular.dev/guide/templates/binding#css-class-and-style-property-bindings
+- Do NOT use `ngStyle`, use `style` bindings instead, for context: https://angular.dev/guide/templates/binding#css-class-and-style-property-bindings
 
 ### State Management
 - Use signals for local component state
