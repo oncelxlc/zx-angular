@@ -744,9 +744,10 @@ export class DynamicOverlayComponent {
 
 ### 1. 内存管理
 - 始终在组件销毁时清理 OverlayRef
-- 使用 takeUntil 操作符管理订阅
+- 使用 takeUntil 操作符管理订阅 (Angular提供[`takeUntilDestroyed`](https://angular.dev/api/core/rxjs-interop/takeUntilDestroyed))
 
 ```typescript
+// 旧的示例
 export class OverlayComponent implements OnDestroy {
   private destroy$ = new Subject<void>();
 
@@ -762,6 +763,22 @@ export class OverlayComponent implements OnDestroy {
   private setupSubscriptions() {
     this.overlayRef.backdropClick()
       .pipe(takeUntil(this.destroy$))
+      .subscribe(() => this.closeOverlay());
+  }
+}
+
+// 使用Angular 19+ 的 takeUntilDestroyed
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+export class OverlayComponent implements OnDestroy {
+  ngOnDestroy() {
+    if (this.overlayRef) {
+      this.overlayRef.dispose();
+    }
+  }
+
+  private setupSubscriptions() {
+    this.overlayRef.backdropClick()
+      .pipe(takeUntilDestroyed())
       .subscribe(() => this.closeOverlay());
   }
 }
