@@ -18,6 +18,7 @@ import {
   SimpleChanges,
   WritableSignal,
 } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import {
   Subject,
   animationFrameScheduler,
@@ -26,7 +27,6 @@ import {
   map,
   observeOn,
   shareReplay,
-  takeUntil,
   tap,
   debounceTime,
 } from "rxjs";
@@ -75,7 +75,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
   readonly hasSize = computed(() => this.lastSize() !== null);
 
   // RxJS Subjects
-  private destroy$ = new Subject<void>();
   private resizeEntries$ = new Subject<ResizeObserverEntry[]>();
   private forceCheck$ = new Subject<void>();
   private resizeObserver: ResizeObserver | null = null;
@@ -142,7 +141,7 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
       // 过滤出有意义的尺寸变化
       filter(newSize => this.hasSignificantResize(newSize)),
       shareReplay(1),
-      takeUntil(this.destroy$),
+      takeUntilDestroyed(),
     );
 
     // 处理resize开始事件
@@ -160,7 +159,7 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
           this.sizeChangeStart.emit({...sizeData});
         });
       }),
-      takeUntil(this.destroy$),
+      takeUntilDestroyed(),
     ).subscribe();
 
     // 更新变化计数
@@ -171,7 +170,7 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
           changeCount: state.changeCount + 1,
         }));
       }),
-      takeUntil(this.destroy$),
+      takeUntilDestroyed(),
     ).subscribe();
 
     // 处理防抖的尺寸变化事件
@@ -180,7 +179,7 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
       tap(sizeData => {
         this.emitSizeChange(sizeData);
       }),
-      takeUntil(this.destroy$),
+      takeUntilDestroyed(),
     ).subscribe();
 
     // 处理resize结束事件
@@ -197,7 +196,7 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
           this.sizeChangeEnd.emit({...sizeData});
         });
       }),
-      takeUntil(this.destroy$),
+      takeUntilDestroyed(),
     ).subscribe();
   }
 
@@ -241,10 +240,6 @@ export class ResizeObserverDirective implements OnInit, OnChanges {
   }
 
   private cleanup(): void {
-    // 触发destroy流
-    this.destroy$.next();
-    this.destroy$.complete();
-
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
       this.resizeObserver = null;
