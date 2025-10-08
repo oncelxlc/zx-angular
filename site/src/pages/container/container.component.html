@@ -1,5 +1,16 @@
-<zxa-main>
-  <ng-container outlet>
-    <router-outlet/>
-  </ng-container>
-</zxa-main>
+<section class="zxa-container">
+  <aside>
+    <zxa-aside/>
+  </aside>
+  <article class="zxa-container-article">
+    <header>
+      <zxa-header/>
+    </header>
+    <section>
+      <router-outlet/>
+    </section>
+    <footer>
+      <zxa-footer/>
+    </footer>
+  </article>
+</section>

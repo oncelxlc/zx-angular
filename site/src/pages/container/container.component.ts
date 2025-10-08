@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { MainComponent } from 'site/src/pages/container/components/main/main.component';
+import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
+import { AsideComponent, FooterComponent, HeaderComponent } from "@zxa-components/container";
 
 @Component({
-  selector: 'zxa-container',
+  selector: "zxa-container",
   imports: [
-    MainComponent,
     RouterOutlet,
+    AsideComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
-  templateUrl: './container.component.html',
-  styleUrl: './container.component.scss'
+  templateUrl: "./container.component.html",
+  styleUrl: "./container.component.scss"
 })
 export class ContainerComponent {
 

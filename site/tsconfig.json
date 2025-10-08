@@ -2,11 +2,23 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": "./",
     "declaration": false,
     "outDir": "./dist/out-tsc",
-    "ngx-zx/*": [
-      "../components/*"
-    ]
+    "paths": {
+      "@ngx-zx/*": [
+        "../ngx-zx/*"
+      ],
+      "@zxa-components/*": [
+        "./src/components/*"
+      ],
+      "@zxa-pages/*": [
+        "./src/pages/*"
+      ],
+      "@zxa-routes/*": [
+        "./src/routes/*"
+      ]
+    }
   },
   "include": [
     "src/**/*"

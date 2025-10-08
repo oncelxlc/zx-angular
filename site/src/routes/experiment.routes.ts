@@ -1,9 +1,8 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 
 export const experimentRoutes: Routes = [
   {
-    path: '',
-    loadComponent: () => import('../pages/experiment/experiment.component').then(m => m.ExperimentComponent),
-    pathMatch: 'full',
+    path: "",
+    loadComponent: () => import("@zxa-pages/experiment/experiment.component").then(c => c.ExperimentComponent),
   },
 ];
