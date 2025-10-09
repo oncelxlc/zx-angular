@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
 
 @Component({
-  selector: 'zx-monaco',
+  selector: "zx-monaco",
   imports: [],
   template: `
-    <p>
+    <section #monacoEditorContainer>
       monaco works!
-    </p>
+    </section>
   `,
-  styles: ``
+  styles: ``,
 })
-export class MonacoComponent {
+export class MonacoComponent implements AfterViewInit {
+  @ViewChild("monacoEditorContainer", {static: true})
+  monacoEditorContainer!: ElementRef;
 
+  ngAfterViewInit(): void {
+    console.log(this.monacoEditorContainer.nativeElement);
+  }
 }
