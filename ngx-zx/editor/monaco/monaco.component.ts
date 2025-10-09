@@ -1,4 +1,13 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  PLATFORM_ID,
+  ViewChild,
+} from "@angular/core";
+import * as monaco from "monaco-editor";
 
 @Component({
   selector: "zx-monaco",
@@ -12,9 +21,20 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
 })
 export class MonacoComponent implements AfterViewInit {
   @ViewChild("monacoEditorContainer", {static: true})
-  monacoEditorContainer!: ElementRef;
+  private readonly monacoEditorContainer!: ElementRef;
+
+  private platformId = inject(PLATFORM_ID);
 
   ngAfterViewInit(): void {
-    console.log(this.monacoEditorContainer.nativeElement);
+    if (isPlatformBrowser(this.platformId)) {
+      const monacoEditor = monaco.editor.create(this.monacoEditorContainer.nativeElement, {
+        value: [
+          "function x() {",
+          "\tconsole.log(\"Hello world!\");",
+          "}",
+        ].join("\n"),
+      });
+      console.log(monacoEditor);
+    }
   }
 }
