@@ -65,7 +65,7 @@
     "@commitlint/config-angular": "^19.8.1",
     "@eslint/js": "^9.37.0",
     "@types/express": "^5.0.3",
-    "@types/jasmine": "^5.1.9",
+    "@types/jasmine": "^5.1.10",
     "@types/node": "^20.19.21",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "^20.4.0",
