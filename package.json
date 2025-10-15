@@ -45,7 +45,7 @@
     "@ant-design/colors": "^7.2.1",
     "@codemirror/commands": "^6.9.0",
     "@codemirror/state": "^6.5.2",
-    "@codemirror/view": "^6.38.5",
+    "@codemirror/view": "^6.38.6",
     "express": "^5.1.0",
     "marked": "^16.4.0",
     "monaco-editor": "^0.54.0",
@@ -57,7 +57,7 @@
   "devDependencies": {
     "@angular-devkit/architect": "^0.2000.6",
     "@angular-devkit/core": "^20.3.5",
-    "@angular-eslint/builder": "^20.3.0",
+    "@angular-eslint/builder": "^20.4.0",
     "@angular/build": "^20.3.5",
     "@angular/cli": "^20.3.5",
     "@angular/compiler-cli": "^20.3.4",
@@ -68,7 +68,7 @@
     "@types/jasmine": "^5.1.9",
     "@types/node": "^20.19.21",
     "@zhexian/builders-runner": "link:builders",
-    "angular-eslint": "^20.3.0",
+    "angular-eslint": "^20.4.0",
     "chokidar": "^4.0.3",
     "clean-css-cli": "^5.6.3",
     "eslint": "^9.37.0",
@@ -87,7 +87,7 @@
     "sass": "^1.93.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.46.0"
+    "typescript-eslint": "^8.46.1"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
