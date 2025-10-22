@@ -62,7 +62,7 @@
     "@eslint/js": "^9.38.0",
     "@types/express": "^5.0.3",
     "@types/jasmine": "^5.1.12",
-    "@types/node": "^20.19.22",
+    "@types/node": "^22.18.12",
     "@zhexian/builders-runner": "link:builders",
     "angular-eslint": "^20.4.0",
     "chokidar": "^4.0.3",
@@ -83,7 +83,7 @@
     "sass": "^1.93.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.46.1"
+    "typescript-eslint": "^8.46.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
